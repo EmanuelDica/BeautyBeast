@@ -1,0 +1,32 @@
+﻿<MudNavMenu>
+    <MudNavLink Href="/" Match="NavLinkMatch.All">Dashboard</MudNavLink>
+    <MudNavLink Href="/myAccount" Match="NavLinkMatch.Prefix">My Account</MudNavLink>
+    <MudNavGroup Title="Settings" Expanded="true">
+        <MudNavLink Href="/users"  Match="NavLinkMatch.Prefix">Users</MudNavLink>
+        <MudNavLink Href="/security"  Match="NavLinkMatch.Prefix">Security</MudNavLink>
+    </MudNavGroup>
+    <MudNavLink Href="/about"  Match="NavLinkMatch.Prefix">About</MudNavLink>
+    <MudTextField @bind-Value="SearchText" Placeholder="Search..." Variant="Variant.Text" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" OnKeyDown="HandleSearchKeyDown" />
+</MudNavMenu>
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+     private string SearchText { get; set; } = string.Empty;
+
+    private void HandleSearchKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            // Perform the search (show results or navigate)
+            Console.WriteLine($"Search for: {SearchText}");
+        }
+    }
+
+    private string searchText { get; set; } = string.Empty;  // Variable to hold search input text
+}
