@@ -36,11 +36,11 @@
         </MudPaper>
         <MudPaper Class="pa-4 mt-4">
             <MudButton Variant="Variant.Filled" Style="@($"background-color: {Colors.Teal.Darken3}; color: {Colors.Gray.Lighten5};")" 
-            DropShadow="false" OnClick="@(()=>form.Validate())">Validate</MudButton>
+            DropShadow="false" OnClick="@(()=>form!.Validate())">Validate</MudButton>
 
             <MudButton Variant="Variant.Filled" Style="@($"background-color: {Colors.Teal.Darken3}; color: {Colors.Gray.Lighten5};")" 
-            DropShadow="false" OnClick="@(()=>form.ResetAsync())" Class="mx-2">Reset</MudButton>
-            <MudButton Variant="Variant.Filled" DropShadow="false" OnClick="@(()=>form.ResetValidation())">Reset Validation</MudButton>
+            DropShadow="false" OnClick="@(()=>form!.ResetAsync())" Class="mx-2">Reset</MudButton>
+            <MudButton Variant="Variant.Filled" DropShadow="false" OnClick="@(()=>form!.ResetValidation())">Reset Validation</MudButton>
         </MudPaper>
     </MudItem>
     <MudItem xs="12" sm="5">
@@ -58,8 +58,8 @@
     bool success;
     bool AcceptedTerms = false;
     string[] errors = { };
-    MudTextField<string> pwField1;
-    MudForm form;
+    MudTextField<string>? pwField1;
+    MudForm? form;
 
     // Form fields
     private string FirstName { get; set; } = string.Empty;
@@ -112,7 +112,7 @@
         RegisteredUsers.Add(newUser);
 
         // Clear the form after registration
-        form.ResetAsync();
+        form!.ResetAsync();
         success = false;
         AcceptedTerms = false;
 
@@ -138,8 +138,8 @@
 
     private string PasswordMatch(string arg)
     {
-        if (pwField1.Value != arg)
+        if (pwField1!.Value != arg)
             return "Passwords don't match";
-        return null;
+        return null!;
     }
 }

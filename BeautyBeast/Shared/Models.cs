@@ -26,7 +26,7 @@ namespace BeautyBeastApp.Models
     public class Client : User
     {
         public List<Booking> Bookings { get; set; } = new();
-        public List<Comment> Comments { get; set; } = new();
+        public List<Status> Statuses { get; set; } = new();
     }
 
     // Post class
@@ -36,13 +36,13 @@ namespace BeautyBeastApp.Models
         public string Content { get; set; } = string.Empty;
         public List<string> MediaUrls { get; set; } = new();
         public DateTime DatePosted { get; set; } = DateTime.UtcNow;
-        public List<Comment> Comments { get; set; } = new();
+        public List<Status> Statuses { get; set; } = new();
         public int ArtistId { get; set; }
         public Artist? Artist { get; set; }
     }
 
-    // Comment class
-    public class Comment
+    // Status class
+    public class Status
     {
         public int Id { get; set; }
         public string Text { get; set; } = string.Empty;

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zpqERIrnBPNH7QvS97yzTDECF4qjxxnX+f8vJ0hxags=",
+  "Hash": "ATzciw1AEu0rY6pwsAG9I/vseS7DgstSOOE1Pj3R+GI=",
   "Source": "BeautyBeast",
   "BasePath": "/",
   "Mode": "Root",
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "symbol",
-      "Fingerprint": "7qrush8c10",
-      "Integrity": "IRhDJpmuvMG6YJQsiDdMTkl4f4UGYhi3BYpiPfyjxio=",
+      "Fingerprint": "0cpv96mzyz",
+      "Integrity": "ADNJwlzdJCQ1KY14kQx87+vxH8blrVk/qsrjoC2doPY=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj/Debug/net9.0/BeautyBeast.pdb"
@@ -94,8 +94,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "tisb0xg1nw",
-      "Integrity": "JcndRomVEsx7XLrnl4xW9gJT7cOnjNW93v/VO3wRBw4=",
+      "Fingerprint": "2nxe8khjhm",
+      "Integrity": "MrZ7lKEAJ+uZkAj0HZzKjGUsovx4dj0NeYVbIh0ZqHQ=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/webcil/BeautyBeast.wasm"
@@ -115,8 +115,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "manifest",
-      "Fingerprint": "u6mpmejahx",
-      "Integrity": "akWjtfrt9TDNRmwSqctXYoPecXjB1PKvVsJJBPwSKHI=",
+      "Fingerprint": "yknaosyb6j",
+      "Integrity": "4n2Xrf4rRixSDLMW/UmUQrlbP5flFIskZZ4yOsVHMbc=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj/Debug/net9.0/blazor.boot.json"
@@ -4973,7 +4973,7 @@
       "OriginalItemSpec": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/bin/Debug/net9.0/wwwroot/_framework/System.wasm"
     },
     {
-      "Identity": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/48k4l3eeph-u6mpmejahx.gz",
+      "Identity": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/48k4l3eeph-yknaosyb6j.gz",
       "SourceId": "BeautyBeast",
       "SourceType": "Computed",
       "ContentRoot": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/",
@@ -4987,8 +4987,8 @@
       "RelatedAsset": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/bin/Debug/net9.0/wwwroot/_framework/blazor.boot.json",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "jsavsfabxa",
-      "Integrity": "Y+Bf0VuAjJNBqkviemFxu+q8zpdatd+RgOMYGVyyNgE=",
+      "Fingerprint": "4dr45b3mut",
+      "Integrity": "iEQBf9Dh7sgHvqZ+4jkhz/DBrcSOn5beLpPnd0iFz+A=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/bin/Debug/net9.0/wwwroot/_framework/blazor.boot.json"
@@ -6611,12 +6611,12 @@
       "OriginalItemSpec": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map"
     },
     {
-      "Identity": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/gawij0mujo-tisb0xg1nw.gz",
+      "Identity": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/gawij0mujo-2nxe8khjhm.gz",
       "SourceId": "BeautyBeast",
       "SourceType": "Computed",
       "ContentRoot": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/",
       "BasePath": "/",
-      "RelativePath": "_framework/BeautyBeast#[.{fingerprint=tisb0xg1nw}]!.wasm.gz",
+      "RelativePath": "_framework/BeautyBeast#[.{fingerprint=2nxe8khjhm}]!.wasm.gz",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -6625,8 +6625,8 @@
       "RelatedAsset": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/bin/Debug/net9.0/wwwroot/_framework/BeautyBeast.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "mtbq2feaud",
-      "Integrity": "pgOnJ7tQNcL7WKAKusBPX6bvYv6vkBSKrhlay+daIng=",
+      "Fingerprint": "ks42xval32",
+      "Integrity": "xAH2p2842qlWeVb3BNkYy2NtzJZn29ZB9pFIedtupcY=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/bin/Debug/net9.0/wwwroot/_framework/BeautyBeast.wasm"
@@ -7745,12 +7745,12 @@
       "OriginalItemSpec": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/bin/Debug/net9.0/wwwroot/_framework/System.Collections.Immutable.wasm"
     },
     {
-      "Identity": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/niq3fzh7up-7qrush8c10.gz",
+      "Identity": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/niq3fzh7up-0cpv96mzyz.gz",
       "SourceId": "BeautyBeast",
       "SourceType": "Computed",
       "ContentRoot": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/",
       "BasePath": "/",
-      "RelativePath": "_framework/BeautyBeast#[.{fingerprint=7qrush8c10}]!.pdb.gz",
+      "RelativePath": "_framework/BeautyBeast#[.{fingerprint=0cpv96mzyz}]!.pdb.gz",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -7759,8 +7759,8 @@
       "RelatedAsset": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/bin/Debug/net9.0/wwwroot/_framework/BeautyBeast.pdb",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "hhltand1e2",
-      "Integrity": "+9d9MAYYycfBf8NU+TKwkHmagX3pUNckcsJ+IR0FwIA=",
+      "Fingerprint": "2itnja4ot2",
+      "Integrity": "GpCpLR240I5OHs1nQKjAC86pH0aOzmUc5hZQ9QkvlCk=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/bin/Debug/net9.0/wwwroot/_framework/BeautyBeast.pdb"
@@ -11171,7 +11171,7 @@
       ]
     },
     {
-      "Route": "_framework/BeautyBeast.7qrush8c10.pdb",
+      "Route": "_framework/BeautyBeast.0cpv96mzyz.pdb",
       "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/bin/Debug/net9.0/wwwroot/_framework/BeautyBeast.pdb",
       "Selectors": [],
       "ResponseHeaders": [
@@ -11181,7 +11181,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "25780"
+          "Value": "43448"
         },
         {
           "Name": "Content-Type",
@@ -11189,11 +11189,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"IRhDJpmuvMG6YJQsiDdMTkl4f4UGYhi3BYpiPfyjxio=\""
+          "Value": "\"ADNJwlzdJCQ1KY14kQx87+vxH8blrVk/qsrjoC2doPY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 10 Jan 2025 18:11:23 GMT"
+          "Value": "Thu, 16 Jan 2025 23:09:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11203,7 +11203,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "7qrush8c10"
+          "Value": "0cpv96mzyz"
         },
         {
           "Name": "label",
@@ -11211,18 +11211,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-IRhDJpmuvMG6YJQsiDdMTkl4f4UGYhi3BYpiPfyjxio="
+          "Value": "sha256-ADNJwlzdJCQ1KY14kQx87+vxH8blrVk/qsrjoC2doPY="
         }
       ]
     },
     {
-      "Route": "_framework/BeautyBeast.7qrush8c10.pdb",
-      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/niq3fzh7up-7qrush8c10.gz",
+      "Route": "_framework/BeautyBeast.0cpv96mzyz.pdb",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/niq3fzh7up-0cpv96mzyz.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000052405408"
+          "Quality": "0.000030341647"
         }
       ],
       "ResponseHeaders": [
@@ -11232,15 +11232,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "19081"
+          "Value": "32957"
         },
         {
           "Name": "ETag",
-          "Value": "\"+9d9MAYYycfBf8NU+TKwkHmagX3pUNckcsJ+IR0FwIA=\""
+          "Value": "\"GpCpLR240I5OHs1nQKjAC86pH0aOzmUc5hZQ9QkvlCk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 10 Jan 2025 18:11:24 GMT"
+          "Value": "Thu, 16 Jan 2025 23:09:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11260,13 +11260,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"IRhDJpmuvMG6YJQsiDdMTkl4f4UGYhi3BYpiPfyjxio=\""
+          "Value": "W/\"ADNJwlzdJCQ1KY14kQx87+vxH8blrVk/qsrjoC2doPY=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "7qrush8c10"
+          "Value": "0cpv96mzyz"
         },
         {
           "Name": "label",
@@ -11274,13 +11274,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-IRhDJpmuvMG6YJQsiDdMTkl4f4UGYhi3BYpiPfyjxio="
+          "Value": "sha256-ADNJwlzdJCQ1KY14kQx87+vxH8blrVk/qsrjoC2doPY="
         }
       ]
     },
     {
-      "Route": "_framework/BeautyBeast.7qrush8c10.pdb.gz",
-      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/niq3fzh7up-7qrush8c10.gz",
+      "Route": "_framework/BeautyBeast.0cpv96mzyz.pdb.gz",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/niq3fzh7up-0cpv96mzyz.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -11289,7 +11289,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "19081"
+          "Value": "32957"
         },
         {
           "Name": "Content-Type",
@@ -11297,11 +11297,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"+9d9MAYYycfBf8NU+TKwkHmagX3pUNckcsJ+IR0FwIA=\""
+          "Value": "\"GpCpLR240I5OHs1nQKjAC86pH0aOzmUc5hZQ9QkvlCk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 10 Jan 2025 18:11:24 GMT"
+          "Value": "Thu, 16 Jan 2025 23:09:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11319,7 +11319,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "7qrush8c10"
+          "Value": "0cpv96mzyz"
         },
         {
           "Name": "label",
@@ -11327,7 +11327,168 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-+9d9MAYYycfBf8NU+TKwkHmagX3pUNckcsJ+IR0FwIA="
+          "Value": "sha256-GpCpLR240I5OHs1nQKjAC86pH0aOzmUc5hZQ9QkvlCk="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/BeautyBeast.2nxe8khjhm.wasm",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/bin/Debug/net9.0/wwwroot/_framework/BeautyBeast.wasm",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "52501"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MrZ7lKEAJ+uZkAj0HZzKjGUsovx4dj0NeYVbIh0ZqHQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 16 Jan 2025 23:09:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2nxe8khjhm"
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/BeautyBeast.wasm"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MrZ7lKEAJ+uZkAj0HZzKjGUsovx4dj0NeYVbIh0ZqHQ="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/BeautyBeast.2nxe8khjhm.wasm",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/gawij0mujo-2nxe8khjhm.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000048065369"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20804"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xAH2p2842qlWeVb3BNkYy2NtzJZn29ZB9pFIedtupcY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 16 Jan 2025 23:09:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"MrZ7lKEAJ+uZkAj0HZzKjGUsovx4dj0NeYVbIh0ZqHQ=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2nxe8khjhm"
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/BeautyBeast.wasm"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MrZ7lKEAJ+uZkAj0HZzKjGUsovx4dj0NeYVbIh0ZqHQ="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/BeautyBeast.2nxe8khjhm.wasm.gz",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/gawij0mujo-2nxe8khjhm.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20804"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xAH2p2842qlWeVb3BNkYy2NtzJZn29ZB9pFIedtupcY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 16 Jan 2025 23:09:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2nxe8khjhm"
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/BeautyBeast.wasm.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-xAH2p2842qlWeVb3BNkYy2NtzJZn29ZB9pFIedtupcY="
         }
       ]
     },
@@ -11342,7 +11503,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "25780"
+          "Value": "43448"
         },
         {
           "Name": "Content-Type",
@@ -11350,11 +11511,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"IRhDJpmuvMG6YJQsiDdMTkl4f4UGYhi3BYpiPfyjxio=\""
+          "Value": "\"ADNJwlzdJCQ1KY14kQx87+vxH8blrVk/qsrjoC2doPY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 10 Jan 2025 18:11:23 GMT"
+          "Value": "Thu, 16 Jan 2025 23:09:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11364,18 +11525,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-IRhDJpmuvMG6YJQsiDdMTkl4f4UGYhi3BYpiPfyjxio="
+          "Value": "sha256-ADNJwlzdJCQ1KY14kQx87+vxH8blrVk/qsrjoC2doPY="
         }
       ]
     },
     {
       "Route": "_framework/BeautyBeast.pdb",
-      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/niq3fzh7up-7qrush8c10.gz",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/niq3fzh7up-0cpv96mzyz.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000052405408"
+          "Quality": "0.000030341647"
         }
       ],
       "ResponseHeaders": [
@@ -11385,15 +11546,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "19081"
+          "Value": "32957"
         },
         {
           "Name": "ETag",
-          "Value": "\"+9d9MAYYycfBf8NU+TKwkHmagX3pUNckcsJ+IR0FwIA=\""
+          "Value": "\"GpCpLR240I5OHs1nQKjAC86pH0aOzmUc5hZQ9QkvlCk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 10 Jan 2025 18:11:24 GMT"
+          "Value": "Thu, 16 Jan 2025 23:09:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11413,19 +11574,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"IRhDJpmuvMG6YJQsiDdMTkl4f4UGYhi3BYpiPfyjxio=\""
+          "Value": "W/\"ADNJwlzdJCQ1KY14kQx87+vxH8blrVk/qsrjoC2doPY=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-IRhDJpmuvMG6YJQsiDdMTkl4f4UGYhi3BYpiPfyjxio="
+          "Value": "sha256-ADNJwlzdJCQ1KY14kQx87+vxH8blrVk/qsrjoC2doPY="
         }
       ]
     },
     {
       "Route": "_framework/BeautyBeast.pdb.gz",
-      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/niq3fzh7up-7qrush8c10.gz",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/niq3fzh7up-0cpv96mzyz.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -11434,7 +11595,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "19081"
+          "Value": "32957"
         },
         {
           "Name": "Content-Type",
@@ -11442,11 +11603,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"+9d9MAYYycfBf8NU+TKwkHmagX3pUNckcsJ+IR0FwIA=\""
+          "Value": "\"GpCpLR240I5OHs1nQKjAC86pH0aOzmUc5hZQ9QkvlCk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 10 Jan 2025 18:11:24 GMT"
+          "Value": "Thu, 16 Jan 2025 23:09:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11464,168 +11625,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-+9d9MAYYycfBf8NU+TKwkHmagX3pUNckcsJ+IR0FwIA="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/BeautyBeast.tisb0xg1nw.wasm",
-      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/bin/Debug/net9.0/wwwroot/_framework/BeautyBeast.wasm",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "21781"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/wasm"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"JcndRomVEsx7XLrnl4xW9gJT7cOnjNW93v/VO3wRBw4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 10 Jan 2025 18:11:23 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "tisb0xg1nw"
-        },
-        {
-          "Name": "label",
-          "Value": "_framework/BeautyBeast.wasm"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-JcndRomVEsx7XLrnl4xW9gJT7cOnjNW93v/VO3wRBw4="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/BeautyBeast.tisb0xg1nw.wasm",
-      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/gawij0mujo-tisb0xg1nw.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000104384134"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "9579"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"pgOnJ7tQNcL7WKAKusBPX6bvYv6vkBSKrhlay+daIng=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 10 Jan 2025 18:11:24 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/wasm"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"JcndRomVEsx7XLrnl4xW9gJT7cOnjNW93v/VO3wRBw4=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "tisb0xg1nw"
-        },
-        {
-          "Name": "label",
-          "Value": "_framework/BeautyBeast.wasm"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-JcndRomVEsx7XLrnl4xW9gJT7cOnjNW93v/VO3wRBw4="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/BeautyBeast.tisb0xg1nw.wasm.gz",
-      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/gawij0mujo-tisb0xg1nw.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "9579"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/wasm"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"pgOnJ7tQNcL7WKAKusBPX6bvYv6vkBSKrhlay+daIng=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 10 Jan 2025 18:11:24 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "tisb0xg1nw"
-        },
-        {
-          "Name": "label",
-          "Value": "_framework/BeautyBeast.wasm.gz"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-pgOnJ7tQNcL7WKAKusBPX6bvYv6vkBSKrhlay+daIng="
+          "Value": "sha256-GpCpLR240I5OHs1nQKjAC86pH0aOzmUc5hZQ9QkvlCk="
         }
       ]
     },
@@ -11640,7 +11640,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "21781"
+          "Value": "52501"
         },
         {
           "Name": "Content-Type",
@@ -11648,11 +11648,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"JcndRomVEsx7XLrnl4xW9gJT7cOnjNW93v/VO3wRBw4=\""
+          "Value": "\"MrZ7lKEAJ+uZkAj0HZzKjGUsovx4dj0NeYVbIh0ZqHQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 10 Jan 2025 18:11:23 GMT"
+          "Value": "Thu, 16 Jan 2025 23:09:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11662,18 +11662,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-JcndRomVEsx7XLrnl4xW9gJT7cOnjNW93v/VO3wRBw4="
+          "Value": "sha256-MrZ7lKEAJ+uZkAj0HZzKjGUsovx4dj0NeYVbIh0ZqHQ="
         }
       ]
     },
     {
       "Route": "_framework/BeautyBeast.wasm",
-      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/gawij0mujo-tisb0xg1nw.gz",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/gawij0mujo-2nxe8khjhm.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000104384134"
+          "Quality": "0.000048065369"
         }
       ],
       "ResponseHeaders": [
@@ -11683,15 +11683,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "9579"
+          "Value": "20804"
         },
         {
           "Name": "ETag",
-          "Value": "\"pgOnJ7tQNcL7WKAKusBPX6bvYv6vkBSKrhlay+daIng=\""
+          "Value": "\"xAH2p2842qlWeVb3BNkYy2NtzJZn29ZB9pFIedtupcY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 10 Jan 2025 18:11:24 GMT"
+          "Value": "Thu, 16 Jan 2025 23:09:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11711,19 +11711,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"JcndRomVEsx7XLrnl4xW9gJT7cOnjNW93v/VO3wRBw4=\""
+          "Value": "W/\"MrZ7lKEAJ+uZkAj0HZzKjGUsovx4dj0NeYVbIh0ZqHQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-JcndRomVEsx7XLrnl4xW9gJT7cOnjNW93v/VO3wRBw4="
+          "Value": "sha256-MrZ7lKEAJ+uZkAj0HZzKjGUsovx4dj0NeYVbIh0ZqHQ="
         }
       ]
     },
     {
       "Route": "_framework/BeautyBeast.wasm.gz",
-      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/gawij0mujo-tisb0xg1nw.gz",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/gawij0mujo-2nxe8khjhm.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -11732,7 +11732,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "9579"
+          "Value": "20804"
         },
         {
           "Name": "Content-Type",
@@ -11740,11 +11740,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"pgOnJ7tQNcL7WKAKusBPX6bvYv6vkBSKrhlay+daIng=\""
+          "Value": "\"xAH2p2842qlWeVb3BNkYy2NtzJZn29ZB9pFIedtupcY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 10 Jan 2025 18:11:24 GMT"
+          "Value": "Thu, 16 Jan 2025 23:09:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11762,7 +11762,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-pgOnJ7tQNcL7WKAKusBPX6bvYv6vkBSKrhlay+daIng="
+          "Value": "sha256-xAH2p2842qlWeVb3BNkYy2NtzJZn29ZB9pFIedtupcY="
         }
       ]
     },
@@ -11785,11 +11785,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"akWjtfrt9TDNRmwSqctXYoPecXjB1PKvVsJJBPwSKHI=\""
+          "Value": "\"4n2Xrf4rRixSDLMW/UmUQrlbP5flFIskZZ4yOsVHMbc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 10 Jan 2025 18:11:24 GMT"
+          "Value": "Thu, 16 Jan 2025 23:09:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11799,13 +11799,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-akWjtfrt9TDNRmwSqctXYoPecXjB1PKvVsJJBPwSKHI="
+          "Value": "sha256-4n2Xrf4rRixSDLMW/UmUQrlbP5flFIskZZ4yOsVHMbc="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json",
-      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/48k4l3eeph-u6mpmejahx.gz",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/48k4l3eeph-yknaosyb6j.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -11824,11 +11824,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Y+Bf0VuAjJNBqkviemFxu+q8zpdatd+RgOMYGVyyNgE=\""
+          "Value": "\"iEQBf9Dh7sgHvqZ+4jkhz/DBrcSOn5beLpPnd0iFz+A=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 10 Jan 2025 18:08:13 GMT"
+          "Value": "Thu, 16 Jan 2025 23:07:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11848,19 +11848,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"akWjtfrt9TDNRmwSqctXYoPecXjB1PKvVsJJBPwSKHI=\""
+          "Value": "W/\"4n2Xrf4rRixSDLMW/UmUQrlbP5flFIskZZ4yOsVHMbc=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-akWjtfrt9TDNRmwSqctXYoPecXjB1PKvVsJJBPwSKHI="
+          "Value": "sha256-4n2Xrf4rRixSDLMW/UmUQrlbP5flFIskZZ4yOsVHMbc="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json.gz",
-      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/48k4l3eeph-u6mpmejahx.gz",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/48k4l3eeph-yknaosyb6j.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -11877,11 +11877,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Y+Bf0VuAjJNBqkviemFxu+q8zpdatd+RgOMYGVyyNgE=\""
+          "Value": "\"iEQBf9Dh7sgHvqZ+4jkhz/DBrcSOn5beLpPnd0iFz+A=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 10 Jan 2025 18:08:13 GMT"
+          "Value": "Thu, 16 Jan 2025 23:07:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11899,7 +11899,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Y+Bf0VuAjJNBqkviemFxu+q8zpdatd+RgOMYGVyyNgE="
+          "Value": "sha256-iEQBf9Dh7sgHvqZ+4jkhz/DBrcSOn5beLpPnd0iFz+A="
         }
       ]
     },

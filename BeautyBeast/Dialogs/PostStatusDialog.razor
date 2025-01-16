@@ -1,0 +1,29 @@
+@namespace BeautyBeastApp.Dialogs
+@using MudBlazor
+
+<MudDialog>
+    <MudPaper Class="pa-4">
+        <MudText Typo="Typo.h5">Create New Status Post</MudText>
+        <MudForm>
+            <MudTextField T="string" Label="Status" Placeholder="Write your status here..." Lines="4" @bind-Value="StatusContent" />
+        </MudForm>
+
+        <div class="d-flex justify-end mt-4">
+            <MudButton OnClick="Cancel" Variant="Variant.Text">Cancel</MudButton>
+            <MudButton OnClick="Submit" Variant="Variant.Filled" Color="Color.Primary">Submit</MudButton>
+        </div>
+    </MudPaper>
+</MudDialog>
+
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; } = default!;
+    private string StatusContent { get; set; } = string.Empty;
+
+    private void Cancel() => MudDialog.Cancel();
+
+    private void Submit()
+    {
+        Console.WriteLine($"Status Post Created: {StatusContent}");
+        MudDialog.Close(DialogResult.Ok(true));
+    }
+}

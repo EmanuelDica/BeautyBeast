@@ -1,0 +1,53 @@
+@namespace BeautyBeastApp.Dialogs
+
+<MudDialog>
+        <MudPaper Class="pa-4">
+            <MudText Typo="Typo.h5">Create New Media Post</MudText>
+            <MudForm>
+                <MudFileUpload T="IBrowserFile">
+                    <ActivatorContent>
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary">Upload File</MudButton>
+                    </ActivatorContent>
+                </MudFileUpload>
+                <MudText>@($"Uploaded File: {UploadedFileName}")</MudText>
+            </MudForm>
+
+            <div class="d-flex justify-end mt-4">
+                <MudButton OnClick="Cancel" Variant="Text">Cancel</MudButton>
+                <MudButton OnClick="Submit" Variant="Filled" Color="Color.Primary">Submit</MudButton>
+            </div>
+        </MudPaper>
+</MudDialog>
+
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; } = default!;
+    private string UploadedFileName { get; set; } = "No file uploaded";
+
+    private async Task HandleFileUpload(InputFileChangeEventArgs args)
+    {
+        var file = args.File;
+        if (file != null)
+        {
+            UploadedFileName = file.Name;
+            Console.WriteLine($"Uploaded file: {UploadedFileName}");
+        }
+        else
+        {
+            UploadedFileName = "No file uploaded";
+        }
+    }
+
+    private void Cancel() => MudDialog.Cancel();
+
+    private void Submit()
+    {
+        if (UploadedFileName == "No file uploaded")
+        {
+            Console.WriteLine("No file uploaded, cannot submit.");
+            return;
+        }
+
+        Console.WriteLine($"Media Post Created with file: {UploadedFileName}");
+        MudDialog.Close(DialogResult.Ok(true));
+    }
+}
