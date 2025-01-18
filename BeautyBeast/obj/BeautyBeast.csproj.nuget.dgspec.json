@@ -69,6 +69,10 @@
             "MudBlazor": {
               "target": "Package",
               "version": "[7.15.0, )"
+            },
+            "Oracle.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.23.60, )"
             }
           },
           "imports": [

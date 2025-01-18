@@ -1,53 +1,63 @@
 @namespace BeautyBeastApp.Dialogs
+@inject BeautyBeastApp.Services.PostService PostService
 
 <MudDialog>
-        <MudPaper Class="pa-4">
-            <MudText Typo="Typo.h5">Create New Media Post</MudText>
-            <MudForm>
-                <MudFileUpload T="IBrowserFile">
-                    <ActivatorContent>
-                        <MudButton Variant="Variant.Filled" Color="Color.Primary">Upload File</MudButton>
-                    </ActivatorContent>
-                </MudFileUpload>
-                <MudText>@($"Uploaded File: {UploadedFileName}")</MudText>
-            </MudForm>
+    <DialogContent>
+        <MudFileUpload T="IBrowserFile" Accept=".png, .jpg" FilesChanged="UploadFiles2" MaximumFileCount="100">
+            <ActivatorContent>
+                <MudButton Variant="Variant.Filled"
+                        Color="Color.Primary"
+                        StartIcon="@Icons.Material.Filled.CloudUpload">
+                    Search for Images
+                </MudButton>
+            </ActivatorContent>
+        </MudFileUpload>
+    </DialogContent>
 
-            <div class="d-flex justify-end mt-4">
-                <MudButton OnClick="Cancel" Variant="Text">Cancel</MudButton>
-                <MudButton OnClick="Submit" Variant="Filled" Color="Color.Primary">Submit</MudButton>
-            </div>
-        </MudPaper>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
+    </DialogActions>
 </MudDialog>
 
-@code {
-    [CascadingParameter] MudDialogInstance MudDialog { get; set; } = default!;
-    private string UploadedFileName { get; set; } = "No file uploaded";
+@if (files != null)
+{
+    <MudList T="string">
+        @foreach (var file in files)
+        {
+            <MudListItem Icon="@Icons.Material.Filled.AttachFile">
+                @file.Name <code>@file.Size bytes</code>
+            </MudListItem>
+        }
+    </MudList>
+}
 
-    private async Task HandleFileUpload(InputFileChangeEventArgs args)
+@code {
+
+    IList<IBrowserFile> files = new List<IBrowserFile>();
+
+    [CascadingParameter]
+    private MudDialogInstance MudDialog { get; set; } = default!;
+
+    private void Submit()
     {
-        var file = args.File;
-        if (file != null)
+        var post = new BeautyBeastApp.Services.Post
         {
-            UploadedFileName = file.Name;
-            Console.WriteLine($"Uploaded file: {UploadedFileName}");
-        }
-        else
-        {
-            UploadedFileName = "No file uploaded";
-        }
+            UserId = "CurrentUserId", // Replace with actual user ID
+            Type = "media",
+            MediaFiles = files.Select(f => f.Name).ToList()
+        };
+
+        PostService.AddPost(post);
+
+        MudDialog.Close(DialogResult.Ok(true));
     }
 
     private void Cancel() => MudDialog.Cancel();
 
-    private void Submit()
+     private void UploadFiles2(IBrowserFile file)
     {
-        if (UploadedFileName == "No file uploaded")
-        {
-            Console.WriteLine("No file uploaded, cannot submit.");
-            return;
-        }
-
-        Console.WriteLine($"Media Post Created with file: {UploadedFileName}");
-        MudDialog.Close(DialogResult.Ok(true));
+        files.Add(file);
+        //TODO upload the files to the server
     }
 }

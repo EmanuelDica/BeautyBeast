@@ -1,3 +1,31 @@
-﻿@page "/"
+﻿@page "/dashboard"
+@inject BeautyBeastApp.Services.PostRepository PostRepository
+@using BeautyBeastApp.Services
 
-<PageTitle>Dashboard</PageTitle>
+<MudPaper Class="pa-4">
+    <MudText Typo="Typo.h5">Dashboard</MudText>
+    @if (posts == null)
+    {
+        <MudText>Loading...</MudText>
+    }
+    else
+    {
+        @foreach (var post in posts)
+        {
+            <MudCard Class="ma-2">
+                <MudCardContent>
+                    <MudText Typo="Typo.body1">@($"[{(post.MediaUrls.Any() ? "MEDIA" : "STATUS")}] {post.Content}")</MudText>
+                </MudCardContent>
+            </MudCard>
+        }
+    }
+</MudPaper>
+
+@code {
+    private List<BeautyBeastApp.Models.Post>? posts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        posts = await PostRepository.GetPostsAsync();
+    }
+}

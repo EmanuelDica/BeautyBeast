@@ -1091,10 +1091,10 @@
 /Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/refint/BeautyBeast.dll
 /Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/BeautyBeast.pdb
 /Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/ref/BeautyBeast.dll
-/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/bin/Debug/net9.0/wwwroot/_framework/BeautyBeast.0cpv96mzyz.pdb
-/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/bin/Debug/net9.0/wwwroot/_framework/BeautyBeast.2nxe8khjhm.wasm
-/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/bin/Debug/net9.0/wwwroot/_framework/BeautyBeast.2nxe8khjhm.wasm.gz
-/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/bin/Debug/net9.0/wwwroot/_framework/BeautyBeast.0cpv96mzyz.pdb.gz
-/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/gawij0mujo-2nxe8khjhm.gz
-/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/niq3fzh7up-0cpv96mzyz.gz
-/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/48k4l3eeph-yknaosyb6j.gz
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/bin/Debug/net9.0/wwwroot/_framework/BeautyBeast.zuxox136ma.pdb
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/bin/Debug/net9.0/wwwroot/_framework/BeautyBeast.t7gkicb46u.wasm
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/bin/Debug/net9.0/wwwroot/_framework/BeautyBeast.t7gkicb46u.wasm.gz
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/bin/Debug/net9.0/wwwroot/_framework/BeautyBeast.zuxox136ma.pdb.gz
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/gawij0mujo-t7gkicb46u.gz
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/niq3fzh7up-zuxox136ma.gz
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast/obj/Debug/net9.0/compressed/48k4l3eeph-uo5tw0q7am.gz

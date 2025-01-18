@@ -575,8 +575,8 @@
       ]
     },
     {
-      "Route": "_framework/BeautyBeast.0cpv96mzyz.pdb",
-      "AssetFile": "_framework/BeautyBeast.0cpv96mzyz.pdb",
+      "Route": "_framework/BeautyBeast.pdb",
+      "AssetFile": "_framework/BeautyBeast.zuxox136ma.pdb",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -585,11 +585,11 @@
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Length",
-          "Value": "43448"
+          "Value": "44896"
         },
         {
           "Name": "Content-Type",
@@ -597,36 +597,28 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ADNJwlzdJCQ1KY14kQx87+vxH8blrVk/qsrjoC2doPY=\""
+          "Value": "\"lSkVX74a8jy3FdnWccxFBi6rJURF12YubZHqqds2CIs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 16 Jan 2025 23:09:50 GMT"
+          "Value": "Fri, 17 Jan 2025 15:30:39 GMT"
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "0cpv96mzyz"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-ADNJwlzdJCQ1KY14kQx87+vxH8blrVk/qsrjoC2doPY="
-        },
-        {
-          "Name": "label",
-          "Value": "_framework/BeautyBeast.pdb"
+          "Value": "sha256-lSkVX74a8jy3FdnWccxFBi6rJURF12YubZHqqds2CIs="
         }
       ]
     },
     {
-      "Route": "_framework/BeautyBeast.0cpv96mzyz.pdb",
-      "AssetFile": "_framework/BeautyBeast.0cpv96mzyz.pdb.gz",
+      "Route": "_framework/BeautyBeast.pdb",
+      "AssetFile": "_framework/BeautyBeast.zuxox136ma.pdb.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000030341647"
+          "Quality": "0.000029048656"
         }
       ],
       "ResponseHeaders": [
@@ -636,7 +628,7 @@
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -644,7 +636,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "32957"
+          "Value": "34424"
         },
         {
           "Name": "Content-Type",
@@ -652,15 +644,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"GpCpLR240I5OHs1nQKjAC86pH0aOzmUc5hZQ9QkvlCk=\""
+          "Value": "\"pNniSiAUtYquChkUgBDOpwEQpLSH6qUzaD1c2YR4Gjk=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"ADNJwlzdJCQ1KY14kQx87+vxH8blrVk/qsrjoC2doPY=\""
+          "Value": "W/\"lSkVX74a8jy3FdnWccxFBi6rJURF12YubZHqqds2CIs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 16 Jan 2025 23:09:51 GMT"
+          "Value": "Fri, 17 Jan 2025 15:30:40 GMT"
         },
         {
           "Name": "Vary",
@@ -669,22 +661,14 @@
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "0cpv96mzyz"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-ADNJwlzdJCQ1KY14kQx87+vxH8blrVk/qsrjoC2doPY="
-        },
-        {
-          "Name": "label",
-          "Value": "_framework/BeautyBeast.pdb"
+          "Value": "sha256-lSkVX74a8jy3FdnWccxFBi6rJURF12YubZHqqds2CIs="
         }
       ]
     },
     {
-      "Route": "_framework/BeautyBeast.0cpv96mzyz.pdb.gz",
-      "AssetFile": "_framework/BeautyBeast.0cpv96mzyz.pdb.gz",
+      "Route": "_framework/BeautyBeast.pdb.gz",
+      "AssetFile": "_framework/BeautyBeast.zuxox136ma.pdb.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -693,7 +677,7 @@
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -701,7 +685,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "32957"
+          "Value": "34424"
         },
         {
           "Name": "Content-Type",
@@ -709,11 +693,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"GpCpLR240I5OHs1nQKjAC86pH0aOzmUc5hZQ9QkvlCk=\""
+          "Value": "\"pNniSiAUtYquChkUgBDOpwEQpLSH6qUzaD1c2YR4Gjk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 16 Jan 2025 23:09:51 GMT"
+          "Value": "Fri, 17 Jan 2025 15:30:40 GMT"
         },
         {
           "Name": "Vary",
@@ -722,22 +706,14 @@
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "0cpv96mzyz"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-GpCpLR240I5OHs1nQKjAC86pH0aOzmUc5hZQ9QkvlCk="
-        },
-        {
-          "Name": "label",
-          "Value": "_framework/BeautyBeast.pdb.gz"
+          "Value": "sha256-pNniSiAUtYquChkUgBDOpwEQpLSH6qUzaD1c2YR4Gjk="
         }
       ]
     },
     {
-      "Route": "_framework/BeautyBeast.2nxe8khjhm.wasm",
-      "AssetFile": "_framework/BeautyBeast.2nxe8khjhm.wasm",
+      "Route": "_framework/BeautyBeast.t7gkicb46u.wasm",
+      "AssetFile": "_framework/BeautyBeast.t7gkicb46u.wasm",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -758,21 +734,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MrZ7lKEAJ+uZkAj0HZzKjGUsovx4dj0NeYVbIh0ZqHQ=\""
+          "Value": "\"577XQJGrqdXIU47r3JDG2Fe620GR0oCEMVJmqQiJMvg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 16 Jan 2025 23:09:50 GMT"
+          "Value": "Fri, 17 Jan 2025 15:30:39 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "2nxe8khjhm"
+          "Value": "t7gkicb46u"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-MrZ7lKEAJ+uZkAj0HZzKjGUsovx4dj0NeYVbIh0ZqHQ="
+          "Value": "sha256-577XQJGrqdXIU47r3JDG2Fe620GR0oCEMVJmqQiJMvg="
         },
         {
           "Name": "label",
@@ -781,13 +757,13 @@
       ]
     },
     {
-      "Route": "_framework/BeautyBeast.2nxe8khjhm.wasm",
-      "AssetFile": "_framework/BeautyBeast.2nxe8khjhm.wasm.gz",
+      "Route": "_framework/BeautyBeast.t7gkicb46u.wasm",
+      "AssetFile": "_framework/BeautyBeast.t7gkicb46u.wasm.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000048065369"
+          "Quality": "0.000048635767"
         }
       ],
       "ResponseHeaders": [
@@ -805,7 +781,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "20804"
+          "Value": "20560"
         },
         {
           "Name": "Content-Type",
@@ -813,15 +789,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xAH2p2842qlWeVb3BNkYy2NtzJZn29ZB9pFIedtupcY=\""
+          "Value": "\"Eo61eQie30Zn34et1xZLmlHJTWsoiOdxS6kEn7FG1cY=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"MrZ7lKEAJ+uZkAj0HZzKjGUsovx4dj0NeYVbIh0ZqHQ=\""
+          "Value": "W/\"577XQJGrqdXIU47r3JDG2Fe620GR0oCEMVJmqQiJMvg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 16 Jan 2025 23:09:51 GMT"
+          "Value": "Fri, 17 Jan 2025 15:30:40 GMT"
         },
         {
           "Name": "Vary",
@@ -831,11 +807,11 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "2nxe8khjhm"
+          "Value": "t7gkicb46u"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-MrZ7lKEAJ+uZkAj0HZzKjGUsovx4dj0NeYVbIh0ZqHQ="
+          "Value": "sha256-577XQJGrqdXIU47r3JDG2Fe620GR0oCEMVJmqQiJMvg="
         },
         {
           "Name": "label",
@@ -844,8 +820,8 @@
       ]
     },
     {
-      "Route": "_framework/BeautyBeast.2nxe8khjhm.wasm.gz",
-      "AssetFile": "_framework/BeautyBeast.2nxe8khjhm.wasm.gz",
+      "Route": "_framework/BeautyBeast.t7gkicb46u.wasm.gz",
+      "AssetFile": "_framework/BeautyBeast.t7gkicb46u.wasm.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -862,7 +838,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "20804"
+          "Value": "20560"
         },
         {
           "Name": "Content-Type",
@@ -870,11 +846,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xAH2p2842qlWeVb3BNkYy2NtzJZn29ZB9pFIedtupcY=\""
+          "Value": "\"Eo61eQie30Zn34et1xZLmlHJTWsoiOdxS6kEn7FG1cY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 16 Jan 2025 23:09:51 GMT"
+          "Value": "Fri, 17 Jan 2025 15:30:40 GMT"
         },
         {
           "Name": "Vary",
@@ -884,11 +860,11 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "2nxe8khjhm"
+          "Value": "t7gkicb46u"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-xAH2p2842qlWeVb3BNkYy2NtzJZn29ZB9pFIedtupcY="
+          "Value": "sha256-Eo61eQie30Zn34et1xZLmlHJTWsoiOdxS6kEn7FG1cY="
         },
         {
           "Name": "label",
@@ -897,145 +873,8 @@
       ]
     },
     {
-      "Route": "_framework/BeautyBeast.pdb",
-      "AssetFile": "_framework/BeautyBeast.0cpv96mzyz.pdb",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "43448"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ADNJwlzdJCQ1KY14kQx87+vxH8blrVk/qsrjoC2doPY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 16 Jan 2025 23:09:50 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-ADNJwlzdJCQ1KY14kQx87+vxH8blrVk/qsrjoC2doPY="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/BeautyBeast.pdb",
-      "AssetFile": "_framework/BeautyBeast.0cpv96mzyz.pdb.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000030341647"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "32957"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"GpCpLR240I5OHs1nQKjAC86pH0aOzmUc5hZQ9QkvlCk=\""
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"ADNJwlzdJCQ1KY14kQx87+vxH8blrVk/qsrjoC2doPY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 16 Jan 2025 23:09:51 GMT"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-ADNJwlzdJCQ1KY14kQx87+vxH8blrVk/qsrjoC2doPY="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/BeautyBeast.pdb.gz",
-      "AssetFile": "_framework/BeautyBeast.0cpv96mzyz.pdb.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "32957"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/octet-stream"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"GpCpLR240I5OHs1nQKjAC86pH0aOzmUc5hZQ9QkvlCk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 16 Jan 2025 23:09:51 GMT"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-GpCpLR240I5OHs1nQKjAC86pH0aOzmUc5hZQ9QkvlCk="
-        }
-      ]
-    },
-    {
       "Route": "_framework/BeautyBeast.wasm",
-      "AssetFile": "_framework/BeautyBeast.2nxe8khjhm.wasm",
+      "AssetFile": "_framework/BeautyBeast.t7gkicb46u.wasm",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1056,28 +895,28 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MrZ7lKEAJ+uZkAj0HZzKjGUsovx4dj0NeYVbIh0ZqHQ=\""
+          "Value": "\"577XQJGrqdXIU47r3JDG2Fe620GR0oCEMVJmqQiJMvg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 16 Jan 2025 23:09:50 GMT"
+          "Value": "Fri, 17 Jan 2025 15:30:39 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-MrZ7lKEAJ+uZkAj0HZzKjGUsovx4dj0NeYVbIh0ZqHQ="
+          "Value": "sha256-577XQJGrqdXIU47r3JDG2Fe620GR0oCEMVJmqQiJMvg="
         }
       ]
     },
     {
       "Route": "_framework/BeautyBeast.wasm",
-      "AssetFile": "_framework/BeautyBeast.2nxe8khjhm.wasm.gz",
+      "AssetFile": "_framework/BeautyBeast.t7gkicb46u.wasm.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000048065369"
+          "Quality": "0.000048635767"
         }
       ],
       "ResponseHeaders": [
@@ -1095,7 +934,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "20804"
+          "Value": "20560"
         },
         {
           "Name": "Content-Type",
@@ -1103,15 +942,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xAH2p2842qlWeVb3BNkYy2NtzJZn29ZB9pFIedtupcY=\""
+          "Value": "\"Eo61eQie30Zn34et1xZLmlHJTWsoiOdxS6kEn7FG1cY=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"MrZ7lKEAJ+uZkAj0HZzKjGUsovx4dj0NeYVbIh0ZqHQ=\""
+          "Value": "W/\"577XQJGrqdXIU47r3JDG2Fe620GR0oCEMVJmqQiJMvg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 16 Jan 2025 23:09:51 GMT"
+          "Value": "Fri, 17 Jan 2025 15:30:40 GMT"
         },
         {
           "Name": "Vary",
@@ -1121,13 +960,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-MrZ7lKEAJ+uZkAj0HZzKjGUsovx4dj0NeYVbIh0ZqHQ="
+          "Value": "sha256-577XQJGrqdXIU47r3JDG2Fe620GR0oCEMVJmqQiJMvg="
         }
       ]
     },
     {
       "Route": "_framework/BeautyBeast.wasm.gz",
-      "AssetFile": "_framework/BeautyBeast.2nxe8khjhm.wasm.gz",
+      "AssetFile": "_framework/BeautyBeast.t7gkicb46u.wasm.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1144,7 +983,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "20804"
+          "Value": "20560"
         },
         {
           "Name": "Content-Type",
@@ -1152,11 +991,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xAH2p2842qlWeVb3BNkYy2NtzJZn29ZB9pFIedtupcY=\""
+          "Value": "\"Eo61eQie30Zn34et1xZLmlHJTWsoiOdxS6kEn7FG1cY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 16 Jan 2025 23:09:51 GMT"
+          "Value": "Fri, 17 Jan 2025 15:30:40 GMT"
         },
         {
           "Name": "Vary",
@@ -1166,7 +1005,168 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-xAH2p2842qlWeVb3BNkYy2NtzJZn29ZB9pFIedtupcY="
+          "Value": "sha256-Eo61eQie30Zn34et1xZLmlHJTWsoiOdxS6kEn7FG1cY="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/BeautyBeast.zuxox136ma.pdb",
+      "AssetFile": "_framework/BeautyBeast.zuxox136ma.pdb",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "44896"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lSkVX74a8jy3FdnWccxFBi6rJURF12YubZHqqds2CIs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 17 Jan 2025 15:30:39 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zuxox136ma"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-lSkVX74a8jy3FdnWccxFBi6rJURF12YubZHqqds2CIs="
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/BeautyBeast.pdb"
+        }
+      ]
+    },
+    {
+      "Route": "_framework/BeautyBeast.zuxox136ma.pdb",
+      "AssetFile": "_framework/BeautyBeast.zuxox136ma.pdb.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000029048656"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "34424"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pNniSiAUtYquChkUgBDOpwEQpLSH6qUzaD1c2YR4Gjk=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"lSkVX74a8jy3FdnWccxFBi6rJURF12YubZHqqds2CIs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 17 Jan 2025 15:30:40 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zuxox136ma"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-lSkVX74a8jy3FdnWccxFBi6rJURF12YubZHqqds2CIs="
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/BeautyBeast.pdb"
+        }
+      ]
+    },
+    {
+      "Route": "_framework/BeautyBeast.zuxox136ma.pdb.gz",
+      "AssetFile": "_framework/BeautyBeast.zuxox136ma.pdb.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "34424"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pNniSiAUtYquChkUgBDOpwEQpLSH6qUzaD1c2YR4Gjk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 17 Jan 2025 15:30:40 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zuxox136ma"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pNniSiAUtYquChkUgBDOpwEQpLSH6qUzaD1c2YR4Gjk="
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/BeautyBeast.pdb.gz"
         }
       ]
     },
@@ -58409,17 +58409,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4n2Xrf4rRixSDLMW/UmUQrlbP5flFIskZZ4yOsVHMbc=\""
+          "Value": "\"DkKm29GAJCQd0ue4WAUhjOVoSQFQhfOOXKipOYIRc1g=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 16 Jan 2025 23:09:51 GMT"
+          "Value": "Fri, 17 Jan 2025 15:30:40 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4n2Xrf4rRixSDLMW/UmUQrlbP5flFIskZZ4yOsVHMbc="
+          "Value": "sha256-DkKm29GAJCQd0ue4WAUhjOVoSQFQhfOOXKipOYIRc1g="
         }
       ]
     },
@@ -58456,15 +58456,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"iEQBf9Dh7sgHvqZ+4jkhz/DBrcSOn5beLpPnd0iFz+A=\""
+          "Value": "\"Z05mQ5g/XxIFTZHqHfEeVw9V8ABQ8SIA3DOGkHrFSzU=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"4n2Xrf4rRixSDLMW/UmUQrlbP5flFIskZZ4yOsVHMbc=\""
+          "Value": "W/\"DkKm29GAJCQd0ue4WAUhjOVoSQFQhfOOXKipOYIRc1g=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 16 Jan 2025 23:07:08 GMT"
+          "Value": "Fri, 17 Jan 2025 15:28:49 GMT"
         },
         {
           "Name": "Vary",
@@ -58474,7 +58474,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4n2Xrf4rRixSDLMW/UmUQrlbP5flFIskZZ4yOsVHMbc="
+          "Value": "sha256-DkKm29GAJCQd0ue4WAUhjOVoSQFQhfOOXKipOYIRc1g="
         }
       ]
     },
@@ -58505,11 +58505,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"iEQBf9Dh7sgHvqZ+4jkhz/DBrcSOn5beLpPnd0iFz+A=\""
+          "Value": "\"Z05mQ5g/XxIFTZHqHfEeVw9V8ABQ8SIA3DOGkHrFSzU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 16 Jan 2025 23:07:08 GMT"
+          "Value": "Fri, 17 Jan 2025 15:28:49 GMT"
         },
         {
           "Name": "Vary",
@@ -58519,7 +58519,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-iEQBf9Dh7sgHvqZ+4jkhz/DBrcSOn5beLpPnd0iFz+A="
+          "Value": "sha256-Z05mQ5g/XxIFTZHqHfEeVw9V8ABQ8SIA3DOGkHrFSzU="
         }
       ]
     },

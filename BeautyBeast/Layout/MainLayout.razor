@@ -43,16 +43,16 @@
     }
 
     // Function to show the dialog for a Status post
-    private async void ShowStatusPostDialog()
+    private Task ShowStatusPostDialog()
     {
-     var options = new DialogOptions {MaxWidth = MaxWidth.Medium, CloseButton = true};
+     var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Large };
         return DialogService.ShowAsync<PostStatusDialog>("Create Status Post", options);
     }
 
     // Function to show the dialog for a Media post
-    private async void ShowMediaPostDialog()
+    private Task ShowMediaPostDialog()
     {
-      var options = new DialogOptions {MaxWidth = MaxWidth.Medium, CloseButton = true};
+      var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Large };
         return DialogService.ShowAsync<PostMediaDialog>("Create Media Post", options);
     }
 

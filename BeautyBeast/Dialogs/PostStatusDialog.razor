@@ -1,18 +1,15 @@
 @namespace BeautyBeastApp.Dialogs
-@using MudBlazor
+@inject BeautyBeastApp.Services.PostService PostService
 
 <MudDialog>
-    <MudPaper Class="pa-4">
-        <MudText Typo="Typo.h5">Create New Status Post</MudText>
-        <MudForm>
-            <MudTextField T="string" Label="Status" Placeholder="Write your status here..." Lines="4" @bind-Value="StatusContent" />
-        </MudForm>
-
-        <div class="d-flex justify-end mt-4">
-            <MudButton OnClick="Cancel" Variant="Variant.Text">Cancel</MudButton>
-            <MudButton OnClick="Submit" Variant="Variant.Filled" Color="Color.Primary">Submit</MudButton>
-        </div>
-    </MudPaper>
+    <DialogContent>
+        <MudTextField T="string" Label="Status" Placeholder="Write your status here..." Lines="4" @bind-Value="StatusContent" />
+    </DialogContent>
+    
+    <DialogActions>
+        <MudButton OnClick="Cancel" Variant="Variant.Text">Cancel</MudButton>
+        <MudButton OnClick="Submit" Variant="Variant.Filled" Color="Color.Primary">Submit</MudButton>
+    </DialogActions>   
 </MudDialog>
 
 @code {
@@ -23,7 +20,15 @@
 
     private void Submit()
     {
-        Console.WriteLine($"Status Post Created: {StatusContent}");
+        var post = new BeautyBeastApp.Services.Post
+        {
+            UserId = "CurrentUserId", // Replace with actual user ID
+            Type = "status",
+            Content = StatusContent,
+        };
+
+        PostService.AddPost(post);
+
         MudDialog.Close(DialogResult.Ok(true));
     }
 }
