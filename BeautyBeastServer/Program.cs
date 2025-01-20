@@ -1,14 +1,20 @@
+using Microsoft.EntityFrameworkCore;
 using MudBlazor.Services;
+using BeautyBeastServer.Data;
+using BeautyBeastServer.Services;
 using BeautyBeastServer.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add MudBlazor services
 builder.Services.AddMudServices();
-
-// Add services to the container.
+builder.Services.AddRazorPages();
+builder.Services.AddServerSideBlazor();
 builder.Services.AddRazorComponents()
+builder.Services.AddScoped<PostRepository>();
     .AddInteractiveServerComponents();
+builder.Services.AddDbContext<BeautyBeastDbContext>(options =>
+    options.UseOracle(builder.Configuration.GetConnectionString("OracleDbConnection")));
 
 var app = builder.Build();
 
@@ -21,10 +27,11 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseRouting();
 app.UseStaticFiles();
 app.UseAntiforgery();
-
+app.MapBlazorHub();
+app.MapFallbackToPage("/_Host");
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 

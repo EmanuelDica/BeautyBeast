@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautyBeastServer", "BeautyBeastServer.csproj", "{FCCB6375-5FF4-8165-1AD3-B58575908421}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCCB6375-5FF4-8165-1AD3-B58575908421}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCCB6375-5FF4-8165-1AD3-B58575908421}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCCB6375-5FF4-8165-1AD3-B58575908421}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCCB6375-5FF4-8165-1AD3-B58575908421}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {82FABE8C-F444-44AB-A4D5-E8C41F31BEED}
+	EndGlobalSection
+EndGlobal

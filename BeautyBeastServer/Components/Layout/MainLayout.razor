@@ -1,104 +1,63 @@
 ﻿@inherits LayoutComponentBase
+@inject IDialogService DialogService
+@using BeautyBeastServer.Dialogs
 
-<MudThemeProvider Theme="@_theme" IsDarkMode="_isDarkMode" />
+<MudThemeProvider />
 <MudPopoverProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
+
 <MudLayout>
-    <MudAppBar Elevation="1">
+    <MudAppBar Elevation="1" Style="@($"background-color: {Colors.Teal.Darken2}")">
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
-        <MudText Typo="Typo.h5" Class="ml-3">Application</MudText>
+        <MudMenu Icon="@Icons.Material.Outlined.Camera" Color="Color.Inherit">
+            <MudMenuItem OnClick="@ShowStatusPostDialog">Status</MudMenuItem>
+            <MudMenuItem OnClick="@ShowMediaPostDialog">Media</MudMenuItem>
+        </MudMenu>
+        <MudText Typo="Typo.h5" Class="mt-1">BeautyBeast</MudText>
         <MudSpacer />
-        <MudIconButton Icon="@(DarkLightModeButtonIcon)" Color="Color.Inherit" OnClick="@DarkModeToggle" />
         <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" />
     </MudAppBar>
-    <MudDrawer @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
-        <NavMenu />
+    <MudDrawer @bind-Open="_drawerOpen" Elevation="2">
+        <MudDrawerHeader>
+            <MudText Typo="Typo.h5" Class="mt-1">Users Name</MudText>
+        </MudDrawerHeader>
+        <NavMenu/>
     </MudDrawer>
-    <MudMainContent Class="mt-16 pa-4">
-        @Body
+    <MudMainContent>
+        @*Body*@
     </MudMainContent>
 </MudLayout>
-
-
-<div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
-    <a class="dismiss">🗙</a>
-</div>
+<MudDialogProvider/>
 
 @code {
-    private bool _drawerOpen = true;
-    private bool _isDarkMode = true;
-    private MudTheme? _theme = null;
+    bool _drawerOpen = true;     // For toggling the side navigation drawer
+    bool _postOpen = false;      // Determines if the post overlay is visible
+    string PostType = string.Empty; // Stores the selected post type (status or media)
+    string PostContent = string.Empty; // The text content for status posts
 
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
-
-        _theme = new()
-        {
-            PaletteLight = _lightPalette,
-            PaletteDark = _darkPalette,
-            LayoutProperties = new LayoutProperties()
-        };
-    }
-
-
-    private void DrawerToggle()
+    // Function to toggle the navigation drawer
+    void DrawerToggle()
     {
         _drawerOpen = !_drawerOpen;
     }
 
-    private void DarkModeToggle()
+    // Function to show the dialog for a Status post
+    private Task ShowStatusPostDialog()
     {
-        _isDarkMode = !_isDarkMode;
+     var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Large };
+        return DialogService.ShowAsync<PostStatusDialog>("Create Status Post", options);
     }
 
-    private readonly PaletteLight _lightPalette = new()
+    // Function to show the dialog for a Media post
+    private Task ShowMediaPostDialog()
     {
-        Black = "#110e2d",
-        AppbarText = "#424242",
-        AppbarBackground = "rgba(255,255,255,0.8)",
-        DrawerBackground = "#ffffff",
-        GrayLight = "#e8e8e8",
-        GrayLighter = "#f9f9f9",
-    };
+      var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Large };
+        return DialogService.ShowAsync<PostMediaDialog>("Create Media Post", options);
+    }
 
-    private readonly PaletteDark _darkPalette = new()
+    void PostToggle()
     {
-        Primary = "#7e6fff",
-        Surface = "#1e1e2d",
-        Background = "#1a1a27",
-        BackgroundGray = "#151521",
-        AppbarText = "#92929f",
-        AppbarBackground = "rgba(26,26,39,0.8)",
-        DrawerBackground = "#1a1a27",
-        ActionDefault = "#74718e",
-        ActionDisabled = "#9999994d",
-        ActionDisabledBackground = "#605f6d4d",
-        TextPrimary = "#b2b0bf",
-        TextSecondary = "#92929f",
-        TextDisabled = "#ffffff33",
-        DrawerIcon = "#92929f",
-        DrawerText = "#92929f",
-        GrayLight = "#2a2833",
-        GrayLighter = "#1e1e2d",
-        Info = "#4a86ff",
-        Success = "#3dcb6c",
-        Warning = "#ffb545",
-        Error = "#ff3f5f",
-        LinesDefault = "#33323e",
-        TableLines = "#33323e",
-        Divider = "#292838",
-        OverlayLight = "#1e1e2d80",
-    };
-
-    public string DarkLightModeButtonIcon => _isDarkMode switch
-    {
-        true => Icons.Material.Rounded.AutoMode,
-        false => Icons.Material.Outlined.DarkMode,
-    };
+        _postOpen = !_postOpen;
+    }
 }
-
-

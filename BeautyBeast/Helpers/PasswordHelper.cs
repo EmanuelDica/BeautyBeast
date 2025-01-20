@@ -1,6 +1,6 @@
 using System.Security.Cryptography;
 using System.Text;
-namespace BeautyBeastApp.Helpers;
+namespace BeautyBeastServer.Helpers;
 
 // Static helper class for generating password salts and hashing passwords.
 public static class PasswordHelper

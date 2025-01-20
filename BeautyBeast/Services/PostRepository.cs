@@ -1,8 +1,8 @@
-using BeautyBeastApp.Data;
-using BeautyBeastApp.Models;
+using BeautyBeastServer.Data;
+using BeautyBeastServer.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BeautyBeastApp.Services
+namespace BeautyBeastServer.Services
 {
     public class PostRepository
     {

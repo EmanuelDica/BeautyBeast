@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using BeautyBeastApp.Models;
+using BeautyBeastServer.Models;
 
-namespace BeautyBeastApp.Data
+namespace BeautyBeastServer.Data
 {
     public class BeautyBeastDbContext : DbContext
     {

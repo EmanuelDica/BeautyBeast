@@ -1,4 +1,4 @@
-namespace BeautyBeastApp.Models
+namespace BeautyBeastServer.Models
 {
     // Base User class
     public abstract class User
