@@ -6,6 +6,7 @@ using BeautyBeastApp.Services;
 using BeautyBeastApp.Data;
 using Microsoft.EntityFrameworkCore;
 
+
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
@@ -17,5 +18,9 @@ builder.Services.AddScoped<BeautyBeastDbContext>();
 builder.Services.AddMudServices();
 builder.Services.AddDbContext<BeautyBeastDbContext>(options =>
     options.UseOracle(builder.Configuration.GetConnectionString("OracleDbConnection")));
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 await builder.Build().RunAsync();

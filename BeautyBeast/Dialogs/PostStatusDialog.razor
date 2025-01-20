@@ -1,5 +1,5 @@
 @namespace BeautyBeastApp.Dialogs
-@inject BeautyBeastApp.Services.PostService PostService
+@inject BeautyBeastApp.Services.PostRepository PostRepository
 
 <MudDialog>
     <DialogContent>
@@ -18,16 +18,23 @@
 
     private void Cancel() => MudDialog.Cancel();
 
-    private void Submit()
+    private async Task Submit()
     {
-        var post = new BeautyBeastApp.Services.Post
+        if (string.IsNullOrWhiteSpace(StatusContent))
         {
-            UserId = "CurrentUserId", // Replace with actual user ID
-            Type = "status",
+            return; // Prevent submission of empty content
+        }
+
+        // Create a new Post object
+        var post = new BeautyBeastApp.Models.Post
+        {
             Content = StatusContent,
+            DatePosted = DateTime.UtcNow,
+            ArtistId = 1 // Replace with the current user's ArtistId
         };
 
-        PostService.AddPost(post);
+        // Save the post using PostRepository
+        await PostRepository.AddPostAsync(post);
 
         MudDialog.Close(DialogResult.Ok(true));
     }
