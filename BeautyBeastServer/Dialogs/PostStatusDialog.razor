@@ -1,0 +1,42 @@
+@namespace BeautyBeastServer.Dialogs
+@inject BeautyBeastServer.Services.PostRepository PostRepository
+@using MudBlazor
+
+<MudDialog>
+    <DialogContent>
+        <MudTextField T="string" Label="Status" Placeholder="Write your status here..." Lines="4" @bind-Value="StatusContent" />
+    </DialogContent>
+    
+    <DialogActions>
+        <MudButton OnClick="Cancel" Variant="Variant.Text">Cancel</MudButton>
+        <MudButton OnClick="Submit" Variant="Variant.Filled" Color="Color.Primary">Submit</MudButton>
+    </DialogActions>   
+</MudDialog>
+
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; } = default!;
+    private string StatusContent { get; set; } = string.Empty;
+
+    private void Cancel() => MudDialog.Cancel();
+
+    private async Task Submit()
+    {
+        if (string.IsNullOrWhiteSpace(StatusContent))
+        {
+            return; // Prevent submission of empty content
+        }
+
+        // Create a new Post object
+        var post = new BeautyBeastServer.Models.Post
+        {
+            Content = StatusContent,
+            DatePosted = DateTime.UtcNow,
+            ArtistId = 1 // Replace with the current user's ArtistId
+        };
+
+        // Save the post using PostRepository
+        await PostRepository.AddPostAsync(post);
+
+        MudDialog.Close(DialogResult.Ok(true));
+    }
+}

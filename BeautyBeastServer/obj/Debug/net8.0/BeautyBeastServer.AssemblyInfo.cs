@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BeautyBeastServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cab30b4f202737a9f64c4326c465b2d5d42b1eba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+66a7fb782f1b35bfcfec5eae53df88e5cb439874")]
 [assembly: System.Reflection.AssemblyProductAttribute("BeautyBeastServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BeautyBeastServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

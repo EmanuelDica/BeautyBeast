@@ -58,3 +58,11 @@ build_metadata.AdditionalFiles.CssScope =
 [/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastServer/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9fSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastServer/Dialogs/PostMediaDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = RGlhbG9ncy9Qb3N0TWVkaWFEaWFsb2cucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastServer/Dialogs/PostStatusDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = RGlhbG9ncy9Qb3N0U3RhdHVzRGlhbG9nLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 

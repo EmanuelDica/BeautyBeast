@@ -10,9 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMudServices();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddRazorComponents()
 builder.Services.AddScoped<PostRepository>();
-    .AddInteractiveServerComponents();
+builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 builder.Services.AddDbContext<BeautyBeastDbContext>(options =>
     options.UseOracle(builder.Configuration.GetConnectionString("OracleDbConnection")));
 
