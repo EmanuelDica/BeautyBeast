@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastServer/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.BeautyBeastServer.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.BeautyBeastServer.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.BeautyBeastServer.props",
+      "PackagePath": "build\\BeautyBeastServer.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.BeautyBeastServer.props",
+      "PackagePath": "buildMultiTargeting\\BeautyBeastServer.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.BeautyBeastServer.props",
+      "PackagePath": "buildTransitive\\BeautyBeastServer.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

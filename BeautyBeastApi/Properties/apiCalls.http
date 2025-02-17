@@ -1,0 +1,221 @@
+GET http://localhost:5021/users
+
+###
+GET http://localhost:5021/users/3
+
+###
+POST http://localhost:5021/users
+Content-Type: application/json
+
+{
+    "fullName": "John Duddleye",
+    "email": "john.doodleye@example.com",
+    "profilePictureUrl": "https://example.com/profile-picture.jpg"
+}
+
+###
+PUT http://localhost:5021/users/7
+Content-Type: application/json
+
+{
+    "fullName": "John DudeJohn DuddleyeJohn DuddleyeJohn DuddleyeJohn DuddleyeJohn DuddleyeJohn DuddleyeJohn DuddleyeJohn DuddleyeJohn DuddleyeJohn DuddleyeJohn Duddleye",
+    "email": "john.dood@example.com",
+    "profilePictureUrl": "https://example.com/profile-picture.jpg"
+}
+
+###
+DELETE http://localhost:5021/users/3
+
+###
+GET http://localhost:5021/clients
+
+###
+POST http://localhost:5021/clients
+Content-Type: application/json
+
+{
+    "fullName": "JJ Lance",
+        "email": "jj.lance@example.com",
+        "profilePictureUrl": "https://example.com/jjlance.jpg"
+}
+
+###
+GET http://localhost:5021/clients/5
+
+###
+PUT http://localhost:5021/clients/2
+Content-Type: application/json
+
+{
+    "fullName": "Lando JJ",
+        "email": "jj.lando@example.com",
+        "profilePictureUrl": "https://example.com/jjlando.jpg"
+}
+
+###
+GET http://localhost:5021/artists
+
+###
+GET http://localhost:5021/artists/1
+
+###
+POST http://localhost:5021/artists
+Content-Type: application/json
+
+{
+  "FullName": "Anna Smith",
+  "Email": "anna.smith@gmail.com",
+  "ProfilePictureUrl": "anna.jpg",
+  "Bio": "Specialist in creative makeup",
+  "Achievements": [
+    { "Achievement": "Best Makeup Artist 2023" },
+    { "Achievement": "PMU Certified" }
+  ]
+}
+
+###
+PUT http://localhost:5021/artists/1
+Content-Type: application/json
+
+{
+  "FullName": "Anna S. Smith",
+  "Email": "anna.updated@gmail.com",
+  "ProfilePictureUrl": "updated-anna.jpg",
+  "Bio": "Updated bio for Anna",
+  "Achievements": [
+    { "Achievement": "Updated Achievement 1" },
+    { "Achievement": "Updated Achievement 2" }
+  ]
+}
+
+###
+GET http://localhost:5021/bookings
+
+###
+GET http://localhost:5021/bookings/1
+
+###
+POST http://localhost:5021/bookings
+Content-Type: application/json
+
+{
+  "ClientId": 5,
+  "TreatmentId": 2,
+  "BookingDateAndTime": "2025-04-01T15:30:00"
+}
+
+###
+PUT http://localhost:5021/bookings/1
+Content-Type: application/json
+
+{
+  "ClientId": 5,
+  "TreatmentId": 3,
+  "BookingDateAndTime": "2025-04-15T10:00:00",
+  "BookingStatus": "Confirmed"
+}
+
+###
+DELETE http://localhost:5021/bookings/6
+
+###
+GET http://localhost:5021/comments
+
+###
+POST http://localhost:5021/comments
+Content-Type: application/json
+
+{
+  "TheComment": "This is a great post!",
+  "PostId": 1
+}
+
+###
+PUT http://localhost:5021/comments/1
+Content-Type: application/json
+
+{
+  "TheComment": "Updated comment text here."
+}
+
+###
+GET http://localhost:5021/posts
+
+###
+POST http://localhost:5021/posts
+Content-Type: application/json
+
+{
+  "Description": "My latest makeup work!",
+  "MediaUrls": ["media1.jpg", "media2.jpg"],
+  "ArtistId": 3
+}
+
+###
+PUT http://localhost:5021/posts/4
+Content-Type: application/json
+
+{
+  "Description": "Updated description for my post!",
+  "MediaUrls": ["updated_media1.jpg", "updated_media2.jpg"]
+}
+
+###
+DELETE http://localhost:5021/posts/4
+
+###
+GET http://localhost:5021/statuses
+
+###
+POST http://localhost:5021/statuses
+Content-Type: application/json
+
+{
+  "Text": "Done my brows at Lea Vinci last week! They look fab! Thanks Lea!",
+  "UserId": 5
+}
+
+###
+PUT http://localhost:5021/statuses/1
+Content-Type: application/json
+
+{
+  "Text": "Yep! I'm Fabulous!"
+}
+
+###
+DELETE http://localhost:5021/statuses/1
+
+###
+GET http://localhost:5021/treatments
+
+###
+POST http://localhost:5021/treatments
+Content-Type: application/json
+
+{
+  "Name": "Microblading",
+  "Description": "Semi-permanent eyebrow enhancement.",
+  "PreCareInstructions": "Avoid caffeine before the appointment.",
+  "AfterCareInstructions": "Do not touch or scratch the treated area.",
+  "ConsentFormUrl": "microblading-consent.pdf",
+  "BookingDate": "2025-04-01",
+  "StartTime": "10:30:00",
+  "Duration": "01:30:00",
+  "ArtistId": 2
+}
+
+###
+PUT http://localhost:5021/treatments/5
+Content-Type: application/json
+
+{
+  "Name": "Ombre Brows",
+  "Description": "Powdered shading technique for natural-looking brows.",
+  "PreCareInstructions": "No makeup on the treatment area before the appointment.",
+  "AfterCareInstructions": "Apply provided healing balm for 7 days.",
+  "ConsentFormUrl": "ombre-consent.pdf",
+  "BookingDate": "2025-04-15",
+  "StartTime": "11:00:00",
+  "Duration": "01:45:00"
+}

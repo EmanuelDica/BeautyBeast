@@ -1,0 +1,94 @@
+@page "/signup"
+@layout Layout.BlankLayout
+@using System.Text.RegularExpressions
+@using System.ComponentModel.DataAnnotations
+@using BeautyBeastFrontend.Services
+@using BeautyBeastFrontend.Dtos
+@inject ArtistService ArtistService
+@inject ClientService ClientService
+
+<MudGrid>
+    <MudItem xs="12" sm="7">
+        <MudPaper Class="pa-4">
+            <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
+                <MudTextField T="string" Label="First Name" @bind-Value="FirstName" Required="true" RequiredError="First name is required!" />
+                <MudTextField T="string" Label="Last Name" @bind-Value="Surname" Required="true" RequiredError="Last name is required!" />
+                <MudTextField T="string" Label="Email" @bind-Value="Email" Required="true" RequiredError="Email is required!"
+                              Validation="@(new EmailAddressAttribute() { ErrorMessage = "The email address is invalid" })" />
+                <MudTextField T="string" Label="Password" @bind-Value="Password" InputType="InputType.Password" Required="true" RequiredError="Password is required!" />
+                
+                 <MudRadioGroup T="string" @bind-Value="SelectedAccountType" Required="true">
+                    <MudRadio Value="@("clientuser")" Color="Color.Primary">Client</MudRadio>
+                    <MudRadio Value="@("artistuser")" Color="Color.Secondary">Professional</MudRadio>
+                </MudRadioGroup>
+                                
+                @if (SelectedAccountType == "artistuser")
+                {
+                    <MudTextField T="string" Label="Bio" @bind-Value="Bio" Placeholder="Tell us about your expertise..." />
+                }
+                
+                <MudCheckBox T="bool" Label="I agree to the Terms and Conditions" @bind-Value="AcceptedTerms" Required="true" RequiredError="You must agree to continue." />
+                <MudButton OnClick="RegisterUser" Variant="Variant.Filled" Disabled="@(!success)">Register</MudButton>
+            </MudForm>
+        </MudPaper>
+    </MudItem>
+
+    <MudItem xs="12" sm="5">
+        <MudPaper Class="pa-4">
+            <MudText Typo="Typo.subtitle2">Validation Errors</MudText>
+            @foreach (var error in errors)
+            {
+                <MudText Color="@Color.Error">@error</MudText>
+            }
+        </MudPaper>
+    </MudItem>
+</MudGrid>
+
+@code {
+    private MudForm? form;
+    private bool success;
+    private string[] errors = { };
+
+    private string FirstName { get; set; } = string.Empty;
+    private string Surname { get; set; } = string.Empty;
+    private string Email { get; set; } = string.Empty;
+    private string Password { get; set; } = string.Empty;
+    private string SelectedAccountType { get; set; } = "Client"; // Default to Client
+    private string Bio { get; set; } = string.Empty;
+    private bool AcceptedTerms = false;
+
+    private async Task RegisterUser()
+    {
+        await form!.Validate();
+        if (!success)
+        {
+            errors = new[] { "Please correct the errors in the form." };
+            return;
+        }
+
+        try
+        {
+            if (SelectedAccountType == "Professional")
+            {
+                var createArtistDto = new CreateArtistDto($"{FirstName} {Surname}", Email, string.Empty, Bio, new List<ArtistAchievementDto>());
+                await ArtistService.CreateArtistAsync(createArtistDto);
+                Console.WriteLine("Artist created successfully.");
+            }
+            else if (SelectedAccountType == "clientuser")
+            {
+                var createClientDto = new CreateClientDto($"{FirstName} {Surname}", Email, string.Empty);
+                await ClientService.CreateClientAsync(createClientDto);
+                Console.WriteLine("Client created successfully.");
+            }
+
+            // Reset the form after successful registration
+            await form.ResetAsync();
+            success = false;
+            AcceptedTerms = false;
+        }
+        catch (Exception ex)
+        {
+            errors = new[] { $"An error occurred: {ex.Message}" };
+        }
+    }
+}

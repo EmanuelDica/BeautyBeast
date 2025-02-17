@@ -1,0 +1,86 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+@using BeautyBeast.Frontend.Components.Dialogs
+@inject IJSRuntime JS
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        @* Button to Toggle Side Drawer (Offcanvas) *@
+        <button class="navbar-brand btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#sideDrawer">
+            BeautyBeast
+        </button>
+
+        @* Navbar Toggle Button for Mobile *@
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        @* Navbar Items *@
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/account">My Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard">Dashboard</a>
+                </li>
+
+                @* Post Dropdown Menu *@
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        POST
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#postMediaModal">
+                                Media
+                            </button>
+                        </li>
+                        <li>
+                            <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#postStatusModal">
+                                Status
+                            </button>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            @* Search Form *@
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" @bind="SearchText" @onkeydown="HandleSearchKeyDown" />
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+@* Include the NavMenu (Offcanvas Side Drawer) *@
+<NavMenu />
+
+<div class="container mt-4">
+    @Body
+</div>
+
+@code {
+    private string SearchText { get; set; } = string.Empty;
+
+    private void HandleSearchKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            Console.WriteLine($"Search for: {SearchText}");
+        }
+    }
+
+    @inject IJSRuntime JS
+
+    private async Task ShowStatusPostDialog()
+    {
+        await JS.InvokeVoidAsync("ShowBootstrapModal", "postStatusModal");
+    }
+
+    private async Task ShowMediaPostDialog()
+    {
+        await JS.InvokeVoidAsync("ShowBootstrapModal", "postMediaModal");
+    }
+}

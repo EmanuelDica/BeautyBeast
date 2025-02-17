@@ -1,7 +1,7 @@
 is_global = true
 build_property.MudDebugAnalyzer = 
 build_property.MudAllowedAttributePattern = 
-build_property.MudIllegalParameters = 
+build_property.MudAllowedAttributeList = 
 build_property.TargetFramework = net8.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
@@ -27,6 +27,18 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9BcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastServer/Components/Dialogs/PostMediaDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9EaWFsb2dzL1Bvc3RNZWRpYURpYWxvZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastServer/Components/Dialogs/PostStatusDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9EaWFsb2dzL1Bvc3RTdGF0dXNEaWFsb2cucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastServer/Components/Layout/BlankLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvQmxhbmtMYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastServer/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -39,16 +51,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9EYXNoYm9hcmQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastServer/Components/Pages/My Account.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9NeSBBY2NvdW50LnJhem9y
+[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastServer/Components/Pages/Error.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9FcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastServer/Components/Pages/Signin.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9TaWduaW4ucmF6b3I=
+[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastServer/Components/Pages/Logout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Mb2dvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastServer/Components/Pages/Signup.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9TaWdudXAucmF6b3I=
+[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastServer/Components/Pages/MyAccount.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9NeUFjY291bnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastServer/Components/Pages/SignIn.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9TaWduSW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastServer/Components/Pages/SignUp.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9TaWduVXAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastServer/Components/Routes.razor]
@@ -57,12 +77,4 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastServer/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9fSW1wb3J0cy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastServer/Dialogs/PostMediaDialog.razor]
-build_metadata.AdditionalFiles.TargetPath = RGlhbG9ncy9Qb3N0TWVkaWFEaWFsb2cucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastServer/Dialogs/PostStatusDialog.razor]
-build_metadata.AdditionalFiles.TargetPath = RGlhbG9ncy9Qb3N0U3RhdHVzRGlhbG9nLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 

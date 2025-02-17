@@ -1,8 +1,10 @@
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautyBeastServer", "BeautyBeastServer.csproj", "{FCCB6375-5FF4-8165-1AD3-B58575908421}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautyBeastApi", "..\BeautyBeastApi\BeautyBeastApi.csproj", "{539A51B7-8AE0-4664-8BFD-FF148068D4E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,6 +16,10 @@ Global
 		{FCCB6375-5FF4-8165-1AD3-B58575908421}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCCB6375-5FF4-8165-1AD3-B58575908421}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCCB6375-5FF4-8165-1AD3-B58575908421}.Release|Any CPU.Build.0 = Release|Any CPU
+		{539A51B7-8AE0-4664-8BFD-FF148068D4E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{539A51B7-8AE0-4664-8BFD-FF148068D4E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{539A51B7-8AE0-4664-8BFD-FF148068D4E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{539A51B7-8AE0-4664-8BFD-FF148068D4E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

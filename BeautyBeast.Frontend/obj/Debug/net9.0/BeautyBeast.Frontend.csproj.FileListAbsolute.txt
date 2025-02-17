@@ -1,0 +1,5 @@
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/obj/Debug/net9.0/BeautyBeast.Frontend.GeneratedMSBuildEditorConfig.editorconfig
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/obj/Debug/net9.0/BeautyBeast.Frontend.AssemblyInfoInputs.cache
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/obj/Debug/net9.0/BeautyBeast.Frontend.AssemblyInfo.cs
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/obj/Debug/net9.0/BeautyBeast.Frontend.csproj.CoreCompileInputs.cache
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/obj/Debug/net9.0/BeautyBeast.Frontend.MvcApplicationPartsAssemblyInfo.cache
