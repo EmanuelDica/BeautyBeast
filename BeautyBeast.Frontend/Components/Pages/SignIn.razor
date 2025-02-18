@@ -1,0 +1,103 @@
+@page "/account/signin"
+@layout Layout.BlankLayout
+@using BeautyBeast.Frontend.Services
+@using System.ComponentModel.DataAnnotations
+@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
+@inject NavigationManager NavigationManager
+@inject AuthenticationService AuthenticationService
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow p-4">
+                <h4 class="text-center mb-3">Sign In</h4>
+                <form @onsubmit="SignInUser">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control @(emailValid ? "is-valid" : emailError != null ? "is-invalid" : "")"
+                               id="email" @bind="Email" required>
+                        <div class="invalid-feedback">@emailError</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control @(passwordValid ? "is-valid" : passwordError != null ? "is-invalid" : "")"
+                               id="password" @bind="Password" required>
+                        <div class="invalid-feedback">@passwordError</div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100" disabled="@(!success)">Sign In</button>
+                </form>
+
+                <div class="mt-3 text-center">
+                    <span>Not a member?</span>
+                    <a href="/signup" class="btn btn-link">Create account!</a>
+                </div>
+            </div>
+
+            @if (errors.Length > 0)
+            {
+                <div class="alert alert-danger mt-3">
+                    @foreach (var error in errors)
+                    {
+                        <p class="mb-0">@error</p>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private bool success;
+    private string[] errors = { };
+
+    private string Email { get; set; } = string.Empty;
+    private string Password { get; set; } = string.Empty;
+
+    private bool emailValid = false;
+    private string? emailError;
+    private bool passwordValid = false;
+    private string? passwordError;
+
+    private async Task SignInUser()
+    {
+        errors = new string[] { };
+        ValidateFields();
+
+        if (!success)
+        {
+            errors = new[] { "Please correct the errors in the form." };
+            return;
+        }
+
+        try
+        {
+            var loginResult = await AuthenticationService.LoginAsync(Email, Password);
+            if (loginResult)
+            {
+                Console.WriteLine("Sign-in successful!");
+                NavigationManager.NavigateTo("/dashboard", true);
+            }
+            else
+            {
+                errors = new[] { "Invalid email or password." };
+            }
+        }
+        catch (Exception ex)
+        {
+            errors = new[] { $"An error occurred: {ex.Message}" };
+        }
+    }
+
+    private void ValidateFields()
+    {
+        emailValid = new EmailAddressAttribute().IsValid(Email);
+        emailError = emailValid ? null : "The email address is invalid";
+
+        passwordValid = !string.IsNullOrWhiteSpace(Password);
+        passwordError = passwordValid ? null : "Password is required";
+
+        success = emailValid && passwordValid;
+    }
+}

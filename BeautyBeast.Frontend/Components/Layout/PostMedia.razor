@@ -1,0 +1,53 @@
+@page "/users/postmedia"
+@namespace BeautyBeast.Frontend.Components.Dialogs
+@using BeautyBeast.Frontend.Dtos
+@using Microsoft.AspNetCore.Components.Forms
+@inject Services.PostService PostService
+@inject HttpClient HttpClient
+@inject IJSRuntime JS
+@inject NavigationManager NavigationManager
+
+<h2>📷 Create Media Post</h2>
+
+<div class="mb-3">
+    <InputFile OnChange="UploadFiles" multiple />
+</div>
+
+<ul class="mt-3 list-unstyled">
+    @foreach (var url in uploadedFileUrls)
+    {
+        <li><a href="@url" target="_blank">@url</a></li>
+    }
+</ul>
+
+<button class="btn btn-secondary" @onclick="Cancel">Cancel</button>
+<button class="btn btn-primary" @onclick="Submit">Upload</button>
+
+@code {
+    private List<string> uploadedFileUrls = new();
+
+    private async Task UploadFiles(InputFileChangeEventArgs e)
+    {
+        var files = e.GetMultipleFiles(); // ✅ Correct usage of InputFileChangeEventArgs
+        uploadedFileUrls.Clear();
+
+        foreach (var file in files)
+        {
+            var buffer = new byte[file.Size];
+            await file.OpenReadStream(maxAllowedSize: 10 * 1024 * 1024).ReadAsync(buffer); // ✅ Asynchronous read
+
+            // Simulate uploading and getting a URL (replace with actual upload logic)
+            uploadedFileUrls.Add(file.Name);
+        }
+    }
+
+    private void Cancel()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+
+    private void Submit()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+}

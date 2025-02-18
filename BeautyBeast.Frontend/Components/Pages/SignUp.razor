@@ -1,0 +1,181 @@
+@page "/signup"
+@layout Layout.BlankLayout
+@using System.Text.RegularExpressions
+@using System.ComponentModel.DataAnnotations
+@using BeautyBeast.Frontend.Services
+@using BeautyBeast.Frontend.Dtos
+@inject ArtistService ArtistService
+@inject ClientService ClientService
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card shadow p-4">
+                <h4 class="text-center mb-3">Create an Account</h4>
+                <form @onsubmit="RegisterUser">
+                    <!-- First Name -->
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control @(firstNameValid ? "is-valid" : firstNameError != null ? "is-invalid" : "")"
+                               id="firstName" @bind="FirstName" required>
+                        <div class="invalid-feedback">@firstNameError</div>
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="mb-3">
+                        <label for="surname" class="form-label">Last Name</label>
+                        <input type="text" class="form-control @(surnameValid ? "is-valid" : surnameError != null ? "is-invalid" : "")"
+                               id="surname" @bind="Surname" required>
+                        <div class="invalid-feedback">@surnameError</div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control @(emailValid ? "is-valid" : emailError != null ? "is-invalid" : "")"
+                               id="email" @bind="Email" required>
+                        <div class="invalid-feedback">@emailError</div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control @(passwordValid ? "is-valid" : passwordError != null ? "is-invalid" : "")"
+                               id="password" @bind="Password" required>
+                        <div class="invalid-feedback">@passwordError</div>
+                    </div>
+
+                    <!-- Account Type Selection -->
+                  <div class="mb-3">
+                    <label class="form-label">Account Type</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" id="clientUser"
+                            @bind="SelectedAccountType">
+                        <label class="form-check-label" for="clientUser">Client</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" id="artistUser"
+                            @bind="SelectedAccountType">
+                        <label class="form-check-label" for="artistUser">Professional</label>
+                    </div>
+                </div>
+
+                    <!-- Bio (Only for Artists) -->
+                    @if (SelectedAccountType == "artistuser")
+                    {
+                        <div class="mb-3">
+                            <label for="bio" class="form-label">Bio</label>
+                            <textarea class="form-control" id="bio" rows="3" placeholder="Tell us about your expertise..."
+                                      @bind="Bio"></textarea>
+                        </div>
+                    }
+
+                    <!-- Terms and Conditions -->
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="terms" @bind="AcceptedTerms">
+                        <label class="form-check-label" for="terms">I agree to the Terms and Conditions</label>
+                    </div>
+
+                    <!-- Register Button -->
+                    <button type="submit" class="btn btn-primary w-100" disabled="@(!success)">Register</button>
+                </form>
+            </div>
+
+            @if (errors.Length > 0)
+            {
+                <div class="alert alert-danger mt-3">
+                    @foreach (var error in errors)
+                    {
+                        <p class="mb-0">@error</p>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private bool success;
+    private string[] errors = { };
+
+    private string FirstName { get; set; } = string.Empty;
+    private string Surname { get; set; } = string.Empty;
+    private string Email { get; set; } = string.Empty;
+    private string Password { get; set; } = string.Empty;
+    private string SelectedAccountType { get; set; } = "clientuser"; // Default to Client
+    private string Bio { get; set; } = string.Empty;
+    private bool AcceptedTerms = false;
+
+    private bool firstNameValid = false;
+    private string? firstNameError;
+    private bool surnameValid = false;
+    private string? surnameError;
+    private bool emailValid = false;
+    private string? emailError;
+    private bool passwordValid = false;
+    private string? passwordError;
+
+    private async Task RegisterUser()
+    {
+        errors = new string[] { };
+        ValidateFields();
+
+        if (!success)
+        {
+            errors = new[] { "Please correct the errors in the form." };
+            return;
+        }
+
+        try
+        {
+            if (SelectedAccountType == "artistuser")
+            {
+                var createArtistDto = new CreateArtistDto($"{FirstName} {Surname}", Email, string.Empty, Bio, new List<ArtistAchievementDto>());
+                await ArtistService.CreateArtistAsync(createArtistDto);
+                Console.WriteLine("Artist created successfully.");
+            }
+            else if (SelectedAccountType == "clientuser")
+            {
+                var createClientDto = new CreateClientDto($"{FirstName} {Surname}", Email, string.Empty);
+                await ClientService.CreateClientAsync(createClientDto);
+                Console.WriteLine("Client created successfully.");
+            }
+
+            // Reset the form after successful registration
+            ResetForm();
+        }
+        catch (Exception ex)
+        {
+            errors = new[] { $"An error occurred: {ex.Message}" };
+        }
+    }
+
+    private void ValidateFields()
+    {
+        firstNameValid = !string.IsNullOrWhiteSpace(FirstName);
+        firstNameError = firstNameValid ? null : "First name is required";
+
+        surnameValid = !string.IsNullOrWhiteSpace(Surname);
+        surnameError = surnameValid ? null : "Last name is required";
+
+        emailValid = new EmailAddressAttribute().IsValid(Email);
+        emailError = emailValid ? null : "The email address is invalid";
+
+        passwordValid = !string.IsNullOrWhiteSpace(Password);
+        passwordError = passwordValid ? null : "Password is required";
+
+        success = firstNameValid && surnameValid && emailValid && passwordValid && AcceptedTerms;
+    }
+
+    private void ResetForm()
+    {
+        FirstName = "";
+        Surname = "";
+        Email = "";
+        Password = "";
+        SelectedAccountType = "clientuser";
+        Bio = "";
+        AcceptedTerms = false;
+        success = false;
+    }
+}

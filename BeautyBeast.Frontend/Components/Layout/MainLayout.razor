@@ -22,7 +22,7 @@
                     <a class="nav-link" href="/user/account">My Account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/dashboard">Dashboard</a>
+                    <a class="nav-link" href="/">Dashboard</a>
                 </li>
 
                 @* Post Dropdown Menu *@
@@ -32,14 +32,10 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#postMediaModal">
-                                Media
-                            </button>
+                            <NavLink class="dropdown-item" href="/users/postmedia">📷 Media</NavLink>
                         </li>
                         <li>
-                            <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#postStatusModal">
-                                Status
-                            </button>
+                            <NavLink class="dropdown-item" href="/users/poststatus">✍ Status</NavLink>
                         </li>
                     </ul>
                 </li>
@@ -70,17 +66,5 @@
         {
             Console.WriteLine($"Search for: {SearchText}");
         }
-    }
-
-    @inject IJSRuntime JS
-
-    private async Task ShowStatusPostDialog()
-    {
-        await JS.InvokeVoidAsync("ShowBootstrapModal", "postStatusModal");
-    }
-
-    private async Task ShowMediaPostDialog()
-    {
-        await JS.InvokeVoidAsync("ShowBootstrapModal", "postMediaModal");
     }
 }

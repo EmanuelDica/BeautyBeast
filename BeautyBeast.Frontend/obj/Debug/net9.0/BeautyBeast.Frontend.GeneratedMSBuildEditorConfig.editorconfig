@@ -24,24 +24,40 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9BcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/Components/Dialogs/PostMediaDialog.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9EaWFsb2dzL1Bvc3RNZWRpYURpYWxvZy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/Components/Dialogs/PostStatusDialog.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9EaWFsb2dzL1Bvc3RTdGF0dXNEaWFsb2cucmF6b3I=
+[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/Components/Layout/BlankLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvQmxhbmtMYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/Components/Layout/PostMedia.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvUG9zdE1lZGlhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/Components/Layout/PostStatus.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvUG9zdFN0YXR1cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/Components/Pages/Dashboard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9EYXNoYm9hcmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9FcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/Components/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Ib21lLnJhem9y
+[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/Components/Pages/SignIn.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9TaWduSW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/Components/Pages/SignUp.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9TaWduVXAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/Components/Pages/UserProfile.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Vc2VyUHJvZmlsZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/Components/Routes.razor]
