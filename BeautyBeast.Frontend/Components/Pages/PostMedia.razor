@@ -1,0 +1,86 @@
+@page "/users/post/media"
+@rendermode InteractiveServer
+@namespace BeautyBeast.Frontend.Components.Dialogs
+@using BeautyBeast.Frontend.Dtos
+@using Microsoft.AspNetCore.Components.Forms
+@inject Services.PostService PostService
+@inject HttpClient HttpClient
+@inject IJSRuntime JS
+@inject NavigationManager NavigationManager
+
+<h2>📷 Create Media Post</h2>
+
+<div class="mb-3">
+    <label for="description" class="form-label">Post Description</label>
+    <textarea class="form-control" id="description" @bind="Description" rows="3"></textarea>
+</div>
+
+<div class="mb-3">
+    <InputFile OnChange="UploadFiles" multiple />
+</div>
+
+<ul class="mt-3 list-unstyled">
+    @foreach (var url in uploadedFileUrls)
+    {
+        <li>
+            <a href="@url" target="_blank">@url</a>
+            <button class="btn btn-sm btn-warning ms-2" @onclick="() => NavigateToEditPost(url)">
+                ✏ Edit
+            </button>
+        </li>
+    }
+</ul>
+
+<button class="btn btn-secondary" @onclick="Cancel">Cancel</button>
+<button class="btn btn-primary" @onclick="Submit">Upload</button>
+
+@code {
+    private string Description { get; set; } = string.Empty;
+    private List<string> uploadedFileUrls = new();
+    private int ArtistId = 1; // Replace with actual user ID if necessary
+
+    private async Task UploadFiles(InputFileChangeEventArgs e)
+    {
+        foreach (var file in e.GetMultipleFiles())
+        {
+            var buffer = new byte[file.Size];
+            await file.OpenReadStream(maxAllowedSize: 10 * 1024 * 1024).ReadAsync(buffer);
+
+            // Simulate file upload and return a URL (replace with actual upload logic)
+            uploadedFileUrls.Add(file.Name); // Replace with actual uploaded file URLs
+        }
+    }
+
+    private void Cancel()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+
+    private async Task Submit()
+    {
+        if (string.IsNullOrWhiteSpace(Description) && uploadedFileUrls.Count == 0)
+        {
+            Console.WriteLine("Cannot create an empty post.");
+            return;
+        }
+
+        var newPost = new CreatePostDto(Description, uploadedFileUrls, ArtistId);
+        var result = await PostService.CreatePostAsync(newPost);
+
+        if (result)
+        {
+            Console.WriteLine("Post created successfully.");
+            NavigationManager.NavigateTo("/");
+        }
+        else
+        {
+            Console.WriteLine("Failed to create post.");
+        }
+    }
+
+    private void NavigateToEditPost(string mediaUrl)
+    {
+        // Redirect to the Edit Post page with the media URL (or use post ID if available)
+        NavigationManager.NavigateTo($"/editpost/{mediaUrl}");
+    }
+}

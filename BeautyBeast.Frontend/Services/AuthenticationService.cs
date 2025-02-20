@@ -25,9 +25,10 @@ public class AuthenticationService
             if (response.IsSuccessStatusCode)
             {
                 var loginResponse = await response.Content.ReadFromJsonAsync<LoginResponseDto>();
-                if (loginResponse?.Token != null)
+                if (loginResponse?.Token != null && !string.IsNullOrEmpty(loginResponse.Role))
                 {
                     await _localStorage.SetItemAsync("authToken", loginResponse.Token);
+                    await _localStorage.SetItemAsync("userRole", loginResponse.Role); // Store user role
                     _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", loginResponse.Token);
                     return true;
                 }
@@ -37,12 +38,18 @@ public class AuthenticationService
         {
             Console.WriteLine($"Error during login: {ex.Message}");
         }
-            return false;
+        return false;
     }
 
     public async Task LogoutAsync()
     {
         await _localStorage.RemoveItemAsync("authToken");
+        await _localStorage.RemoveItemAsync("userRole");
         _httpClient.DefaultRequestHeaders.Authorization = null;
+    }
+
+    public async Task<string?> GetUserRoleAsync()
+    {
+        return await _localStorage.GetItemAsync<string>("userRole");
     }
 }

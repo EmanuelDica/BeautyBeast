@@ -1,7 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace BeautyBeast.Frontend.Dtos;
-
+namespace BeautyBeastApi.Dtos;
 public record class ClientDto(
     int Id,
     string FullName,

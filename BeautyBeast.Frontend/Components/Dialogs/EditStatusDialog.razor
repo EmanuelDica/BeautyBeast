@@ -1,0 +1,66 @@
+@namespace BeautyBeast.Frontend.Components.Dialogs
+@inject Services.StatusService StatusService
+@inject NavigationManager NavigationManager
+
+<div class="modal fade" id="editStatusModal" tabindex="-1" aria-labelledby="editStatusModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">✏️ Edit Status</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @if (status != null)
+                {
+                    <textarea class="form-control mb-3" placeholder="Update your status..." rows="4" @bind="status.Text"></textarea>
+                }
+                else
+                {
+                    <p>Loading status...</p>
+                }
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button class="btn btn-primary" @onclick="Submit" disabled="@(status == null)">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public int StatusId { get; set; }
+    private EditStatusDto status = new() { Text = string.Empty, UserId = 0 };
+
+    protected override async Task OnInitializedAsync()
+    {
+        var fetchedStatus = await StatusService.GetStatusByIdAsync(StatusId);
+        if (fetchedStatus != null)
+        {
+            status = new EditStatusDto
+            {
+                Text = fetchedStatus.Text,
+                UserId = fetchedStatus.UserId
+            }; 
+        }
+    }
+
+    private async Task Submit()
+    {
+        if (string.IsNullOrWhiteSpace(status.Text))
+        {
+            Console.WriteLine("Status cannot be empty.");
+            return;
+        }
+
+        var result = await StatusService.UpdateStatusAsync(StatusId, status);
+        if (result)
+        {
+            Console.WriteLine("Status updated successfully.");
+            NavigationManager.NavigateTo("/");
+        }
+        else
+        {
+            Console.WriteLine("Failed to update status.");
+        }
+    }
+}

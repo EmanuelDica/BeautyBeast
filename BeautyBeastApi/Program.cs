@@ -6,15 +6,17 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
-// register connection str
-var connectionString = builder.Configuration.GetConnectionString("BeautyBeast");
-builder.Services.AddSqlite<BeautyBeastContext>(connectionString);
-builder.Services.AddControllers().AddJsonOptions(options =>
-{
-    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
-});
 
-// JWT Configuration
+var connectionString = builder.Configuration.GetConnectionString("BeautyBeast");
+builder.Services.AddDbContext<BeautyBeastContext>(options =>
+    options.UseSqlite(connectionString));
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+    });
+
 var jwtKey = builder.Configuration["Jwt:Key"] ?? "supersecretkey";
 var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? "BeautyBeastApi";
 
@@ -32,15 +34,19 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-builder.Services.AddAuthorization();
-
+builder.Services.AddAuthorization(); 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<BeautyBeastContext>();
+    dbContext.Database.Migrate(); 
+}
 
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
-// endpoints
 app.MapUsersEndpoints();
 app.MapBookingsEndpoints();
 app.MapArtistsEndpoints();
@@ -49,7 +55,5 @@ app.MapCommentsEndpoints();
 app.MapPostsEndpoints();
 app.MapTreatmentsEndpoints();
 app.MapStatusEndpoints();
-
-app.MigrateDb();
 
 app.Run();

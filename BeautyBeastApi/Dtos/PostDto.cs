@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
-
-namespace BeautyBeast.Frontend.Dtos;
+using BeautyBeastApi.Dtos;
+namespace BeautyBeastApi.Dtos;
 
 public record class PostDto
 (

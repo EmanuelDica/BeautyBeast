@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-
-namespace BeautyBeast.Frontend.Dtos;
+namespace BeautyBeastApi.Dtos;
 
 public record class ArtistDto(
     int Id,

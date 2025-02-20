@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BeautyBeastApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a3020f6c2a73d654fbc065d9a31d92b6b05a228d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e80cce7b95cf1bb7f22ab49c6faf3e0a08ebc0a8")]
 [assembly: System.Reflection.AssemblyProductAttribute("BeautyBeastApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BeautyBeastApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

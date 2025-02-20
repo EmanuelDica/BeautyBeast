@@ -1,6 +1,6 @@
-using System.ComponentModel.DataAnnotations;
+namespace BeautyBeastApi.Dtos;
 
-namespace BeautyBeast.Frontend.Dtos;
+using System.ComponentModel.DataAnnotations;
 
 public record class StatusDto
 (

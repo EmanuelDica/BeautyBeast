@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "a1RsyQWAbec=",
+  "dgSpecHash": "kPPnC80edHY=",
   "success": true,
   "projectFilePath": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastApi/BeautyBeastApi.csproj",
   "expectedPackageFiles": [
     "/Users/emanueldica/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/Users/emanueldica/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",
+    "/Users/emanueldica/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/Users/emanueldica/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/emanueldica/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/9.0.2/microsoft.aspnetcore.authentication.jwtbearer.9.0.2.nupkg.sha512",
     "/Users/emanueldica/.nuget/packages/microsoft.bcl.asyncinterfaces/7.0.0/microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
