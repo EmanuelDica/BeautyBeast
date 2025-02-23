@@ -1,5 +1,5 @@
 using BeautyBeastApi.Data;
-using BeautyBeastApi.Dtos.TreatmentsDtos;
+using BeautyBeastApi.Dtos;
 using BeautyBeastApi.Entities;
 using Microsoft.EntityFrameworkCore;
 namespace BeautyBeastApi.Endpoints;

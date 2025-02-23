@@ -1,9 +1,5 @@
 using BeautyBeastApi.Data;
-using BeautyBeastApi.Dtos.ArtistAchievementsDtos;
-using BeautyBeastApi.Dtos.CommentDtos;
-using BeautyBeastApi.Dtos.PostDtos;
-using BeautyBeastApi.Dtos.TreatmentsDtos;
-using BeautyBeastApi.Dtos.UserDtos;
+using BeautyBeastApi.Dtos;
 using BeautyBeastApi.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,15 +12,14 @@ public static class ArtistsEndpoints
         var group = app.MapGroup("artists").WithParameterValidation();
 
         // GET /artists
-        group.MapGet("/", async (BeautyBeastContext dbContext) =>
+       group.MapGet("/", async (BeautyBeastContext dbContext) =>
         {
             var artists = await dbContext.Artists
                 .Include(a => a.Achievements)
+                .Include(a => a.Posts)
+                    .ThenInclude(p => p.Comments)
+                .Include(a => a.Treatments)
                 .ToListAsync();
-
-            var posts = await dbContext.Posts.ToListAsync();
-            var comments = await dbContext.Comments.ToListAsync();
-            var treatments = await dbContext.Treatments.ToListAsync();
 
             var artistDtos = artists.Select(a => new ArtistDto(
                 a.Id,
@@ -32,14 +27,15 @@ public static class ArtistsEndpoints
                 a.Email,
                 a.ProfilePictureUrl,
                 a.DateJoined,
+                a.Role, 
                 a.Bio,
                 a.Achievements.Select(ach => new ArtistAchievementDto(ach.Id, ach.Achievement)).ToList(),
-                posts.Where(p => p.ArtistId == a.Id).Select(p => new PostDto(
+                a.Posts.Select(p => new PostDto(
                     p.Id,
                     p.Description,
-                    p.MediaUrls,
+                    p.MediaUrl,
                     p.DatePosted,
-                    comments.Where(c => c.PostId == p.Id).Select(c => new CommentDto(
+                    p.Comments.Select(c => new CommentDto(
                         c.Id,
                         c.TheComment,
                         c.Likes,
@@ -49,7 +45,7 @@ public static class ArtistsEndpoints
                     p.ArtistId,
                     a.FullName
                 )).ToList(),
-                treatments.Where(t => t.ArtistId == a.Id).Select(t => new TreatmentDto(
+                a.Treatments.Select(t => new TreatmentDto(
                     t.Id,
                     t.Name,
                     t.Description,
@@ -68,12 +64,14 @@ public static class ArtistsEndpoints
         });
 
         // GET /artists/{id}
-       group.MapGet("/{id}", async (int id, BeautyBeastContext dbContext) =>
+        group.MapGet("/{id}", async (int id, BeautyBeastContext dbContext) =>
         {
             var artist = await dbContext.Artists
                 .Include(a => a.Posts)
+                    .ThenInclude(p => p.Comments)
                 .Include(a => a.Treatments)
                 .Include(a => a.Achievements)
+                .AsNoTracking()
                 .FirstOrDefaultAsync(a => a.Id == id);
 
             if (artist == null)
@@ -87,19 +85,25 @@ public static class ArtistsEndpoints
                 artist.Email,
                 artist.ProfilePictureUrl,
                 artist.DateJoined,
+                artist.Role,
                 artist.Bio,
-                artist.Achievements.Select(ach => new ArtistAchievementDto(ach.Id, ach.Achievement)).ToList(),
-                artist.Posts.Select(p => new PostDto(
+                artist.Achievements?.Select(ach => new ArtistAchievementDto(ach.Id, ach.Achievement)).ToList() ?? new List<ArtistAchievementDto>(),
+                artist.Posts?.Select(p => new PostDto(
                     p.Id,
                     p.Description,
-                    p.MediaUrls,
+                    p.MediaUrl,
                     p.DatePosted,
-                    p.Comments.Select(c => new CommentDto(c.Id, c.TheComment, c.Likes, c.PostId)).ToList(),
+                    p.Comments?.Select(c => new CommentDto(
+                        c.Id,
+                        c.TheComment,
+                        c.Likes,
+                        c.PostId
+                    )).ToList() ?? new List<CommentDto>(),
                     p.Likes,
                     p.ArtistId,
                     artist.FullName
-                )).ToList(),
-                artist.Treatments.Select(t => new TreatmentDto(
+                )).ToList() ?? new List<PostDto>(),
+                artist.Treatments?.Select(t => new TreatmentDto(
                     t.Id,
                     t.Name,
                     t.Description,
@@ -111,7 +115,7 @@ public static class ArtistsEndpoints
                     t.Duration,
                     t.ArtistId,
                     artist.FullName
-                )).ToList()
+                )).ToList() ?? new List<TreatmentDto>()
             );
 
             return Results.Ok(artistDto);
@@ -120,16 +124,26 @@ public static class ArtistsEndpoints
         // POST /artists
         group.MapPost("/", async (CreateArtistDto newArtist, BeautyBeastContext dbContext) =>
         {
-            DateTime dateJoined = DateTime.UtcNow;
+            if (await dbContext.Artists.AnyAsync(a => a.Email == newArtist.Email))
+            {
+                return Results.BadRequest("An artist with this email already exists.");
+            }
+
+            string hashedPassword = await Task.Run(() => PasswordHelper.HashPassword(newArtist.Password));
 
             Artist artist = new()
             {
                 FullName = newArtist.FullName,
                 Email = newArtist.Email,
                 ProfilePictureUrl = newArtist.ProfilePictureUrl,
-                DateJoined = dateJoined,
-                Bio = newArtist.Bio,
-                Achievements = newArtist.Achievements.Select(ach => new ArtistAchievement { Achievement = ach.Achievement }).ToList()
+                DateJoined = DateTime.UtcNow,
+                HashedPassword = hashedPassword,
+                Role = newArtist.Role,
+                Bio = newArtist.Bio ?? string.Empty,
+                Achievements = newArtist.Achievements?.Select(ach => new ArtistAchievement 
+                { 
+                    Achievement = ach.Achievement 
+                }).ToList() ?? new List<ArtistAchievement>()
             };
 
             dbContext.Artists.Add(artist);
@@ -141,12 +155,13 @@ public static class ArtistsEndpoints
                 artist.Email,
                 artist.ProfilePictureUrl,
                 artist.DateJoined,
+                artist.Role,
                 artist.Bio,
                 artist.Achievements.Select(ach => new ArtistAchievementDto(ach.Id, ach.Achievement)).ToList(),
-                new List<PostDto>(), // empty initially
-                new List<TreatmentDto>() // emmpty initially
+                new List<PostDto>(),
+                new List<TreatmentDto>()
             );
-            
+
             return Results.Created($"/artists/{artist.Id}", artistDto);
         });
 
@@ -154,8 +169,9 @@ public static class ArtistsEndpoints
         group.MapPut("/{id}", async (int id, EditArtistDto editArtist, BeautyBeastContext dbContext) =>
         {
             var artist = await dbContext.Artists
+                .Include(a => a.Achievements)
                 .Include(a => a.Posts)
-                .ThenInclude(p => p.Comments)
+                    .ThenInclude(p => p.Comments)
                 .Include(a => a.Treatments)
                 .FirstOrDefaultAsync(a => a.Id == id);
 
@@ -164,29 +180,52 @@ public static class ArtistsEndpoints
                 return Results.NotFound($"Artist with ID {id} not found.");
             }
 
-            // Preserve old values if new ones are not provided
-            artist.FullName = editArtist.FullName ?? artist.FullName;
-            artist.Email = editArtist.Email ?? artist.Email;
+            artist.FullName = !string.IsNullOrEmpty(editArtist.FullName) ? editArtist.FullName : artist.FullName;
+            artist.Email = !string.IsNullOrEmpty(editArtist.Email) ? editArtist.Email : artist.Email;
             artist.ProfilePictureUrl = editArtist.ProfilePictureUrl ?? artist.ProfilePictureUrl;
             artist.Bio = editArtist.Bio ?? artist.Bio;
-            artist.Achievements = editArtist.Achievements != null
-                ? editArtist.Achievements.Select(ach => new ArtistAchievement { Achievement = ach.Achievement }).ToList()
-                : artist.Achievements;
+
+            if (!string.IsNullOrEmpty(editArtist.Role))
+            {
+                artist.Role = editArtist.Role;
+            }
+
+            if (!string.IsNullOrEmpty(editArtist.Password))
+            {
+                artist.HashedPassword = await Task.Run(() => PasswordHelper.HashPassword(editArtist.Password));
+            }
+
+            if (editArtist.Achievements != null)
+            {
+                var newAchievements = editArtist.Achievements.Select(ach => ach.Achievement).ToHashSet();
+                var existingAchievements = artist.Achievements.Select(ach => ach.Achievement).ToHashSet();
+
+                // Add new achievements that are not in existing achievements
+                foreach (var ach in newAchievements.Except(existingAchievements))
+                {
+                    artist.Achievements.Add(new ArtistAchievement { Achievement = ach });
+                }
+
+                // Remove achievements that are no longer present in the new list
+                artist.Achievements.RemoveAll(ach => !newAchievements.Contains(ach.Achievement));
+            }
 
             await dbContext.SaveChangesAsync();
 
+            // Create DTO for response
             var updatedArtistDto = new ArtistDto(
                 artist.Id,
                 artist.FullName,
                 artist.Email,
                 artist.ProfilePictureUrl,
                 artist.DateJoined,
+                artist.Role, 
                 artist.Bio,
                 artist.Achievements.Select(ach => new ArtistAchievementDto(ach.Id, ach.Achievement)).ToList(),
                 artist.Posts.Select(p => new PostDto(
                     p.Id,
                     p.Description,
-                    p.MediaUrls,
+                    p.MediaUrl,
                     p.DatePosted,
                     p.Comments.Select(c => new CommentDto( 
                         c.Id,

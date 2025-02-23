@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BeautyBeast.Frontend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e80cce7b95cf1bb7f22ab49c6faf3e0a08ebc0a8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4042eea818404614c94eb39d946306fc05d65c7b")]
 [assembly: System.Reflection.AssemblyProductAttribute("BeautyBeast.Frontend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BeautyBeast.Frontend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

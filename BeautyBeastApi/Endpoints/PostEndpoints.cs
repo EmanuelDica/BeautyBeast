@@ -1,6 +1,5 @@
 using BeautyBeastApi.Data;
-using BeautyBeastApi.Dtos.PostDtos;
-using BeautyBeastApi.Dtos.CommentDtos;
+using BeautyBeastApi.Dtos;
 using BeautyBeastApi.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,7 +21,7 @@ public static class PostsEndpoints
                 .Select(p => new PostDto(
                     p.Id,
                     p.Description,
-                    p.MediaUrls,
+                    p.MediaUrl,
                     p.DatePosted,
                     p.Comments.Select(c => new CommentDto(
                         c.Id,
@@ -49,7 +48,7 @@ public static class PostsEndpoints
                 .Select(p => new PostDto(
                     p.Id,
                     p.Description,
-                    p.MediaUrls,
+                    p.MediaUrl,
                     p.DatePosted,
                     p.Comments.Select(c => new CommentDto(
                         c.Id,
@@ -79,7 +78,7 @@ public static class PostsEndpoints
             Post post = new()
             {
                 Description = newPost.Description,
-                MediaUrls = newPost.MediaUrls ?? new List<string>(),
+                MediaUrl = newPost.MediaUrl,
                 DatePosted = DateTime.UtcNow,
                 Likes = 0, //start with zero likes
                 ArtistId = newPost.ArtistId,
@@ -92,7 +91,7 @@ public static class PostsEndpoints
             var postDto = new PostDto(
                 post.Id,
                 post.Description,
-                post.MediaUrls,
+                post.MediaUrl,
                 post.DatePosted,
                 new List<CommentDto>(), //empty initially
                 post.Likes,
@@ -118,14 +117,14 @@ public static class PostsEndpoints
 
             //again, preserve old values if new ones are not provided
             post.Description = editPost.Description ?? post.Description;
-            post.MediaUrls = editPost.MediaUrls ?? post.MediaUrls;
+            post.MediaUrl = editPost.MediaUrl ?? post.MediaUrl;
 
             await dbContext.SaveChangesAsync();
 
             var updatedPostDto = new PostDto(
                 post.Id,
                 post.Description,
-                post.MediaUrls,
+                post.MediaUrl,
                 post.DatePosted,
                 post.Comments.Select(c => new CommentDto(
                     c.Id,

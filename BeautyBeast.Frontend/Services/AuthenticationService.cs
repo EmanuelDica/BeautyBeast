@@ -28,7 +28,7 @@ public class AuthenticationService
                 if (loginResponse?.Token != null && !string.IsNullOrEmpty(loginResponse.Role))
                 {
                     await _localStorage.SetItemAsync("authToken", loginResponse.Token);
-                    await _localStorage.SetItemAsync("userRole", loginResponse.Role); // Store user role
+                    await _localStorage.SetItemAsync("userRole", loginResponse.Role); 
                     _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", loginResponse.Token);
                     return true;
                 }

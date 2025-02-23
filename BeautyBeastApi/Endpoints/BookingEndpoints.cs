@@ -1,5 +1,5 @@
 using BeautyBeastApi.Data;
-using BeautyBeastApi.Dtos.BookingDtos;
+using BeautyBeastApi.Dtos;
 using BeautyBeastApi.Entities;
 using Microsoft.EntityFrameworkCore;
 namespace BeautyBeastApi.Endpoints;
@@ -25,7 +25,7 @@ public static class BookingsEndpoints
                     b.TreatmentId,
                     b.Treatment != null ? b.Treatment.Name : "Unknown Treatment",
                     b.BookingDateAndTime,
-                    b.Status
+                    b.BookingStatus
                 ))
                 .ToListAsync();
 
@@ -46,7 +46,7 @@ public static class BookingsEndpoints
                     b.TreatmentId,
                     b.Treatment != null ? b.Treatment.Name : "Unknown Treatment",
                     b.BookingDateAndTime,
-                    b.Status
+                    b.BookingStatus
                 ))
                 .FirstOrDefaultAsync();
 
@@ -86,7 +86,7 @@ public static class BookingsEndpoints
                 booking.TreatmentId,
                 treatment.Name ?? "Unknown Treatment",
                 booking.BookingDateAndTime,
-                booking.Status
+                booking.BookingStatus
             );
 
             return Results.CreatedAtRoute(getBookingEndpointName, new { id = booking.Id }, bookingDto);
@@ -104,17 +104,28 @@ public static class BookingsEndpoints
             booking.ClientId = editBooking.ClientId ?? booking.ClientId;
             booking.TreatmentId = editBooking.TreatmentId ?? booking.TreatmentId;
             booking.BookingDateAndTime = editBooking.BookingDateAndTime ?? booking.BookingDateAndTime;
-            booking.Status = editBooking.BookingStatus ?? booking.Status;
+            booking.BookingStatus = editBooking.BookingStatus ?? booking.BookingStatus;
 
             await dbContext.SaveChangesAsync();
+
+            var updatedBooking = await dbContext.Bookings
+                .Include(b => b.Client)
+                .Include(b => b.Treatment)
+                .FirstOrDefaultAsync(b => b.Id == id);
+
+            if (updatedBooking == null)
+            {
+                return Results.NotFound($"Booking with ID {id} not found.");
+            }
+
             return Results.Ok(new BookingDto(
-                booking.Id,
-                booking.ClientId,
-                booking.Client != null ? booking.Client.FullName : "Unknown Client",
-                booking.TreatmentId,
-                booking.Treatment != null ? booking.Treatment.Name : "Unknown Treatment",
-                booking.BookingDateAndTime,
-                booking.Status
+                updatedBooking.Id,
+                updatedBooking.ClientId,
+                updatedBooking.Client?.FullName ?? "Unknown Client",
+                updatedBooking.TreatmentId,
+                updatedBooking.Treatment?.Name ?? "Unknown Treatment",
+                updatedBooking.BookingDateAndTime,
+                updatedBooking.BookingStatus
             ));
         });
 

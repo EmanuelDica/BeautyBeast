@@ -1,11 +1,9 @@
-using System.Net.Http.Headers;
 using BeautyBeast.Frontend.Components;
 using BeautyBeast.Frontend.Services;
 using Blazored.LocalStorage;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Ensure API URL is set
 var beautyBeastApiUrl = builder.Configuration["BeautyBeastApiUrl"] ??
     throw new Exception("BeautyBeastApiUrl is not set.");
 
@@ -13,7 +11,7 @@ var beautyBeastApiUrl = builder.Configuration["BeautyBeastApiUrl"] ??
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-// Register API HttpClient once and reuse it for multiple services
+// Register API HttpClient
 builder.Services.AddHttpClient("BeautyBeastApi", client =>
 {
     client.BaseAddress = new Uri(beautyBeastApiUrl);
@@ -46,7 +44,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles(); // Ensure static files like CSS & JS load properly
+app.UseStaticFiles(); 
 app.UseAntiforgery();
 
 app.MapStaticAssets();

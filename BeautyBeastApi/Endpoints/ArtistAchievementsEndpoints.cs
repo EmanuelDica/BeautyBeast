@@ -1,5 +1,5 @@
 using BeautyBeastApi.Data;
-using BeautyBeastApi.Dtos.ArtistAchievementsDtos;
+using BeautyBeastApi.Dtos;
 using Microsoft.EntityFrameworkCore;
 
 namespace BeautyBeastApi.Endpoints;

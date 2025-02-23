@@ -7,15 +7,18 @@ public record class ClientDto(
     string Email,
     string? ProfilePictureUrl,
     DateTime DateJoined,
+    string Role,
     List<BookingDto> Bookings,
     List<StatusDto> Statuses
 ) : UserDto(Id, FullName, Email, ProfilePictureUrl, DateJoined);
 
 public record class CreateClientDto(
-    [Required][StringLength(50)] string FullName,
-    [Required][StringLength(30)] string Email,
-    string ProfilePictureUrl
-) : CreateUserDto(FullName, Email, ProfilePictureUrl);
+    [Required] [StringLength(50)] string FullName,
+    [Required] [StringLength(30)] string Email,
+    string? ProfilePictureUrl,
+    [Required] string Password,
+    [Required] string Role
+) : CreateUserDto(FullName, Email, ProfilePictureUrl ?? string.Empty, Password, Role);
 
 public class EditClientDto
 {

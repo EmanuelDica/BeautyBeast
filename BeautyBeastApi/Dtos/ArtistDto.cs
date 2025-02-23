@@ -7,6 +7,7 @@ public record class ArtistDto(
     string Email,
     string? ProfilePictureUrl,
     DateTime DateJoined,
+    string Role,
     string Bio,
     List<ArtistAchievementDto> Achievements,
     List<PostDto> Posts,
@@ -14,12 +15,14 @@ public record class ArtistDto(
 ) : UserDto(Id, FullName, Email, ProfilePictureUrl, DateJoined);
 
 public record class CreateArtistDto(
-    [Required][StringLength(50)] string FullName,
-    [Required][StringLength(30)] string Email,
-    string ProfilePictureUrl,
-    string Bio,
-    List<ArtistAchievementDto> Achievements
-) : CreateUserDto(FullName, Email, ProfilePictureUrl);
+    [Required] string FullName,
+    [Required] string Email,
+    [Required] string Password,
+    [Required] string Role = "Artist",
+    string? ProfilePictureUrl = null,
+    string? Bio = null,
+    List<ArtistAchievementDto>? Achievements = null
+) : CreateUserDto(FullName, Email, ProfilePictureUrl ?? string.Empty, Password, Role);
 
 public class EditArtistDto
 {
@@ -35,19 +38,21 @@ public class EditArtistDto
     
     public string? Bio { get; set; }
 
-    public List<ArtistAchievementDto>? Achievements { get; set; }
+    public string? Role { get; set; }
+    public string? Password { get; set; }
 
-    public EditArtistDto()
-    {
-        Achievements = new List<ArtistAchievementDto>();
-    }
+    public List<ArtistAchievementDto>? Achievements { get; set; } = new();
 
-    public EditArtistDto(string fullName, string email, string? profilePictureUrl, string? bio, List<ArtistAchievementDto>? achievements = null)
+    public EditArtistDto() {}
+
+    public EditArtistDto(string fullName, string email, string? profilePictureUrl, string? bio, string? role = null, string? password = null, List<ArtistAchievementDto>? achievements = null)
     {
         FullName = fullName;
         Email = email;
         ProfilePictureUrl = profilePictureUrl;
-        Bio = bio;
+        Bio = bio ?? string.Empty;
+        Role = role;
+        Password = password;
         Achievements = achievements ?? new List<ArtistAchievementDto>();
     }
 }

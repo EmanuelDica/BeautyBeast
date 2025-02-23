@@ -1,7 +1,7 @@
 namespace BeautyBeastApi.Endpoints;
 
 using BeautyBeastApi.Data;
-using BeautyBeastApi.Dtos.UserDtos;
+using BeautyBeastApi.Dtos;
 using BeautyBeastApi.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -56,7 +56,9 @@ public static class UsersEndpoints
                 FullName = newUser.FullName,
                 Email = newUser.Email,
                 ProfilePictureUrl = newUser.ProfilePictureUrl,
-                DateJoined = dateJoined
+                DateJoined = dateJoined,
+                HashedPassword = PasswordHelper.HashPassword(newUser.HashedPassword),
+                Role = newUser.Role
             };
 
             dbContext.Users.Add(user);

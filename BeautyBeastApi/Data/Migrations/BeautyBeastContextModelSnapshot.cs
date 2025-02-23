@@ -96,12 +96,12 @@ namespace BeautyBeastApi.Data.Migrations
                     b.Property<DateTime>("BookingDateAndTime")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ClientId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Status")
+                    b.Property<string>("BookingStatus")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("ClientId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("TreatmentId")
                         .HasColumnType("INTEGER");
@@ -119,17 +119,17 @@ namespace BeautyBeastApi.Data.Migrations
                         {
                             Id = 1,
                             BookingDateAndTime = new DateTime(2024, 3, 10, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            BookingStatus = "Confirmed",
                             ClientId = 5,
-                            Status = "Pending",
                             TreatmentId = 1
                         },
                         new
                         {
                             Id = 2,
                             BookingDateAndTime = new DateTime(2024, 3, 12, 10, 30, 0, 0, DateTimeKind.Unspecified),
+                            BookingStatus = "Pending",
                             ClientId = 6,
-                            Status = "Pending",
-                            TreatmentId = 4
+                            TreatmentId = 2
                         });
                 });
 
@@ -180,7 +180,7 @@ namespace BeautyBeastApi.Data.Migrations
                     b.Property<int>("Likes")
                         .HasColumnType("INTEGER");
 
-                    b.PrimitiveCollection<string>("MediaUrls")
+                    b.Property<string>("MediaUrl")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -198,7 +198,7 @@ namespace BeautyBeastApi.Data.Migrations
                             DatePosted = new DateTime(2024, 2, 20, 16, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "My first PMU work!",
                             Likes = 0,
-                            MediaUrls = "[\"pmu-work.jpg\"]"
+                            MediaUrl = "pmu-work.jpg"
                         },
                         new
                         {
@@ -207,7 +207,7 @@ namespace BeautyBeastApi.Data.Migrations
                             DatePosted = new DateTime(2024, 2, 21, 15, 30, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chiaroscuro masterpiece!",
                             Likes = 0,
-                            MediaUrls = "[\"chiaroscuro.jpg\"]"
+                            MediaUrl = "chiaroscuro.jpg"
                         });
                 });
 
@@ -281,42 +281,22 @@ namespace BeautyBeastApi.Data.Migrations
                         new
                         {
                             Id = 1,
-                            AfterCareInstructions = "Follow aftercare card",
+                            AfterCareInstructions = "Avoid water on the face for 24 hours.",
                             ArtistId = 1,
-                            ConsentFormUrl = "microblading-consent.pdf",
+                            ConsentFormUrl = "consent-form-microblading.pdf",
                             Description = "Semi-permanent eyebrows",
                             Name = "Microblading",
-                            PreCareInstructions = "Avoid caffeine"
+                            PreCareInstructions = "Avoid caffeine before the procedure."
                         },
                         new
                         {
                             Id = 2,
-                            AfterCareInstructions = "Moisturize daily",
-                            ArtistId = 1,
-                            ConsentFormUrl = "ombre-brows-consent.pdf",
-                            Description = "Powdered shading brows",
-                            Name = "Ombre Brows",
-                            PreCareInstructions = "No makeup before session"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AfterCareInstructions = "Use oil-free remover",
+                            AfterCareInstructions = "Remove makeup gently with a cleanser.",
                             ArtistId = 2,
-                            ConsentFormUrl = "bridal-consent.pdf",
-                            Description = "Full bridal makeup",
-                            Name = "Bridal Makeup",
-                            PreCareInstructions = "Clean face before"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AfterCareInstructions = "Use gentle remover",
-                            ArtistId = 2,
-                            ConsentFormUrl = "evening-makeup-consent.pdf",
+                            ConsentFormUrl = "consent-form-glam-makeup.pdf",
                             Description = "Makeup for special occasions",
                             Name = "Evening Glam Makeup",
-                            PreCareInstructions = "Moisturize before"
+                            PreCareInstructions = "Arrive with a clean face."
                         });
                 });
 
@@ -326,6 +306,9 @@ namespace BeautyBeastApi.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<DateTime>("DateJoined")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -334,7 +317,15 @@ namespace BeautyBeastApi.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("HashedPassword")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("ProfilePictureUrl")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("UserType")
@@ -380,33 +371,45 @@ namespace BeautyBeastApi.Data.Migrations
                         new
                         {
                             Id = 1,
+                            DateJoined = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "leavinci@gmail.com",
                             FullName = "Lea Vinci",
+                            HashedPassword = "artist1Pass",
                             ProfilePictureUrl = "lea.jpg",
+                            Role = "Artist",
                             Bio = "Master of PMU"
                         },
                         new
                         {
                             Id = 2,
+                            DateJoined = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "rachelhertz@gmail.com",
                             FullName = "Rachel Hertzler",
+                            HashedPassword = "artist2Pass",
                             ProfilePictureUrl = "rachel.jpg",
+                            Role = "Artist",
                             Bio = "Make-up Artist"
                         },
                         new
                         {
                             Id = 3,
+                            DateJoined = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "vivas@gmail.com",
                             FullName = "Vivian A",
+                            HashedPassword = "artist3Pass",
                             ProfilePictureUrl = "viv.jpg",
+                            Role = "Artist",
                             Bio = "Hairdresser"
                         },
                         new
                         {
                             Id = 4,
+                            DateJoined = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "fridaleon@gmail.com",
                             FullName = "Frida Leon",
+                            HashedPassword = "artist4Pass",
                             ProfilePictureUrl = "frida.jpg",
+                            Role = "Artist",
                             Bio = "Aesthetician"
                         });
                 });
@@ -421,16 +424,22 @@ namespace BeautyBeastApi.Data.Migrations
                         new
                         {
                             Id = 5,
+                            DateJoined = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "johndoe@gmail.com",
                             FullName = "John Doe",
-                            ProfilePictureUrl = "john.jpg"
+                            HashedPassword = "client1Pass",
+                            ProfilePictureUrl = "john.jpg",
+                            Role = "Client"
                         },
                         new
                         {
                             Id = 6,
+                            DateJoined = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "emma@gmail.com",
                             FullName = "Emma Watson",
-                            ProfilePictureUrl = "emma.jpg"
+                            HashedPassword = "client2Pass",
+                            ProfilePictureUrl = "emma.jpg",
+                            Role = "Client"
                         });
                 });
 

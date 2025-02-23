@@ -1,8 +1,18 @@
 ﻿@inherits LayoutComponentBase
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JS
+@inject Services.AuthenticationService AuthService
 @using Microsoft.AspNetCore.Components.Routing
 @using BeautyBeast.Frontend.Components.Layout
+
+@code {
+    private string? UserRole;
+
+    protected override async Task OnInitializedAsync()
+    {
+        UserRole = await AuthService.GetUserRoleAsync();
+    }
+}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
@@ -26,6 +36,26 @@
                     <a class="nav-link" href="/">Dashboard</a>
                 </li>
 
+                @if (UserRole == "Artist")
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Manage
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/treatments/manage">💆 Treatments</a></li>
+                            <li><a class="dropdown-item" href="/achievements/manage">🏆 Achievements</a></li>
+                        </ul>
+                    </li>
+                }
+
+                @if (UserRole == "Client")
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" href="/mybookings">📅 My Bookings</a>
+                    </li>
+                }
+
                 @* Post Dropdown Menu *@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -33,26 +63,33 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <NavLink class="dropdown-item" href="/users/post/media">📷 Media</NavLink>
+                            <a class="dropdown-item" href="/users/post/media">📷 Media</a>
                         </li>
                         <li>
-                            <NavLink class="dropdown-item" href="/users/post/status">✍ Status</NavLink>
+                            <a class="dropdown-item" href="/users/post/status">✍ Status</a>
                         </li>
                     </ul>
                 </li>
             </ul>
 
             @* Search Form *@
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" @bind="SearchText" @onkeydown="HandleSearchKeyDown" />
+            <form class="d-flex" role="search" onsubmit="HandleSearch">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" @bind="SearchText" />
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
     </div>
 </nav>
 
-@* Include the NavMenu (Offcanvas Side Drawer) *@
-<NavMenu />
+@* Include the correct NavMenu based on UserRole *@
+@if (UserRole == "Artist")
+{
+    <NavMenuArtist />
+}
+else if (UserRole == "Client")
+{
+    <NavMenuClient />
+}
 
 <div class="container mt-4">
     @Body
@@ -61,11 +98,11 @@
 @code {
     private string SearchText { get; set; } = string.Empty;
 
-    private void HandleSearchKeyDown(KeyboardEventArgs e)
+    private void HandleSearch()
     {
-        if (e.Key == "Enter")
+        if (!string.IsNullOrWhiteSpace(SearchText))
         {
-            Console.WriteLine($"Search for: {SearchText}");
+            NavigationManager.NavigateTo($"/search?query={SearchText}");
         }
     }
 }

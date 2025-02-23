@@ -22,6 +22,9 @@ namespace BeautyBeastApi.Data.Migrations
                     FullName = table.Column<string>(type: "TEXT", nullable: false),
                     Email = table.Column<string>(type: "TEXT", nullable: false),
                     ProfilePictureUrl = table.Column<string>(type: "TEXT", nullable: true),
+                    DateJoined = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    HashedPassword = table.Column<string>(type: "TEXT", nullable: false),
+                    Role = table.Column<string>(type: "TEXT", nullable: false),
                     UserType = table.Column<string>(type: "TEXT", maxLength: 8, nullable: false),
                     Bio = table.Column<string>(type: "TEXT", nullable: true)
                 },
@@ -57,7 +60,7 @@ namespace BeautyBeastApi.Data.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Description = table.Column<string>(type: "TEXT", nullable: false),
-                    MediaUrls = table.Column<string>(type: "TEXT", nullable: false),
+                    MediaUrl = table.Column<string>(type: "TEXT", nullable: false),
                     DatePosted = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Likes = table.Column<int>(type: "INTEGER", nullable: false),
                     ArtistId = table.Column<int>(type: "INTEGER", nullable: false)
@@ -185,7 +188,7 @@ namespace BeautyBeastApi.Data.Migrations
                     ClientId = table.Column<int>(type: "INTEGER", nullable: false),
                     TreatmentId = table.Column<int>(type: "INTEGER", nullable: false),
                     BookingDateAndTime = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Status = table.Column<string>(type: "TEXT", nullable: false)
+                    BookingStatus = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -206,22 +209,22 @@ namespace BeautyBeastApi.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "Bio", "Email", "FullName", "ProfilePictureUrl", "UserType" },
+                columns: new[] { "Id", "Bio", "DateJoined", "Email", "FullName", "HashedPassword", "ProfilePictureUrl", "Role", "UserType" },
                 values: new object[,]
                 {
-                    { 1, "Master of PMU", "leavinci@gmail.com", "Lea Vinci", "lea.jpg", "Artist" },
-                    { 2, "Make-up Artist", "rachelhertz@gmail.com", "Rachel Hertzler", "rachel.jpg", "Artist" },
-                    { 3, "Hairdresser", "vivas@gmail.com", "Vivian A", "viv.jpg", "Artist" },
-                    { 4, "Aesthetician", "fridaleon@gmail.com", "Frida Leon", "frida.jpg", "Artist" }
+                    { 1, "Master of PMU", new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "leavinci@gmail.com", "Lea Vinci", "artist1Pass", "lea.jpg", "Artist", "Artist" },
+                    { 2, "Make-up Artist", new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "rachelhertz@gmail.com", "Rachel Hertzler", "artist2Pass", "rachel.jpg", "Artist", "Artist" },
+                    { 3, "Hairdresser", new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "vivas@gmail.com", "Vivian A", "artist3Pass", "viv.jpg", "Artist", "Artist" },
+                    { 4, "Aesthetician", new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "fridaleon@gmail.com", "Frida Leon", "artist4Pass", "frida.jpg", "Artist", "Artist" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "Email", "FullName", "ProfilePictureUrl", "UserType" },
+                columns: new[] { "Id", "DateJoined", "Email", "FullName", "HashedPassword", "ProfilePictureUrl", "Role", "UserType" },
                 values: new object[,]
                 {
-                    { 5, "johndoe@gmail.com", "John Doe", "john.jpg", "Client" },
-                    { 6, "emma@gmail.com", "Emma Watson", "emma.jpg", "Client" }
+                    { 5, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "johndoe@gmail.com", "John Doe", "client1Pass", "john.jpg", "Client", "Client" },
+                    { 6, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "emma@gmail.com", "Emma Watson", "client2Pass", "emma.jpg", "Client", "Client" }
                 });
 
             migrationBuilder.InsertData(
@@ -241,11 +244,11 @@ namespace BeautyBeastApi.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Posts",
-                columns: new[] { "Id", "ArtistId", "DatePosted", "Description", "Likes", "MediaUrls" },
+                columns: new[] { "Id", "ArtistId", "DatePosted", "Description", "Likes", "MediaUrl" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2024, 2, 20, 16, 0, 0, 0, DateTimeKind.Unspecified), "My first PMU work!", 0, "[\"pmu-work.jpg\"]" },
-                    { 2, 2, new DateTime(2024, 2, 21, 15, 30, 0, 0, DateTimeKind.Unspecified), "Chiaroscuro masterpiece!", 0, "[\"chiaroscuro.jpg\"]" }
+                    { 1, 1, new DateTime(2024, 2, 20, 16, 0, 0, 0, DateTimeKind.Unspecified), "My first PMU work!", 0, "pmu-work.jpg" },
+                    { 2, 2, new DateTime(2024, 2, 21, 15, 30, 0, 0, DateTimeKind.Unspecified), "Chiaroscuro masterpiece!", 0, "chiaroscuro.jpg" }
                 });
 
             migrationBuilder.InsertData(
@@ -253,19 +256,17 @@ namespace BeautyBeastApi.Data.Migrations
                 columns: new[] { "Id", "AfterCareInstructions", "ArtistId", "ConsentFormUrl", "Description", "Name", "PreCareInstructions" },
                 values: new object[,]
                 {
-                    { 1, "Follow aftercare card", 1, "microblading-consent.pdf", "Semi-permanent eyebrows", "Microblading", "Avoid caffeine" },
-                    { 2, "Moisturize daily", 1, "ombre-brows-consent.pdf", "Powdered shading brows", "Ombre Brows", "No makeup before session" },
-                    { 3, "Use oil-free remover", 2, "bridal-consent.pdf", "Full bridal makeup", "Bridal Makeup", "Clean face before" },
-                    { 4, "Use gentle remover", 2, "evening-makeup-consent.pdf", "Makeup for special occasions", "Evening Glam Makeup", "Moisturize before" }
+                    { 1, "Avoid water on the face for 24 hours.", 1, "consent-form-microblading.pdf", "Semi-permanent eyebrows", "Microblading", "Avoid caffeine before the procedure." },
+                    { 2, "Remove makeup gently with a cleanser.", 2, "consent-form-glam-makeup.pdf", "Makeup for special occasions", "Evening Glam Makeup", "Arrive with a clean face." }
                 });
 
             migrationBuilder.InsertData(
                 table: "Bookings",
-                columns: new[] { "Id", "BookingDateAndTime", "ClientId", "Status", "TreatmentId" },
+                columns: new[] { "Id", "BookingDateAndTime", "BookingStatus", "ClientId", "TreatmentId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 3, 10, 14, 0, 0, 0, DateTimeKind.Unspecified), 5, "Pending", 1 },
-                    { 2, new DateTime(2024, 3, 12, 10, 30, 0, 0, DateTimeKind.Unspecified), 6, "Pending", 4 }
+                    { 1, new DateTime(2024, 3, 10, 14, 0, 0, 0, DateTimeKind.Unspecified), "Confirmed", 5, 1 },
+                    { 2, new DateTime(2024, 3, 12, 10, 30, 0, 0, DateTimeKind.Unspecified), "Pending", 6, 2 }
                 });
 
             migrationBuilder.CreateIndex(

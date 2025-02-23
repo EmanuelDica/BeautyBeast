@@ -9,8 +9,10 @@ Content-Type: application/json
 
 {
     "fullName": "John Duddleye",
-    "email": "john.doodleye@example.com",
-    "profilePictureUrl": "https://example.com/profile-picture.jpg"
+    "email": "john.duddleye@example.com",
+    "profilePictureUrl": "https://example.com/profile-picture.jpg",
+    "hashedPassword": "StrongPassword123",  
+    "role": "Client" 
 }
 
 ###
@@ -20,7 +22,9 @@ Content-Type: application/json
 {
     "fullName": "John DudeJohn DuddleyeJohn DuddleyeJohn DuddleyeJohn DuddleyeJohn DuddleyeJohn DuddleyeJohn DuddleyeJohn DuddleyeJohn DuddleyeJohn DuddleyeJohn Duddleye",
     "email": "john.dood@example.com",
-    "profilePictureUrl": "https://example.com/profile-picture.jpg"
+    "profilePictureUrl": "https://example.com/profile-picture.jpg",
+    "hashedPassword": "StrongPassword123",  
+    "role": "Client" 
 }
 
 ###
@@ -35,28 +39,30 @@ Content-Type: application/json
 
 {
     "fullName": "JJ Lance",
-        "email": "jj.lance@example.com",
-        "profilePictureUrl": "https://example.com/jjlance.jpg"
+    "email": "jj.lance@example.com",
+    "profilePictureUrl": "https://example.com/jjlance.jpg",
+    "password": "yourSecurePassword123",
+    "role": "Client"
 }
 
 ###
 GET http://localhost:5021/clients/5
 
 ###
-PUT http://localhost:5021/clients/2
+PUT http://localhost:5021/clients/5
 Content-Type: application/json
 
 {
-    "fullName": "Lando JJ",
-        "email": "jj.lando@example.com",
-        "profilePictureUrl": "https://example.com/jjlando.jpg"
+  "fullName": "Lando JJ",
+  "email": "jj.lando@example.com",
+  "profilePictureUrl": "https://example.com/jjlando.jpg"
 }
 
 ###
 GET http://localhost:5021/artists
 
 ###
-GET http://localhost:5021/artists/1
+GET http://localhost:5021/artists/2
 
 ###
 POST http://localhost:5021/artists
@@ -66,6 +72,8 @@ Content-Type: application/json
   "FullName": "Anna Smith",
   "Email": "anna.smith@gmail.com",
   "ProfilePictureUrl": "anna.jpg",
+  "Password": "yourSecurePassword123",
+  "Role": "Artist",
   "Bio": "Specialist in creative makeup",
   "Achievements": [
     { "Achievement": "Best Makeup Artist 2023" },
@@ -110,13 +118,12 @@ Content-Type: application/json
 
 {
   "ClientId": 5,
-  "TreatmentId": 3,
-  "BookingDateAndTime": "2025-04-15T10:00:00",
-  "BookingStatus": "Confirmed"
+  "TreatmentId": 2,
+  "BookingDateAndTime": "2025-04-15T10:00:00"
 }
 
 ###
-DELETE http://localhost:5021/bookings/6
+DELETE http://localhost:5021/bookings/4
 
 ###
 GET http://localhost:5021/comments
@@ -147,21 +154,21 @@ Content-Type: application/json
 
 {
   "Description": "My latest makeup work!",
-  "MediaUrls": ["media1.jpg", "media2.jpg"],
+  "MediaUrl": "media1.jpg",
   "ArtistId": 3
 }
 
 ###
-PUT http://localhost:5021/posts/4
+PUT http://localhost:5021/posts/3
 Content-Type: application/json
 
 {
   "Description": "Updated description for my post!",
-  "MediaUrls": ["updated_media1.jpg", "updated_media2.jpg"]
+  "MediaUrl": "updated_media1.jpg"
 }
 
 ###
-DELETE http://localhost:5021/posts/4
+DELETE http://localhost:5021/posts/3
 
 ###
 GET http://localhost:5021/statuses
@@ -176,7 +183,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:5021/statuses/1
+PUT http://localhost:5021/statuses/2
 Content-Type: application/json
 
 {
@@ -206,7 +213,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:5021/treatments/5
+PUT http://localhost:5021/treatments/3
 Content-Type: application/json
 
 {
@@ -219,3 +226,6 @@ Content-Type: application/json
   "StartTime": "11:00:00",
   "Duration": "01:45:00"
 }
+
+###
+DELETE  http://localhost:5021/treatments/5
