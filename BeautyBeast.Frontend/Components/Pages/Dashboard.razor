@@ -1,7 +1,9 @@
-@page "/"
+@page "/dashboard/artist/{id:int}"
 @using BeautyBeast.Frontend.Dtos
+@using BeautyBeast.Frontend.Components
 @inject Services.PostService PostsService
 @inject Services.StatusService StatusService
+@rendermode InteractiveServer
 
 <div class="container mt-4">
     <h5 class="mb-3">Dashboard</h5>
@@ -12,40 +14,70 @@
     }
     else
     {
-        <div class="row">
-            @foreach (var post in posts)
+        <div>
+            <h6>Posts</h6>
+            @if (posts.Any())
             {
-                <div class="col-md-6 mb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-text"><strong>[POST]</strong> @post.Description</p>
-                        </div>
-                    </div>
-                </div>
+                @foreach (var post in posts)
+                {
+                    // Create a default UserDto for the poster. 
+                    // Adjust this mapping if your PostDto already includes a nested UserDto.
+                    var defaultPoster = new UserDto(
+                        post.ArtistId, 
+                        post.ArtistName, 
+                        string.Empty, 
+                        "default-avatar.png", 
+                        DateTime.MinValue
+                    );
+                    <FeedItem 
+                        Poster="@defaultPoster" 
+                        Content="@("[POST] " + post.Description)" 
+                        Comments="@(post.Comments ?? new List<CommentDto>())" />
+                }
             }
-
-            @foreach (var status in statuses)
+            else
             {
-                <div class="col-md-6 mb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-text"><strong>[STATUS]</strong> @status.Text</p>
-                        </div>
-                    </div>
-                </div>
+                <p>No posts available.</p>
+            }
+        </div>
+        <div class="mt-4">
+            <h6>Statuses</h6>
+            @if (statuses.Any())
+            {
+                @foreach (var status in statuses)
+                {
+                    var defaultPoster = new UserDto(
+                        status.UserId, 
+                        status.UserName, 
+                        string.Empty, 
+                        "default-avatar.png", 
+                        DateTime.MinValue
+                    );
+                    <FeedItem 
+                        Poster="@defaultPoster" 
+                        Content="@("[STATUS] " + status.Text)" 
+                        Comments="@(status.Comments ?? new List<CommentDto>())" />
+                }
+            }
+            else
+            {
+                <p>No statuses available.</p>
             }
         </div>
     }
 </div>
 
 @code {
-    private List<PostDto> posts = new();
-    private List<StatusDto> statuses = new();
+    [Parameter] public int id { get; set; }
+    private List<PostDto>? posts;
+    private List<StatusDto>? statuses;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
+            // Note: If you want only posts from the current user's following list,
+            // replace GetAllPostsAsync with the appropriate service method.
             posts = await PostsService.GetAllPostsAsync();
             statuses = await StatusService.GetAllStatusesAsync();
         }

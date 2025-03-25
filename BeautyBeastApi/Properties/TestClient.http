@@ -1,0 +1,128 @@
+# =========================TEST CLIENTS ============================
+
+### GET all clients
+GET http://localhost:5021/clients
+
+### GET client by Id (valid)
+GET http://localhost:5021/clients/5
+
+### GET client by Id (invalid - non-existent)
+GET http://localhost:5021/clients/999
+
+### POST client - Valid data
+POST http://localhost:5021/clients
+Content-Type: application/json
+
+{
+  "fullName": "Laura Bell",
+  "email": "laura.bell@example.com",
+  "profilePictureUrl": "https://example.com/laura.jpg",
+  "password": "StrongPass123!",
+  "role": "Client"
+}
+
+### POST client - Missing FullName (should fail)
+POST http://localhost:5021/clients
+Content-Type: application/json
+
+{
+  "email": "laura.bell@example.com",
+  "password": "StrongPass123!",
+  "role": "Client"
+}
+
+### POST client - FullName too long (should fail)
+POST http://localhost:5021/clients
+Content-Type: application/json
+
+{
+  "fullName": "Lllllllllllllllllllllllllllllllllllllllllllllllllllllll",
+  "email": "laura.bell@example.com",
+  "password": "StrongPass123!",
+  "role": "Client"
+}
+
+### POST client - Missing Email (should fail)
+POST http://localhost:5021/clients
+Content-Type: application/json
+
+{
+  "fullName": "Laura Bell",
+  "password": "StrongPass123!",
+  "role": "Client"
+}
+
+### POST client - Email too long (should fail)
+POST http://localhost:5021/clients
+Content-Type: application/json
+
+{
+  "fullName": "Laura Bell",
+  "email": "longemailaddresswhichexceedslimit@example.com",
+  "password": "StrongPass123!",
+  "role": "Client"
+}
+
+### POST client - Missing Password and Client(should fail)
+POST http://localhost:5021/clients
+Content-Type: application/json
+
+{
+  "fullName": "Laura Bell",
+  "email": "laura.bell@example.com"
+}
+
+
+### PUT client - Valid data
+PUT http://localhost:5021/clients/5
+Content-Type: application/json
+
+{
+  "fullName": "Updated Client Name",
+  "email": "updated.client@example.com",
+  "profilePictureUrl": "https://example.com/updatedclient.jpg"
+}
+
+### PUT client - Missing FullName (should fail)
+PUT http://localhost:5021/clients/5
+Content-Type: application/json
+
+{
+  "email": "updated.client@example.com",
+  "profilePictureUrl": "https://example.com/updatedclient.jpg"
+}
+
+### PUT client - FullName too long (should fail)
+PUT http://localhost:5021/clients/5
+Content-Type: application/json
+
+{
+  "fullName": "Mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
+  "email": "updated.client@example.com",
+  "profilePictureUrl": "https://example.com/updatedclient.jpg"
+}
+
+### PUT client - Missing Email (should fail)
+PUT http://localhost:5021/clients/5
+Content-Type: application/json
+
+{
+  "fullName": "Updated Client Name",
+  "profilePictureUrl": "https://example.com/updatedclient.jpg"
+}
+
+### PUT client - Email too long (should fail)
+PUT http://localhost:5021/clients/5
+Content-Type: application/json
+
+{
+  "fullName": "Updated Client Name",
+  "email": "emailthatexceedslimitofthirtycharacters@example.com",
+  "profilePictureUrl": "https://example.com/updatedclient.jpg"
+}
+
+### DELETE client by Id (valid)
+DELETE http://localhost:5021/clients/5
+
+### DELETE client by Id (invalid - non-existent)
+DELETE http://localhost:5021/clients/999

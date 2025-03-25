@@ -1,0 +1,85 @@
+# ============================ STATUSES ============================
+
+### GET all statuses
+GET http://localhost:5021/statuses
+
+### GET specific status by Id (valid)
+GET http://localhost:5021/statuses/1
+
+### GET specific status by Id (invalid - non-existent)
+GET http://localhost:5021/statuses/999
+
+### POST status - Valid data
+POST http://localhost:5021/statuses
+Content-Type: application/json
+
+{
+  "Text": "Done my brows at Lea Vinci last week! They look fab! Thanks Lea!",
+  "UserId": 5
+}
+
+### POST status - Valid data
+POST http://localhost:5021/statuses
+Content-Type: application/json
+
+{
+  "Text": "nasjdnkasda",
+  "UserId": 6
+}
+
+### POST status - Text exceeds 500 chars (should fail)
+POST http://localhost:5021/statuses
+Content-Type: application/json
+
+{
+  "Text": "Aaaaaaaaaaaaaaaaaaa500pluscharactersaaaaaaaaaakskalkalsdkmalksdmakmdlaksmdkadkamdksamAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaA",
+  "UserId": 5
+}
+
+### POST status - Missing Text (should fail)
+POST http://localhost:5021/statuses
+Content-Type: application/json
+
+{
+  "UserId": 5
+}
+
+### POST status - Missing UserId (should fail)
+POST http://localhost:5021/statuses
+Content-Type: application/json
+
+{
+  "Text": "Simple status update"
+}
+
+### PUT status - Valid update
+PUT http://localhost:5021/statuses/2
+Content-Type: application/json
+
+{
+  "Text": "Yep! I'm Fabulous!",
+  "UserId": 5
+}
+
+### PUT status - Text exceeds 500 chars (should fail)
+PUT http://localhost:5021/statuses/2
+Content-Type: application/json
+
+{
+  "Text": "AaaaaaaaaaaaaaaaaaadsfasdfasdfasdfasdfasdfasdfasdAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaA",
+  "UserId": 5
+}
+
+### PUT status - Missing Text (should fail)
+PUT http://localhost:5021/statuses/2
+Content-Type: application/json
+
+{
+  "UserId": 5
+}
+
+### DELETE status by Id (valid)
+DELETE http://localhost:5021/statuses/1
+
+### DELETE status by Id (invalid - non-existent)
+DELETE http://localhost:5021/statuses/999

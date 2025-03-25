@@ -1,0 +1,98 @@
+# ============================ POSTS ============================
+
+### GET all posts
+GET http://localhost:5021/posts
+
+### GET specific post by Id (valid)
+GET http://localhost:5021/posts/1
+
+### GET specific post by Id (invalid - non-existent)
+GET http://localhost:5021/posts/999
+
+### POST post - Valid data
+POST http://localhost:5021/posts
+Content-Type: application/json
+
+{
+  "Description": "My latest makeup work!",
+  "MediaUrl": "media1.jpg",
+  "ArtistId": 1
+}
+
+### POST post - Missing Description (valid since not required by logic, but required by validation)
+POST http://localhost:5021/posts
+Content-Type: application/json
+
+{
+  "MediaUrl": "media2.jpg",
+  "ArtistId": 1
+}
+
+### POST post - Description exceeds 300 chars (should fail)
+POST http://localhost:5021/posts
+Content-Type: application/json
+
+{
+  "Description": "AaaaaaaaaaaaaaaaaaaaaaaaaaaaadasfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaA",
+  "MediaUrl": "media2.jpg",
+  "ArtistId": 1
+}
+
+### POST post - Missing MediaUrl (should fail)
+POST http://localhost:5021/posts
+Content-Type: application/json
+
+{
+  "Description": "Short description",
+  "ArtistId": 1
+}
+
+### POST post - Missing ArtistId (should fail)
+POST http://localhost:5021/posts
+Content-Type: application/json
+
+{
+  "Description": "Short description",
+  "MediaUrl": "media3.jpg"
+}
+
+### PUT post - Valid update
+PUT http://localhost:5021/posts/1
+Content-Type: application/json
+
+{
+  "Description": "Updated description for my post!",
+  "MediaUrl": "updated_media1.jpg"
+}
+
+### PUT post - Description over 300 chars (should fail)
+PUT http://localhost:5021/posts/1
+Content-Type: application/json
+
+{
+  "Description": "AaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaakjhgkjhkjhblkjn;kn;kn;kjn;kjn;kn;jkn;jnlkjnlkjn;kjnAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaA",
+  "MediaUrl": "media_updated.jpg"
+}
+
+### PUT post - Missing MediaUrl (should fail)
+PUT http://localhost:5021/posts/1
+Content-Type: application/json
+
+{
+  "Description": "No media URL provided"
+}
+
+### PUT post - Empty MediaUrl (should fail)
+PUT http://localhost:5021/posts/1
+Content-Type: application/json
+
+{
+  "Description": "Some description",
+  "MediaUrl": ""
+}
+
+### DELETE post by Id (valid)
+DELETE http://localhost:5021/posts/1
+
+### DELETE post by Id (invalid - non-existent)
+DELETE http://localhost:5021/posts/999

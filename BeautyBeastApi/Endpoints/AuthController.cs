@@ -23,7 +23,7 @@ namespace BeautyBeastApi.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
-            var secretKey = _configuration["Jwt:Key"] ?? "default-secret-key";
+            var secretKey = _configuration["Jwt:Key"] ?? "MyFallbackSecretKeyThatIsLongEnough123!";
             var issuer = _configuration["Jwt:Issuer"] ?? "default-issuer";
 
             var user = await _dbContext.Users
@@ -33,11 +33,30 @@ namespace BeautyBeastApi.Controllers
 
             if (user == null || !PasswordHelper.VerifyPassword(request.Password, user.HashedPassword))
             {
+                Console.WriteLine($"[LOGIN] No user found with email: {request.Email}");
                 return Unauthorized("Invalid login attempt.");
             }
 
+            // DEBUG LOGGING
+            Console.WriteLine($"[LOGIN] Email: {user.Email}");
+            Console.WriteLine($"[LOGIN] Entered Password: {request.Password}");
+            Console.WriteLine($"[LOGIN] Stored Hashed Password: {user.HashedPassword}");
+
+            var isValid = PasswordHelper.VerifyPassword(request.Password, user.HashedPassword);
+            Console.WriteLine($"[LOGIN] Password Valid: {isValid}");
+
+            if (!isValid)
+            {
+                return Unauthorized("Invalid password.");
+            }
+
             var token = JwtTokenHelper.GenerateToken(user.Email, user.Role, user.Id, secretKey, issuer);
-            return Ok(new { Token = token , Role = user.Role });
+            return Ok(new LoginResponseDto
+            {
+                Token = token,
+                Role = user.Role,
+                UserName = user.Email
+            });
         }
 
 
@@ -49,6 +68,13 @@ namespace BeautyBeastApi.Controllers
             {
                 return BadRequest("Email is already registered.");
             }
+
+             var hashed = PasswordHelper.HashPassword(request.Password);
+
+            // DEBUG LOGGING
+            Console.WriteLine($"[REGISTER] Email: {request.Email}");
+            Console.WriteLine($"[REGISTER] Raw Password: {request.Password}");
+            Console.WriteLine($"[REGISTER] Hashed Password: {hashed}");
 
             var newUser = new User
             {

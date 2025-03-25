@@ -23,10 +23,15 @@ public class ArtistService
         return artist ?? null;
     }
 
-    public async Task<bool> CreateArtistAsync(CreateArtistDto newArtist)
+    public async Task<ArtistDto?> CreateArtistAsync(CreateArtistDto newArtist)    
     {
         var response = await _httpClient.PostAsJsonAsync("artists", newArtist);
-        return response.IsSuccessStatusCode;
+        if (response.IsSuccessStatusCode)
+        {
+            var thisArtist = await response.Content.ReadFromJsonAsync<ArtistDto>();
+            return thisArtist;
+        }
+        return null;
     }
 
     public async Task<bool> UpdateArtistAsync(int id, EditArtistDto updatedArtist)

@@ -205,9 +205,9 @@ namespace BeautyBeastApi.Data.Migrations
                             Id = 2,
                             ArtistId = 2,
                             DatePosted = new DateTime(2024, 2, 21, 15, 30, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Chiaroscuro masterpiece!",
+                            Description = "Microblading masterpiece!",
                             Likes = 0,
-                            MediaUrl = "chiaroscuro.jpg"
+                            MediaUrl = "microblading.jpg"
                         });
                 });
 

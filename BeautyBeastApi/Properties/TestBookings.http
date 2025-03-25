@@ -1,0 +1,110 @@
+# ============================ BOOKINGS ============================
+
+### GET all bookings
+GET http://localhost:5021/bookings
+
+### GET booking by Id (valid)
+GET http://localhost:5021/bookings/1
+
+### GET booking by Id (invalid - non-existent)
+GET http://localhost:5021/bookings/999
+
+### POST booking - Valid data
+POST http://localhost:5021/bookings
+Content-Type: application/json
+
+{
+  "ClientId": 5,
+  "TreatmentId": 1,
+  "BookingDateAndTime": "2025-04-01T15:30:00"
+}
+
+### POST booking - Missing ClientId (should fail)
+POST http://localhost:5021/bookings
+Content-Type: application/json
+
+{
+  "TreatmentId": 2,
+  "BookingDateAndTime": "2025-04-01T15:30:00"
+}
+
+### POST booking - Missing TreatmentId (should fail)
+POST http://localhost:5021/bookings
+Content-Type: application/json
+
+{
+  "ClientId": 5,
+  "BookingDateAndTime": "2025-04-01T15:30:00"
+}
+
+### POST booking - Missing BookingDateAndTime (should fail)
+POST http://localhost:5021/bookings
+Content-Type: application/json
+
+{
+  "ClientId": 5,
+  "TreatmentId": 1
+}
+
+### POST booking - Invalid date format (should fail)
+POST http://localhost:5021/bookings
+Content-Type: application/json
+
+{
+  "ClientId": 5,
+  "TreatmentId": 2,
+  "BookingDateAndTime": "invalid-date"
+}
+
+### PUT booking - Valid update (change BookingDateAndTime)
+PUT http://localhost:5021/bookings/1
+Content-Type: application/json
+
+{
+  "BookingDateAndTime": "2025-04-15T10:00:00"
+}
+
+### PUT booking - Valid update (change BookingStatus)
+PUT http://localhost:5021/bookings/1
+Content-Type: application/json
+
+{
+  "BookingStatus": "Confirmed"
+}
+
+### PUT booking - Valid update (change ClientId and TreatmentId)
+PUT http://localhost:5021/bookings/1
+Content-Type: application/json
+
+{
+  "ClientId": 6,
+  "TreatmentId": 1
+}
+
+### PUT booking - Empty body (no changes)
+PUT http://localhost:5021/bookings/1
+Content-Type: application/json
+
+{}
+
+### PUT booking - Invalid ClientId (e.g., string instead of int)
+PUT http://localhost:5021/bookings/1
+Content-Type: application/json
+
+{
+  "ClientId": "invalid"
+}
+
+### PUT booking - Invalid BookingDateAndTime (bad date format)
+PUT http://localhost:5021/bookings/1
+Content-Type: application/json
+
+{
+  "BookingDateAndTime": "not-a-date"
+}
+
+### DELETE booking by Id (valid)
+DELETE http://localhost:5021/bookings/1
+
+### DELETE booking by Id (invalid - non-existent)
+DELETE http://localhost:5021/bookings/999

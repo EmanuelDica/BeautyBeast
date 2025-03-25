@@ -2,6 +2,23 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BeautyBeastApi.Dtos;
 
+public class FutureDateAttribute : ValidationAttribute
+{
+    public override bool IsValid(object? value)
+    {
+        if (value is DateTime dateTime)
+        {
+            return dateTime > DateTime.Now;
+        }
+        return false;
+    }
+
+    public override string FormatErrorMessage(string name)
+    {
+        return $"{name} must be a future date.";
+    }
+}
+
 public record class BookingDto
 (
     int Id,
@@ -17,7 +34,7 @@ public record class CreateBookingDto
 (
     [Required]int ClientId,
     [Required]int TreatmentId,
-    [Required]DateTime BookingDateAndTime
+    [Required, FutureDate]DateTime BookingDateAndTime
 );
 
 public class EditBookingDto

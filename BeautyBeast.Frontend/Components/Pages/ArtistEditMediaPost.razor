@@ -1,0 +1,112 @@
+@page "/account/{id:int}/post/edit/{PostId:int}"
+@rendermode InteractiveServer
+@namespace BeautyBeast.Frontend.Pages
+@using BeautyBeast.Frontend.Dtos
+@using Microsoft.AspNetCore.Components.Forms
+@inject Services.PostService PostService
+@inject Services.UserService UserService
+@inject NavigationManager NavigationManager
+
+
+@if (user == null)
+{
+    <div class="alert alert-info mt-3">Loading...</div>
+}
+else if (userRole != "Artist")
+{
+    <div class="alert alert-danger mt-3">Access denied. Only artists can edit posts.</div>
+}
+else
+{
+    <h2>✏️ Edit Post</h2>
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Edit Description</label>
+        <textarea class="form-control" id="description" @bind="post.Description" rows="3"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Media Files</label>
+        <InputFile OnChange="UploadFiles" multiple />
+    </div>
+
+    <ul class="mt-3 list-unstyled">
+        @if (!string.IsNullOrWhiteSpace(post.MediaUrl))
+        {
+            var mediaList = post.MediaUrl.Split(',').ToList();
+            @foreach (var url in mediaList)
+            {
+                <li><a href="@url" target="_blank">@url</a></li>
+            }
+        }
+    </ul>
+
+    <button class="btn btn-secondary" @onclick="Cancel">Cancel</button>
+    <button class="btn btn-primary" @onclick="Submit">Save Changes</button>
+}
+
+@code {
+    [Parameter] public int PostId { get; set; }
+    [Parameter] public int id { get; set; }
+
+    private EditPostDto post = new("", "");
+    private List<string> uploadedFileUrls = new();
+    private UserDto? user;
+    private string? userRole;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Retrieve current user and role.
+        user = await UserService.GetCurrentUserAsync();
+        userRole = await UserService.GetUserRoleAsync();
+
+        if (user == null || userRole != "Artist")
+        {
+            NavigationManager.NavigateTo("/unauthorized");
+            return;
+        }
+
+        // Fetch the post to be edited.
+        var fetchedPost = await PostService.GetPostByIdAsync(PostId);
+        if (fetchedPost != null)
+        {
+            post = new EditPostDto(fetchedPost.Description, fetchedPost.MediaUrl);
+            uploadedFileUrls = string.IsNullOrWhiteSpace(fetchedPost.MediaUrl)
+                ? new List<string>()
+                : fetchedPost.MediaUrl.Split(',').ToList();
+        }
+    }
+
+    private async Task UploadFiles(InputFileChangeEventArgs e)
+    {
+        foreach (var file in e.GetMultipleFiles())
+        {
+            var buffer = new byte[file.Size];
+            await file.OpenReadStream(maxAllowedSize: 10 * 1024 * 1024).ReadAsync(buffer);
+            // For now, we use the file name as a placeholder for the URL.
+            uploadedFileUrls.Add(file.Name);
+        }
+        post = new EditPostDto(post.Description, string.Join(",", uploadedFileUrls));
+    }
+
+    private void Cancel()
+    {
+        // Navigate to the artist's dashboard.
+        NavigationManager.NavigateTo($"/dashboard/artist/{id}");
+    }
+
+    private async Task Submit()
+    {
+        if (post == null) return;
+        var result = await PostService.UpdatePostAsync(PostId, post);
+        if (result)
+        {
+            Console.WriteLine("Post updated successfully.");
+            NavigationManager.NavigateTo($"/dashboard/artist/{id}");
+        }
+        else
+        {
+            Console.WriteLine("Failed to update post.");
+        }
+    }
+}

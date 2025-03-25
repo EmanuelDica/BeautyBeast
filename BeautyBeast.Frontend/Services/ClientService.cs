@@ -29,10 +29,15 @@ public class ClientService
     }
 
     // Create a new client
-    public async Task<bool> CreateClientAsync(CreateClientDto newClient)
+    public async Task<ClientDto?> CreateClientAsync(CreateClientDto newClient)
     {
         var response = await _httpClient.PostAsJsonAsync("clients", newClient);
-        return response.IsSuccessStatusCode;
+        if (response.IsSuccessStatusCode)
+        {
+            var thisClient = await response.Content.ReadFromJsonAsync<ClientDto>();
+            return thisClient;
+        }
+        return null;
     }
 
     // Update an existing client

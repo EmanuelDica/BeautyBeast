@@ -48,6 +48,14 @@
             "Blazored.LocalStorage": {
               "target": "Package",
               "version": "[4.5.0, )"
+            },
+            "Microsoft.AspNetCore.Components": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
+            "Microsoft.AspNetCore.Components.Web": {
+              "target": "Package",
+              "version": "[9.0.2, )"
             }
           },
           "imports": [

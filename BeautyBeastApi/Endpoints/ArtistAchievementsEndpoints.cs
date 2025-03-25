@@ -6,34 +6,42 @@ namespace BeautyBeastApi.Endpoints;
 
 public static class ArtistAchievementsEndpoints
 {
-    const string getAchievementEndpointName = "GetArtistAchievement";
+    const string getByArtistIdEndpointName = "GetAchievementsByArtistId";
 
     public static RouteGroupBuilder MapArtistAchievementsEndpoints(this WebApplication app)
     {
         var group = app.MapGroup("artist-achievements").WithParameterValidation();
 
-        // GET /artist-achievements/{artistId}
+        //GET /artist-achievements - Get all achievements
+        group.MapGet("/", async (BeautyBeastContext dbContext) =>
+        {
+            var allAchievements = await dbContext.ArtistAchievements
+                .Select(a => new ArtistAchievementDto(a.Id, a.Achievement))
+                .ToListAsync();
+
+            return Results.Ok(allAchievements);
+        });
+
+        //GET /artist-achievements/{artistId} - Get achievements by artistId
         group.MapGet("/{artistId}", async (int artistId, BeautyBeastContext dbContext) =>
         {
             var achievements = await dbContext.ArtistAchievements
                 .Where(a => a.ArtistId == artistId)
-                .Select(a => new ArtistAchievementDto(
-                    a.Id,
-                    a.Achievement
-                ))
+                .Select(a => new ArtistAchievementDto(a.Id, a.Achievement))
                 .ToListAsync();
 
-            return Results.Ok(achievements);
-        });
+                if (achievements == null || achievements.Count == 0)
+                    return Results.NotFound($"No achievements found for artist with ID {artistId}.");
 
-        // POST /artist-achievements/{artistId}
+            return Results.Ok(achievements);
+        }).WithName(getByArtistIdEndpointName);
+
+        //POST /artist-achievements/{artistId} - Add new achievement for artist
         group.MapPost("/{artistId}", async (int artistId, CreateArtistAchievementDto newAchievement, BeautyBeastContext dbContext) =>
         {
             var artist = await dbContext.Artists.FindAsync(artistId);
             if (artist == null)
-            {
                 return Results.NotFound($"Artist with ID {artistId} not found.");
-            }
 
             var achievement = new ArtistAchievement
             {
@@ -45,10 +53,10 @@ public static class ArtistAchievementsEndpoints
             await dbContext.SaveChangesAsync();
 
             var achievementDto = new ArtistAchievementDto(achievement.Id, achievement.Achievement);
-            return Results.CreatedAtRoute(getAchievementEndpointName, new { id = achievement.Id }, achievementDto);
+            return Results.Created($"/artist-achievements/{artistId}", achievementDto); // Created response with location header
         });
 
-        // PUT /artist-achievements/{artistId}
+        //PUT /artist-achievements/{artistId} - Replace all achievements for artist
         group.MapPut("/{artistId}", async (int artistId, EditUserAchievementsDto editAchievements, BeautyBeastContext dbContext) =>
         {
             var artist = await dbContext.Artists
@@ -56,11 +64,8 @@ public static class ArtistAchievementsEndpoints
                 .FirstOrDefaultAsync(a => a.Id == artistId);
 
             if (artist == null)
-            {
                 return Results.NotFound($"Artist with ID {artistId} not found.");
-            }
 
-            // Remove old achievements and add new ones
             dbContext.ArtistAchievements.RemoveRange(artist.Achievements);
 
             var newAchievements = editAchievements.Achievements.Select(a => new ArtistAchievement
@@ -72,18 +77,19 @@ public static class ArtistAchievementsEndpoints
             dbContext.ArtistAchievements.AddRange(newAchievements);
             await dbContext.SaveChangesAsync();
 
-            var newAchievementDtos = newAchievements.Select(a => new ArtistAchievementDto(a.Id, a.Achievement)).ToList();
+            var newAchievementDtos = newAchievements
+                .Select(a => new ArtistAchievementDto(a.Id, a.Achievement))
+                .ToList();
+
             return Results.Ok(newAchievementDtos);
         });
 
-        // DELETE /artist-achievements/{id}
+        //DELETE /artist-achievements/{id} - Delete specific achievement by Id
         group.MapDelete("/{id}", async (int id, BeautyBeastContext dbContext) =>
         {
             var achievement = await dbContext.ArtistAchievements.FindAsync(id);
             if (achievement == null)
-            {
                 return Results.NotFound($"Achievement with ID {id} not found.");
-            }
 
             dbContext.ArtistAchievements.Remove(achievement);
             await dbContext.SaveChangesAsync();

@@ -1,3 +1,4 @@
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/obj/Debug/net9.0/BeautyBeast.Frontend.csproj.AssemblyReference.cache
 /Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/obj/Debug/net9.0/BeautyBeast.Frontend.GeneratedMSBuildEditorConfig.editorconfig
 /Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/obj/Debug/net9.0/BeautyBeast.Frontend.AssemblyInfoInputs.cache
 /Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/obj/Debug/net9.0/BeautyBeast.Frontend.AssemblyInfo.cs
@@ -13,7 +14,17 @@
 /Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/bin/Debug/net9.0/BeautyBeast.Frontend.dll
 /Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/bin/Debug/net9.0/BeautyBeast.Frontend.pdb
 /Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/bin/Debug/net9.0/Blazored.LocalStorage.dll
-/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/obj/Debug/net9.0/BeautyBeast.Frontend.csproj.AssemblyReference.cache
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/bin/Debug/net9.0/Microsoft.AspNetCore.Authorization.dll
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/bin/Debug/net9.0/Microsoft.AspNetCore.Components.dll
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/bin/Debug/net9.0/Microsoft.AspNetCore.Components.Forms.dll
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/bin/Debug/net9.0/Microsoft.AspNetCore.Components.Web.dll
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/bin/Debug/net9.0/Microsoft.AspNetCore.Metadata.dll
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/bin/Debug/net9.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/bin/Debug/net9.0/Microsoft.Extensions.Options.dll
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/bin/Debug/net9.0/Microsoft.Extensions.Primitives.dll
+/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/bin/Debug/net9.0/Microsoft.JSInterop.dll
 /Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/obj/Debug/net9.0/scopedcss/Components/Layout/MainLayout.razor.rz.scp.css
 /Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/obj/Debug/net9.0/scopedcss/bundle/BeautyBeast.Frontend.styles.css
 /Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/obj/Debug/net9.0/scopedcss/projectbundle/BeautyBeast.Frontend.bundle.scp.css

@@ -108,8 +108,8 @@ public class BeautyBeastContext(DbContextOptions<BeautyBeastContext> options)
             new
             {
                 Id = 2,
-                Description = "Chiaroscuro masterpiece!",
-                MediaUrl = "chiaroscuro.jpg",
+                Description = "Microblading masterpiece!",
+                MediaUrl = "microblading.jpg",
                 DatePosted = new DateTime(2024, 02, 21, 15, 30, 00),
                 Likes = 0,
                 ArtistId = 2

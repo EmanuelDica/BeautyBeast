@@ -1,0 +1,62 @@
+@page "/account/{id:int}/edit/status/{statusId:int}"
+@inject Services.StatusService StatusService
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
+<h2>Edit Status Post</h2>
+
+@if (status == null)
+{
+    <div class="alert alert-info">Loading status...</div>
+}
+else
+{
+    <textarea class="form-control mb-3" @bind="status.Text" rows="4"></textarea>
+    <button class="btn btn-secondary" @onclick="Cancel">Cancel</button>
+    <button class="btn btn-primary" @onclick="Submit">Save Changes</button>
+}
+
+@code {
+    [Parameter] public int id { get; set; }         // The user/account id
+    [Parameter] public int statusId { get; set; }     // The status id to edit
+
+    private EditStatusDto? status;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Fetch the status by its id using the StatusService.
+        var fetchedStatus = await StatusService.GetStatusByIdAsync(statusId);
+        if (fetchedStatus != null)
+        {
+            // Create an EditStatusDto based on the fetched status.
+            status = new EditStatusDto
+            {
+                Text = fetchedStatus.Text
+                // Initialize other properties if needed.
+            };
+        }
+    }
+
+    private void Cancel()
+    {
+        // Navigate back to the Create/List Status page.
+        NavigationManager.NavigateTo($"/account/{id}/post/status");
+    }
+
+    private async Task Submit()
+    {
+        if (status == null) return;
+
+        var result = await StatusService.UpdateStatusAsync(statusId, status);
+        if (result)
+        {
+            Console.WriteLine("Status updated successfully.");
+            // After updating, navigate back to the Create/List Status page.
+            NavigationManager.NavigateTo($"/account/{id}/post/status");
+        }
+        else
+        {
+            Console.WriteLine("Failed to update status.");
+        }
+    }
+}

@@ -15,8 +15,11 @@ public record class ArtistDto(
 ) : UserDto(Id, FullName, Email, ProfilePictureUrl, DateJoined);
 
 public record class CreateArtistDto(
-    [Required] string FullName,
-    [Required] string Email,
+    [Required]
+    [StringLength(50, ErrorMessage = "FullName cannot exceed 50 characters.")] string FullName,
+    [Required]
+    [EmailAddress(ErrorMessage = "Invalid email format")]
+    [StringLength(30, ErrorMessage = "Email cannot exceed 30 characters.")] string Email,
     [Required] string Password,
     [Required] string Role = "Artist",
     string? ProfilePictureUrl = null,
@@ -27,11 +30,12 @@ public record class CreateArtistDto(
 public class EditArtistDto
 {
     [Required]
-    [StringLength(50)]
+    [StringLength(50, ErrorMessage = "FullName cannot exceed 50 characters.")]
     public string FullName { get; set; } = string.Empty;
 
     [Required]
-    [StringLength(30)]
+    [EmailAddress(ErrorMessage = "Invalid email format")]
+    [StringLength(30, ErrorMessage = "Email cannot exceed 30 characters.")]
     public string Email { get; set; } = string.Empty;
 
     public string? ProfilePictureUrl { get; set; }

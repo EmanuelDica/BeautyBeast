@@ -1,0 +1,144 @@
+# ============================ ARTISTS ============================
+
+### GET all artists
+GET http://localhost:5021/artists
+
+### GET artist by Id (valid)
+GET http://localhost:5021/artists/2
+
+### GET artist by Id (invalid - non-existent)
+GET http://localhost:5021/artists/999
+
+### POST artist - Valid data
+POST http://localhost:5021/artists
+Content-Type: application/json
+
+{
+  "FullName": "Samantha Doe",
+  "Email": "samantha.doe@example.com",
+  "ProfilePictureUrl": "samantha.jpg",
+  "Password": "StrongPass123!",
+  "Role": "Artist",
+  "Bio": "Creative makeup artist",
+  "Achievements": [
+    { "Achievement": "Award 2024" },
+    { "Achievement": "PMU Certified" }
+  ]
+}
+
+### POST artist - Missing FullName (should fail)
+POST http://localhost:5021/artists
+Content-Type: application/json
+
+{
+  "Email": "samantha.doe@example.com",
+  "Password": "StrongPass123!",
+  "Role": "Artist"
+}
+
+### POST artist - Missing Email (should fail)
+POST http://localhost:5021/artists
+Content-Type: application/json
+
+{
+  "FullName": "Samantha Doe",
+  "Password": "StrongPass123!",
+  "Role": "Artist"
+}
+
+### POST artist - Missing Password (should fail)
+POST http://localhost:5021/artists
+Content-Type: application/json
+
+{
+  "FullName": "Samantha Doe",
+  "Email": "samantha.doe@example.com",
+  "Role": "Artist"
+}
+
+### POST artist - FullName too long (should fail)
+POST http://localhost:5021/artists
+Content-Type: application/json
+
+{
+  "FullName": "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",  
+  "Email": "samantha.doe@example.com",
+  "Password": "StrongPass123!",
+  "Role": "Artist"
+}
+
+### POST artist - Email too long (should fail)
+POST http://localhost:5021/artists
+Content-Type: application/json
+
+{
+  "FullName": "Samantha Doe",
+  "Email": "toolongemailaddressexampletoolong@example.com",
+  "Password": "StrongPass123!",
+  "Role": "Artist"
+}
+
+### PUT artist - Valid update
+PUT http://localhost:5021/artists/1
+Content-Type: application/json
+
+{
+  "FullName": "Updated Artist Name",
+  "Email": "updated.artist@example.com",
+  "ProfilePictureUrl": "updatedartist.jpg",
+  "Bio": "Updated bio content",
+  "Achievements": [
+    { "Achievement": "Updated Award 2025" }
+  ]
+}
+
+### PUT artist - Missing FullName (should fail)
+PUT http://localhost:5021/artists/1
+Content-Type: application/json
+
+{
+  "Email": "updated.artist@example.com"
+}
+
+### PUT artist - FullName too long (should fail)
+PUT http://localhost:5021/artists/1
+Content-Type: application/json
+
+{
+  "FullName": "Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "Email": "updated.artist@example.com"
+}
+
+### PUT artist - Missing Email (should fail)
+PUT http://localhost:5021/artists/1
+Content-Type: application/json
+
+{
+  "FullName": "Updated Artist Name"
+}
+
+### PUT artist - Email too long (should fail)
+PUT http://localhost:5021/artists/1
+Content-Type: application/json
+
+{
+  "FullName": "Updated Artist Name",
+  "Email": "extremelylongemailaddressfortestpurposes@example.com"
+}
+
+### PUT artist - Empty Achievements list (valid edge case)
+PUT http://localhost:5021/artists/1
+Content-Type: application/json
+
+{
+  "FullName": "Updated Artist",
+  "Email": "artist.update@example.com",
+  "Achievements": []
+}
+
+
+### DELETE artist by Id (valid)
+DELETE http://localhost:5021/artists/2
+
+### DELETE artist by Id (invalid - non-existent)
+DELETE http://localhost:5021/artists/999

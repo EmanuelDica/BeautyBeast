@@ -1,82 +1,93 @@
-@page "/artists/profile/treatments"
+@page "/account/{id:int}/treatments"
 @inject NavigationManager NavigationManager
 @inject Services.TreatmentService TreatmentService
 @inject Services.UserService UserService
 @inject IJSRuntime JSRuntime
+@using BeautyBeast.Frontend.Components
+@rendermode InteractiveServer
 
 <div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center">
-        <h2>Your Treatments</h2>
-        <button class="btn btn-success" @onclick="NavigateToCreateTreatment">➕ Create Treatment</button>
-    </div>
-
-    @if (treatments == null)
+    @if (user == null)
     {
         <div class="alert alert-info mt-3">Loading treatments...</div>
     }
-    else if (!treatments.Any())
+    else if (userRole != "Artist")
     {
-        <div class="alert alert-warning mt-3">No treatments found.</div>
+        <div class="alert alert-danger mt-3">Access denied. Only artists can manage treatments.</div>
     }
     else
     {
-        <div class="list-group mt-3">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Your Treatments</h2>
+            <button class="btn btn-success" @onclick="NavigateToCreateTreatment">➕ Create Treatment</button>
+        </div>
+
+        @if (treatments == null)
+        {
+            <div class="alert alert-info mt-3">Loading treatments...</div>
+        }
+        else if (!treatments.Any())
+        {
+            <div class="alert alert-warning mt-3">No treatments found.</div>
+        }
+        else
+        {
             @foreach (var treatment in treatments)
             {
-                <div class="list-group-item">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h5>@treatment.Name</h5>
-                            <p>@treatment.Description</p>
-                            <p>
-                                <small>
-                                    Booking Date: @treatment.BookingDate.ToShortDateString(),
-                                    Start: @treatment.StartTime.ToString("hh\\:mm"),
-                                    Duration: @treatment.Duration.ToString("hh\\:mm")
-                                </small>
-                            </p>
-                        </div>
-                        <div>
-                            <button class="btn btn-primary me-2" @onclick="@(() => EditTreatment(treatment.Id))">Edit</button>
-                            <button class="btn btn-danger" @onclick="@(() => DeleteTreatment(treatment.Id))">Delete</button>
-                        </div>
+                <div class="mb-3">
+                    <FeedItem 
+                        Poster="user!" 
+                        Content="@(treatment.Name + " - " + treatment.Description + Environment.NewLine +
+                                  "Booking Date: " + treatment.BookingDate.ToShortDateString() + 
+                                  ", Start: " + treatment.StartTime.ToString("hh\\:mm") + 
+                                  ", Duration: " + treatment.Duration.ToString("hh\\:mm"))"
+                        Comments="new List<CommentDto>()" />
+
+                    <div class="mt-2">
+                        <button class="btn btn-primary me-2" @onclick="() => EditTreatment(treatment.Id)">Edit</button>
+                        <button class="btn btn-danger" @onclick="() => DeleteTreatment(treatment.Id)">Delete</button>
                     </div>
                 </div>
             }
-        </div>
+        }
     }
 </div>
 
 @code {
+    [Parameter] public int id { get; set; }
     private List<TreatmentDto>? treatments;
+    private UserDto? user;
+    private string? userRole;
     private int artistId;
 
     protected override async Task OnInitializedAsync()
     {
-        // Retrieve current user (artist) to get their ID
-        var currentUser = await UserService.GetCurrentUserAsync();
-        if (currentUser == null)
+        // Get current user and role.
+        user = await UserService.GetCurrentUserAsync();
+        userRole = await UserService.GetUserRoleAsync();
+
+        // If no user or role isn't "Artist", redirect to unauthorized.
+        if (string.IsNullOrEmpty(userRole) || userRole != "Artist")
         {
-            // If no user is found, you might redirect to login
-            NavigationManager.NavigateTo("/login");
+            NavigationManager.NavigateTo("/unauthorized");
             return;
         }
 
-        artistId = currentUser.Id; // Assuming the current user is the artist
-
-        // Retrieve all treatments and filter by current artist's ID
+        artistId = user?.Id ?? 0;
         var allTreatments = await TreatmentService.GetAllTreatmentsAsync();
         treatments = allTreatments.Where(t => t.ArtistId == artistId).ToList();
     }
 
     private void NavigateToCreateTreatment()
     {
-        NavigationManager.NavigateTo("/artists/profile/treatments/create");
+        // Navigate using the route parameter id.
+        NavigationManager.NavigateTo($"/account/{id}/treatments/create");
     }
 
     private void EditTreatment(int treatmentId)
     {
-        NavigationManager.NavigateTo($"/artists/profile/treatments/edit/{treatmentId}");
+        // Navigate to the edit page using the route parameter id.
+        NavigationManager.NavigateTo($"/account/{id}/treatments/edit/{treatmentId}");
     }
 
     private async Task DeleteTreatment(int treatmentId)
@@ -85,9 +96,11 @@
         if (confirmed)
         {
             bool result = await TreatmentService.DeleteTreatmentAsync(treatmentId);
-            if (result && treatments != null)
+            if (result)
             {
-                treatments.RemoveAll(t => t.Id == treatmentId);
+                // Remove from the list and refresh the page.
+                treatments?.RemoveAll(t => t.Id == treatmentId);
+                NavigationManager.NavigateTo($"/account/{id}/treatments", forceLoad: true);
             }
         }
     }

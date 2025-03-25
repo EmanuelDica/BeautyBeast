@@ -12,13 +12,13 @@ public record class UserDto(
 
 public class EditUsersDto
 {
-    [Required][StringLength(50)] public string FullName { get; set; } = string.Empty;
-    [Required][StringLength(30)] public string Email { get; set; } = string.Empty;
+    [Required] [StringLength(50)] public string FullName { get; set; } = string.Empty;
+    [Required] [StringLength(30)] public string Email { get; set; } = string.Empty;
     public string? ProfilePictureUrl { get; set; }
 
     public EditUsersDto() { }
 
-    public EditUsersDto(string fullName, string email, string? profilePictureUrl)
+    public EditUsersDto(string fullName, string email, string? profilePictureUrl = null)
     {
         FullName = fullName;
         Email = email;
@@ -27,7 +27,9 @@ public class EditUsersDto
 }
 
 public record class CreateUserDto(
-    [Required][StringLength(50)]string FullName,
-    [Required][StringLength(30)]string Email,
-    string? ProfilePictureUrl
+    [Required] [StringLength(50)] string FullName,
+    [Required] [StringLength(30)] string Email,
+    [Required] string HashedPassword,
+    [Required] string Role,
+    string? ProfilePictureUrl = null
 );

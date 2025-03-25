@@ -1,23 +1,22 @@
 {
   "version": 2,
-  "dgSpecHash": "ZEeHPgSnn8Y=",
+  "dgSpecHash": "UD7l5g6kOek=",
   "success": true,
   "projectFilePath": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/BeautyBeast.Frontend.csproj",
   "expectedPackageFiles": [
     "/Users/emanueldica/.nuget/packages/blazored.localstorage/4.5.0/blazored.localstorage.4.5.0.nupkg.sha512",
-    "/Users/emanueldica/.nuget/packages/microsoft.aspnetcore.authorization/8.0.0/microsoft.aspnetcore.authorization.8.0.0.nupkg.sha512",
-    "/Users/emanueldica/.nuget/packages/microsoft.aspnetcore.components/8.0.0/microsoft.aspnetcore.components.8.0.0.nupkg.sha512",
-    "/Users/emanueldica/.nuget/packages/microsoft.aspnetcore.components.analyzers/8.0.0/microsoft.aspnetcore.components.analyzers.8.0.0.nupkg.sha512",
-    "/Users/emanueldica/.nuget/packages/microsoft.aspnetcore.components.forms/8.0.0/microsoft.aspnetcore.components.forms.8.0.0.nupkg.sha512",
-    "/Users/emanueldica/.nuget/packages/microsoft.aspnetcore.components.web/8.0.0/microsoft.aspnetcore.components.web.8.0.0.nupkg.sha512",
-    "/Users/emanueldica/.nuget/packages/microsoft.aspnetcore.metadata/8.0.0/microsoft.aspnetcore.metadata.8.0.0.nupkg.sha512",
-    "/Users/emanueldica/.nuget/packages/microsoft.extensions.dependencyinjection/8.0.0/microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
-    "/Users/emanueldica/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
-    "/Users/emanueldica/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
-    "/Users/emanueldica/.nuget/packages/microsoft.extensions.options/8.0.0/microsoft.extensions.options.8.0.0.nupkg.sha512",
-    "/Users/emanueldica/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
-    "/Users/emanueldica/.nuget/packages/microsoft.jsinterop/8.0.0/microsoft.jsinterop.8.0.0.nupkg.sha512",
-    "/Users/emanueldica/.nuget/packages/system.io.pipelines/8.0.0/system.io.pipelines.8.0.0.nupkg.sha512"
+    "/Users/emanueldica/.nuget/packages/microsoft.aspnetcore.authorization/9.0.2/microsoft.aspnetcore.authorization.9.0.2.nupkg.sha512",
+    "/Users/emanueldica/.nuget/packages/microsoft.aspnetcore.components/9.0.2/microsoft.aspnetcore.components.9.0.2.nupkg.sha512",
+    "/Users/emanueldica/.nuget/packages/microsoft.aspnetcore.components.analyzers/9.0.2/microsoft.aspnetcore.components.analyzers.9.0.2.nupkg.sha512",
+    "/Users/emanueldica/.nuget/packages/microsoft.aspnetcore.components.forms/9.0.2/microsoft.aspnetcore.components.forms.9.0.2.nupkg.sha512",
+    "/Users/emanueldica/.nuget/packages/microsoft.aspnetcore.components.web/9.0.2/microsoft.aspnetcore.components.web.9.0.2.nupkg.sha512",
+    "/Users/emanueldica/.nuget/packages/microsoft.aspnetcore.metadata/9.0.2/microsoft.aspnetcore.metadata.9.0.2.nupkg.sha512",
+    "/Users/emanueldica/.nuget/packages/microsoft.extensions.dependencyinjection/9.0.2/microsoft.extensions.dependencyinjection.9.0.2.nupkg.sha512",
+    "/Users/emanueldica/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/9.0.2/microsoft.extensions.dependencyinjection.abstractions.9.0.2.nupkg.sha512",
+    "/Users/emanueldica/.nuget/packages/microsoft.extensions.logging.abstractions/9.0.2/microsoft.extensions.logging.abstractions.9.0.2.nupkg.sha512",
+    "/Users/emanueldica/.nuget/packages/microsoft.extensions.options/9.0.2/microsoft.extensions.options.9.0.2.nupkg.sha512",
+    "/Users/emanueldica/.nuget/packages/microsoft.extensions.primitives/9.0.2/microsoft.extensions.primitives.9.0.2.nupkg.sha512",
+    "/Users/emanueldica/.nuget/packages/microsoft.jsinterop/9.0.2/microsoft.jsinterop.9.0.2.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,0 +1,82 @@
+# ============================ COMMENTS ============================
+
+### GET all comments
+GET http://localhost:5021/comments
+
+### GET comment by Id (valid)
+GET http://localhost:5021/comments/1
+
+### GET comment by Id (invalid - non-existent)
+GET http://localhost:5021/comments/999
+
+### POST comment - Valid data
+POST http://localhost:5021/comments
+Content-Type: application/json
+
+{
+  "TheComment": "Wow, just had my eye-brows done by Rachel Hertzler. They look amazing",
+  "PostId": 2
+}
+
+### POST comment - Missing TheComment (should fail)
+POST http://localhost:5021/comments
+Content-Type: application/json
+
+{
+  "PostId": 1
+}
+
+### POST comment - Missing PostId (should fail)
+POST http://localhost:5021/comments
+Content-Type: application/json
+
+{
+  "TheComment": "Missing post ID."
+}
+
+### POST comment - Empty TheComment (should fail)
+POST http://localhost:5021/comments
+Content-Type: application/json
+
+{
+  "TheComment": "",
+  "PostId": 1
+}
+
+### POST comment - Invalid PostId (string instead of int - should fail)
+POST http://localhost:5021/comments
+Content-Type: application/json
+
+{
+  "TheComment": "Test comment",
+  "PostId": 99
+}
+
+### PUT comment - Valid update
+PUT http://localhost:5021/comments/1
+Content-Type: application/json
+
+{
+  "TheComment": "Updated comment text here."
+}
+
+### PUT comment - Missing TheComment (should fail)
+PUT http://localhost:5021/comments/1
+Content-Type: application/json
+
+{
+}
+
+### PUT comment - Empty TheComment (should fail)
+PUT http://localhost:5021/comments/1
+Content-Type: application/json
+
+{
+  "TheComment": ""
+}
+
+### DELETE comment by Id (valid)
+DELETE http://localhost:5021/comments/1
+
+### DELETE comment by Id (invalid - non-existent)
+DELETE http://localhost:5021/comments/999

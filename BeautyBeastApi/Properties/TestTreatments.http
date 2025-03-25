@@ -1,0 +1,94 @@
+# ============================ TREATMENTS ============================
+
+### GET all treatments
+GET http://localhost:5021/treatments
+
+### GET specific treatment by Id (valid)
+GET http://localhost:5021/treatments/1
+
+### GET specific treatment by Id (invalid - non-existent)
+GET http://localhost:5021/treatments/999
+
+### POST treatment - Valid data
+POST http://localhost:5021/treatments
+Content-Type: application/json
+
+{
+  "Name": "Microblading",
+  "Description": "Semi-permanent eyebrow enhancement.",
+  "PreCareInstructions": "Avoid caffeine before the appointment.",
+  "AfterCareInstructions": "Do not touch or scratch the treated area.",
+  "ConsentFormUrl": "microblading-consent.pdf",
+  "BookingDate": "2025-04-01",
+  "StartTime": "10:30:00",
+  "Duration": "01:30:00",
+  "ArtistId": 2
+}
+
+### POST treatment - Missing required field (should fail)
+POST http://localhost:5021/treatments
+Content-Type: application/json
+
+{
+  "Name": "Missing Description Treatment",
+  "PreCareInstructions": "Avoid caffeine.",
+  "AfterCareInstructions": "No touching.",
+  "ConsentFormUrl": "consent-form.pdf",
+  "BookingDate": "2025-04-01",
+  "StartTime": "10:30:00",
+  "Duration": "01:00:00",
+  "ArtistId": 2
+}
+
+### POST treatment - Invalid date format (should fail) - not necesarily worried about this, as client validation would force dateTime format to be valid
+POST http://localhost:5021/treatments
+Content-Type: application/json
+
+{
+  "Name": "Invalid Date Treatment",
+  "Description": "Test desc",
+  "PreCareInstructions": "None",
+  "AfterCareInstructions": "None",
+  "ConsentFormUrl": "form.pdf",
+  "BookingDate": "invalid-date",
+  "StartTime": "10:30:00",
+  "Duration": "01:00:00",
+  "ArtistId": 2
+}
+
+### PUT treatment - Valid update
+PUT http://localhost:5021/treatments/1
+Content-Type: application/json
+
+{
+  "Name": "Updated Brows Treatment",
+  "Description": "Updated treatment description.",
+  "PreCareInstructions": "Updated pre-care instructions.",
+  "AfterCareInstructions": "Updated after-care instructions.",
+  "ConsentFormUrl": "updated-consent.pdf",
+  "BookingDate": "2025-04-10",
+  "StartTime": "11:00:00",
+  "Duration": "01:15:00",
+  "ArtistId": 1
+}
+
+### PUT treatment - Missing Name (should fail)
+PUT http://localhost:5021/treatments/1
+Content-Type: application/json
+
+{
+  "Description": "No name here.",
+  "PreCareInstructions": "Instructions.",
+  "AfterCareInstructions": "Instructions.",
+  "ConsentFormUrl": "form.pdf",
+  "BookingDate": "2025-04-10",
+  "StartTime": "11:00:00",
+  "Duration": "01:15:00",
+  "ArtistId": 1
+}
+
+### DELETE treatment by Id (valid)
+DELETE http://localhost:5021/treatments/3
+
+### DELETE treatment by Id (invalid - non-existent)
+DELETE http://localhost:5021/treatments/999

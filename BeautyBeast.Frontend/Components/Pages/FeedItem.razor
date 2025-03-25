@@ -1,0 +1,40 @@
+@using BeautyBeast.Frontend.Dtos
+@rendermode InteractiveServer
+
+<div class="card my-3">
+    <!-- Top Bar: Avatar and User Name -->
+    <div class="card-header d-flex align-items-center">
+        <img src="@Poster.ProfilePictureUrl" alt="Avatar" class="rounded-circle me-2" style="width:40px; height:40px;" />
+        <span>@Poster.FullName</span>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="card-body">
+        <p class="card-text">@Content</p>
+        @if (ChildContent != null)
+        {
+            @ChildContent
+        }
+    </div>
+
+    <!-- Comments Section -->
+    @if (Comments != null && Comments.Any())
+    {
+        <div class="card-footer">
+            <h6>Comments</h6>
+            @foreach (var comment in Comments)
+            {
+                <div class="border rounded p-2 my-1">
+                    <strong>Comment:</strong> @comment.TheComment
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public UserDto Poster { get; set; } = default!;
+    [Parameter] public string Content { get; set; } = string.Empty;
+    [Parameter] public List<CommentDto> Comments { get; set; } = new();
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+}

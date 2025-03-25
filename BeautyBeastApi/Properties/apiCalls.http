@@ -125,10 +125,13 @@ Content-Type: application/json
 ###
 DELETE http://localhost:5021/bookings/4
 
-###
+### GET all comments
 GET http://localhost:5021/comments
 
-###
+### GET specific comment by Id 
+GET http://localhost:5021/comments/2
+
+### POST comment
 POST http://localhost:5021/comments
 Content-Type: application/json
 
@@ -137,13 +140,18 @@ Content-Type: application/json
   "PostId": 1
 }
 
-###
+### Edit comment
 PUT http://localhost:5021/comments/1
 Content-Type: application/json
 
 {
   "TheComment": "Updated comment text here."
 }
+
+
+
+### DELETE a comment by Id
+DELETE http://localhost:5021/comments/1
 
 ###
 GET http://localhost:5021/posts
@@ -229,3 +237,61 @@ Content-Type: application/json
 
 ###
 DELETE  http://localhost:5021/treatments/5
+
+###
+GET http://localhost:5021/hashedpasswords
+
+
+
+
+
+
+
+### GET specific post by Id
+GET http://localhost:5021/posts/1
+
+### GET specific status by Id
+GET http://localhost:5021/statuses/2
+
+### DELETE status by Id
+DELETE http://localhost:5021/statuses/2
+
+### GET specific treatment by Id
+GET http://localhost:5021/treatments/1
+
+### DELETE treatment by Id
+DELETE http://localhost:5021/treatments/3
+
+### GET specific artist achievement by Id
+GET http://localhost:5021/achievements/1
+
+### POST new artist achievement (if endpoint exists)
+POST http://localhost:5021/achievements
+Content-Type: application/json
+
+{
+  "ArtistId": 1,
+  "Achievement": "New Award 2025"
+}
+
+### PUT update existing artist achievement (if endpoint exists)
+PUT http://localhost:5021/achievements/1
+Content-Type: application/json
+
+{
+  "Achievement": "Updated Achievement Title"
+}
+
+### DELETE artist achievement by Id (if endpoint exists)
+DELETE http://localhost:5021/achievements/1
+
+### GET all hashed passwords
+GET http://localhost:5021/hashedpasswords
+
+### POST new hashed password (if endpoint exists)
+POST http://localhost:5021/hashedpasswords
+Content-Type: application/json
+
+{
+  "password": "TestPassword123"
+}

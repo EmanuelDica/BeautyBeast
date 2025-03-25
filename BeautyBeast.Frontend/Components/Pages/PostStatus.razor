@@ -1,10 +1,16 @@
-@page "/users/post/status"
+@page "/account/{id:int}/post/status"
 @inject Services.StatusService StatusService
 @inject NavigationManager NavigationManager
+@rendermode InteractiveServer
 
 <h2>✍ Create Status Post</h2>
 
 <textarea class="form-control mb-3" placeholder="Write your status..." rows="4" @bind="StatusText"></textarea>
+
+<div class="mb-3">
+    <button class="btn btn-outline-success me-2" @onclick="LikeStatus">Like (@LikesCount)</button>
+    <button class="btn btn-outline-info" @onclick="CommentStatus">Comment</button>
+</div>
 
 <button class="btn btn-secondary" @onclick="Cancel">Cancel</button>
 <button class="btn btn-primary" @onclick="Submit">Post</button>
@@ -12,19 +18,15 @@
 @if (LastPostedStatusId > 0)
 {
     <button class="btn btn-outline-primary mt-3" @onclick="() => EditStatus(LastPostedStatusId)">
-        ✏ Edit Last Status
+        ✏ Edit
     </button>
 }
 
 @code {
+    [Parameter] public int id { get; set; } // User/account id from the route.
     private string StatusText = string.Empty;
-    private int UserId = 1; // Replace with actual user ID
     private int LastPostedStatusId = 0;
-
-    private void Cancel()
-    {
-        NavigationManager.NavigateTo("/");
-    }
+    private int LikesCount = 0;
 
     private async Task Submit()
     {
@@ -34,14 +36,16 @@
             return;
         }
 
-        var newStatus = new CreateStatusDto(StatusText, UserId);
+        // Use the route parameter 'id' as the user id.
+        var newStatus = new CreateStatusDto(StatusText, id);
         var result = await StatusService.CreateStatusAsync(newStatus);
 
         if (result)
         {
             Console.WriteLine("Status posted successfully.");
-            LastPostedStatusId = await GetLastPostedStatusId(); // Retrieve the last posted status ID
-            NavigationManager.NavigateTo("/");
+            LastPostedStatusId = await GetLastPostedStatusId();
+            // After posting, navigate back to the status page.
+            NavigationManager.NavigateTo($"/account/{id}/post/status");
         }
         else
         {
@@ -49,14 +53,35 @@
         }
     }
 
+    private void Cancel()
+    {
+        // Navigate back to the status page for the current account.
+        NavigationManager.NavigateTo($"/account/{id}/post/status");
+    }
+
     private void EditStatus(int statusId)
     {
-        NavigationManager.NavigateTo($"/users/status/edit/{statusId}");
+        // Navigate to the edit status page using the route parameter 'id'
+        // and the status id.
+        NavigationManager.NavigateTo($"/account/{id}/edit/status/{statusId}");
     }
 
     private async Task<int> GetLastPostedStatusId()
     {
         var statuses = await StatusService.GetAllStatusesAsync();
         return statuses.OrderByDescending(s => s.DatePosted).FirstOrDefault()?.Id ?? 0;
+    }
+
+    // Optional: Implement like and comment functionality (for now they just log output)
+    private async Task LikeStatus()
+    {
+        LikesCount++;
+        Console.WriteLine($"Likes incremented: {LikesCount}");
+        await Task.CompletedTask;
+    }
+
+    private void CommentStatus()
+    {
+        Console.WriteLine("Comment button clicked (functionality not implemented).");
     }
 }

@@ -6,7 +6,7 @@ public record class PostDto
 (
     int Id,
     string Description,
-    List<string> MediaUrls,
+    string MediaUrl,
     DateTime DatePosted,
     List<CommentDto> Comments,
     int Likes,
@@ -17,22 +17,27 @@ public record class PostDto
 public record class CreatePostDto
 (
     [Required][StringLength(300)] string Description,
-    List<string>? MediaUrls,
-    [Required]int ArtistId
+    [Required] string MediaUrl,
+    [Required] int ArtistId
 );
+
 
 public class EditPostDto
 {
     [StringLength(300)]
-    public string? Description { get; set; }
+    public string? Description { get; set; } = string.Empty;
 
-    public List<string>? MediaUrls { get; set; } = new List<string>();
+    [Required]
+    public string MediaUrl { get; set; }
 
-    public EditPostDto() { }
+    public EditPostDto() 
+    { 
+        MediaUrl = string.Empty;
+    }
 
-    public EditPostDto(string? description, List<string>? mediaUrls = null)
+    public EditPostDto(string? description, string mediaUrl)
     {
         Description = description;
-        MediaUrls = mediaUrls ?? new List<string>();
+        MediaUrl = mediaUrl;
     }
 }

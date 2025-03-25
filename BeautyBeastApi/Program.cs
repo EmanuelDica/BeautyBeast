@@ -55,5 +55,6 @@ app.MapCommentsEndpoints();
 app.MapPostsEndpoints();
 app.MapTreatmentsEndpoints();
 app.MapStatusEndpoints();
+app.MapArtistAchievementsEndpoints();
 
 app.Run();

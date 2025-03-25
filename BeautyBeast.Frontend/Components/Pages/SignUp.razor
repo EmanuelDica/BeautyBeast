@@ -1,11 +1,14 @@
-@page "/signup"
+@page "/account/signup"
 @layout Layout.BlankLayout
 @using System.Text.RegularExpressions
+@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
 @using System.ComponentModel.DataAnnotations
 @using BeautyBeast.Frontend.Services
 @using BeautyBeast.Frontend.Dtos
 @inject ArtistService ArtistService
 @inject ClientService ClientService
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
 
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -17,7 +20,7 @@
                     <div class="mb-3">
                         <label for="firstName" class="form-label">First Name</label>
                         <input type="text" class="form-control @(firstNameValid ? "is-valid" : firstNameError != null ? "is-invalid" : "")"
-                               id="firstName" @bind="FirstName" required>
+                               id="firstName" @bind="FirstName" @oninput="() => ValidateFields()" required>
                         <div class="invalid-feedback">@firstNameError</div>
                     </div>
 
@@ -25,7 +28,7 @@
                     <div class="mb-3">
                         <label for="surname" class="form-label">Last Name</label>
                         <input type="text" class="form-control @(surnameValid ? "is-valid" : surnameError != null ? "is-invalid" : "")"
-                               id="surname" @bind="Surname" required>
+                               id="surname" @bind="Surname" @oninput="() => ValidateFields()" required>
                         <div class="invalid-feedback">@surnameError</div>
                     </div>
 
@@ -33,7 +36,7 @@
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control @(emailValid ? "is-valid" : emailError != null ? "is-invalid" : "")"
-                               id="email" @bind="Email" required>
+                               id="email" @bind="Email" @oninput="() => ValidateFields()" required>
                         <div class="invalid-feedback">@emailError</div>
                     </div>
 
@@ -41,24 +44,18 @@
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control @(passwordValid ? "is-valid" : passwordError != null ? "is-invalid" : "")"
-                               id="password" @bind="Password" required>
+                               id="password" @bind="Password" @oninput="() => ValidateFields()" required>
                         <div class="invalid-feedback">@passwordError</div>
                     </div>
 
-                    <!-- Account Type Selection -->
-                  <div class="mb-3">
-                    <label class="form-label">Account Type</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" id="clientUser"
-                            @bind="SelectedAccountType">
-                        <label class="form-check-label" for="clientUser">Client</label>
+                    <!-- Account Type Selection using a select element -->
+                    <div class="mb-3">
+                        <label class="form-label">Account Type</label>
+                        <select class="form-select" @bind="SelectedAccountType">
+                            <option value="clientuser">Client</option>
+                            <option value="artistuser">Professional</option>
+                        </select>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" id="artistUser"
-                            @bind="SelectedAccountType">
-                        <label class="form-check-label" for="artistUser">Professional</label>
-                    </div>
-                </div>
 
                     <!-- Bio (Only for Artists) -->
                     @if (SelectedAccountType == "artistuser")
@@ -66,19 +63,18 @@
                         <div class="mb-3">
                             <label for="bio" class="form-label">Bio</label>
                             <textarea class="form-control" id="bio" rows="3" placeholder="Tell us about your expertise..."
-                                      @bind="Bio"></textarea>
+                                      @bind="Bio" @oninput="() => ValidateFields()"></textarea>
                         </div>
                     }
-
-                    <!-- Terms and Conditions -->
-                    <div class="form-check mb-3">
-                        <input class="form-check-input" type="checkbox" id="terms" @bind="AcceptedTerms">
-                        <label class="form-check-label" for="terms">I agree to the Terms and Conditions</label>
-                    </div>
 
                     <!-- Register Button -->
                     <button type="submit" class="btn btn-primary w-100" disabled="@(!success)">Register</button>
                 </form>
+            </div>
+
+            <div class="mt-3 text-center">
+                <span>Already have an account?</span>
+                <a href="/account/signin" class="btn btn-link">Sign In</a>
             </div>
 
             @if (errors.Length > 0)
@@ -102,10 +98,23 @@
     private string Surname { get; set; } = string.Empty;
     private string Email { get; set; } = string.Empty;
     private string Password { get; set; } = string.Empty;
-    private string SelectedAccountType { get; set; } = "clientuser"; // Default to Client
     private string Bio { get; set; } = string.Empty;
-    private bool AcceptedTerms = false;
+    // If you have a terms checkbox, uncomment and use:
+    // private bool AcceptedTerms = false;
 
+    // Backing field for SelectedAccountType with default value.
+    private string selectedAccountType = "clientuser";
+    public string SelectedAccountType
+    {
+        get => selectedAccountType;
+        set
+        {
+            selectedAccountType = value;
+            ValidateFields();
+        }
+    }
+
+    // Field-level validation variables.
     private bool firstNameValid = false;
     private string? firstNameError;
     private bool surnameValid = false;
@@ -130,18 +139,39 @@
         {
             if (SelectedAccountType == "artistuser")
             {
-                var createArtistDto = new CreateArtistDto($"{FirstName} {Surname}", Email, string.Empty, Bio, new List<ArtistAchievementDto>());
-                await ArtistService.CreateArtistAsync(createArtistDto);
-                Console.WriteLine("Artist created successfully.");
+                var createArtistDto = new CreateArtistDto($"{FirstName} {Surname}", Email, "Artist", Password, null);
+                var thisArtist = await ArtistService.CreateArtistAsync(createArtistDto);
+
+                if (thisArtist != null)
+                {
+                    await LocalStorage.SetItemAsync("userId", thisArtist.Id);
+                    await LocalStorage.SetItemAsync("userRole", "Artist");
+                    NavigationManager.NavigateTo($"/dashboard/artist/{thisArtist.Id}");
+                }
+                else
+                {
+                    errors = new[] { "Failed to create artist account." };
+                }
             }
             else if (SelectedAccountType == "clientuser")
             {
-                var createClientDto = new CreateClientDto($"{FirstName} {Surname}", Email, string.Empty);
-                await ClientService.CreateClientAsync(createClientDto);
-                Console.WriteLine("Client created successfully.");
+                var createClientDto = new CreateClientDto($"{FirstName} {Surname}", Email, null, Password, "Client");
+                var thisClient = await ClientService.CreateClientAsync(createClientDto);
+                
+
+                if (thisClient != null)
+                {
+                    await LocalStorage.SetItemAsync("userId", thisClient.Id);
+                    await LocalStorage.SetItemAsync("userRole", "Client");
+                    NavigationManager.NavigateTo($"/dashboard/client/{thisClient.Id}");
+                }
+                else
+                {
+                    errors = new[] { "Failed to create client account." };
+                }
             }
 
-            // Reset the form after successful registration
+            // Navigate to sign in after registration.
             ResetForm();
         }
         catch (Exception ex)
@@ -164,7 +194,7 @@
         passwordValid = !string.IsNullOrWhiteSpace(Password);
         passwordError = passwordValid ? null : "Password is required";
 
-        success = firstNameValid && surnameValid && emailValid && passwordValid && AcceptedTerms;
+        success = firstNameValid && surnameValid && emailValid && passwordValid;
     }
 
     private void ResetForm()
@@ -175,7 +205,6 @@
         Password = "";
         SelectedAccountType = "clientuser";
         Bio = "";
-        AcceptedTerms = false;
         success = false;
     }
 }

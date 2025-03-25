@@ -15,22 +15,28 @@ public class AuthenticationService
         _localStorage = localStorage;
     }
 
-    public async Task<bool> LoginAsync(string email, string password)
+    public async Task<string?> LoginAsync(string email, string password)
     {
+        Console.WriteLine("[LOGIN] LoginAsync method was called");
         try
         {    
-            var requestDto = new LoginRequestDto(email, password);
+            var requestDto = new LoginRequest { Email = email, Password = password };
             var response = await _httpClient.PostAsJsonAsync("auth/login", requestDto);
 
             if (response.IsSuccessStatusCode)
             {
                 var loginResponse = await response.Content.ReadFromJsonAsync<LoginResponseDto>();
+                
+                Console.WriteLine($"[LOGIN RESPONSE] Token: {loginResponse?.Token}, Role: {loginResponse?.Role}");
+                var raw = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("[RAW LOGIN RESPONSE] " + raw);
+                
                 if (loginResponse?.Token != null && !string.IsNullOrEmpty(loginResponse.Role))
                 {
                     await _localStorage.SetItemAsync("authToken", loginResponse.Token);
                     await _localStorage.SetItemAsync("userRole", loginResponse.Role); 
                     _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", loginResponse.Token);
-                    return true;
+                    return loginResponse.Role;
                 }
             }
         }    
@@ -38,7 +44,7 @@ public class AuthenticationService
         {
             Console.WriteLine($"Error during login: {ex.Message}");
         }
-        return false;
+        return null;
     }
 
     public async Task LogoutAsync()

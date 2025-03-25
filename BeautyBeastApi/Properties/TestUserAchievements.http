@@ -1,0 +1,53 @@
+# ============================ ARTIST ACHIEVEMENTS ============================
+
+### GET all artist achievement
+GET http://localhost:5021/artist-achievements
+
+### GET specific artist achievement by Id (valid)
+GET http://localhost:5021/artist-achievements/2
+
+### GET specific artist achievement by Id (invalid - non-existent)
+GET http://localhost:5021/artist-achievements/999
+
+### POST new artist achievement - Valid data
+POST http://localhost:5021/artist-achievements/2
+Content-Type: application/json
+
+{
+  "Achievement": "Best Microblading Artist 2024"
+}
+
+### POST new artist achievement - Missing achievement (should fail)
+POST http://localhost:5021/artist-achievements
+Content-Type: application/json
+
+{
+  "Achievement": ""
+}
+
+### PUT update achievements - Valid multiple achievements
+PUT http://localhost:5021/artist-achievements/1
+Content-Type: application/json
+
+{
+  "Achievements": [
+    "Award A",
+    "Award B",
+    "Award C"
+  ]
+}
+
+### PUT update achievements - Empty list
+PUT http://localhost:5021/artist-achievements/1
+Content-Type: application/json
+
+{
+  "Achievements": []
+}
+
+
+### DELETE artist achievement by Id (valid)
+DELETE http://localhost:5021/artist-achievements/4
+
+### DELETE artist achievement by Id (invalid - non-existent)
+DELETE http://localhost:5021/artist-achievements/999

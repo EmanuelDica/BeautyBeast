@@ -1,0 +1,96 @@
+@page "/dashboard/client/{id:int}"
+@layout MainLayoutClient
+@using BeautyBeast.Frontend.Components.Layout
+@using BeautyBeast.Frontend.Dtos
+@using BeautyBeast.Frontend.Components
+@inject Services.PostService PostsService
+@inject Services.StatusService StatusService
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
+<div class="container mt-4">
+    <h5 class="mb-3">Dashboard</h5>
+
+    <!-- Navigation link to the account details page -->
+    <div class="mb-3">
+        <a class="btn btn-outline-primary" href="/account/@id">My Account</a>
+    </div>
+
+    @if (posts == null || statuses == null)
+    {
+        <div class="alert alert-info">Loading...</div>
+    }
+    else
+    {
+        <div>
+            <h6>Posts</h6>
+            @if (posts.Any())
+            {
+                @foreach (var post in posts)
+                {
+                    // Create a default UserDto for the post's author.
+                    var defaultPoster = new UserDto(
+                        post.ArtistId,
+                        post.ArtistName,
+                        string.Empty,
+                        "default-avatar.png",
+                        DateTime.MinValue
+                    );
+                    <FeedItem 
+                        Poster="@defaultPoster" 
+                        Content="@("[POST] " + post.Description)" 
+                        Comments="@(post.Comments ?? new List<CommentDto>())" />
+                }
+            }
+            else
+            {
+                <p>No posts available.</p>
+            }
+        </div>
+        <div class="mt-4">
+            <h6>Statuses</h6>
+            @if (statuses.Any())
+            {
+                @foreach (var status in statuses)
+                {
+                    var defaultPoster = new UserDto(
+                        status.UserId,
+                        status.UserName,
+                        string.Empty,
+                        "default-avatar.png",
+                        DateTime.MinValue
+                    );
+                    <FeedItem 
+                        Poster="@defaultPoster" 
+                        Content="@("[STATUS] " + status.Text)" 
+                        Comments="@(status.Comments ?? new List<CommentDto>())" />
+                }
+            }
+            else
+            {
+                <p>No statuses available.</p>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public int id { get; set; }
+    private List<PostDto>? posts;
+    private List<StatusDto>? statuses;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // Fetch all posts and statuses.
+            // If you need to filter posts by the user's following list, update these service calls.
+            posts = await PostsService.GetAllPostsAsync();
+            statuses = await StatusService.GetAllStatusesAsync();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading dashboard data: {ex.Message}");
+        }
+    }
+}

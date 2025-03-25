@@ -1,0 +1,164 @@
+# ============================ USERS ============================
+
+### GET all users
+GET http://localhost:5021/users
+
+### GET user by Id (valid)
+GET http://localhost:5021/users/3
+
+### GET user by Id (invalid - non-existent)
+GET http://localhost:5021/users/999
+
+### POST user - Valid data
+POST http://localhost:5021/users
+Content-Type: application/json
+
+{
+  "fullName": "Jane Doe",
+  "email": "jane.doe@example.com",
+  "profilePictureUrl": "https://example.com/jane.jpg",
+  "hashedPassword": "SecurePass123!",
+  "role": "Client"
+}
+
+### POST user - Not Email Format (Will Fail)
+POST http://localhost:5021/users
+Content-Type: application/json
+
+{
+  "fullName": "Jane Doe",
+  "email": "janeDoeatexampledotcom",
+  "profilePictureUrl": "https://example.com/jane.jpg",
+  "hashedPassword": "SecurePass123!",
+  "role": "Client"
+}
+
+### POST user - Missing FullName (should fail)
+POST http://localhost:5021/users
+Content-Type: application/json
+
+{
+  "email": "jane.doe@example.com",
+  "hashedPassword": "SecurePass123!",
+  "role": "Client"
+}
+
+### POST user - FullName too long (fail)
+POST http://localhost:5021/users
+Content-Type: application/json
+
+{
+  "fullName": "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "email": "jane.doe@example.com",
+  "hashedPassword": "SecurePass123!",
+  "role": "Client"
+}
+
+### POST user - Missing Email (should fail)
+POST http://localhost:5021/users
+Content-Type: application/json
+
+{
+  "fullName": "Jane Doe",
+  "hashedPassword": "SecurePass123!",
+  "role": "Client"
+}
+
+### POST user - Email too long (should fail)
+POST http://localhost:5021/users
+Content-Type: application/json
+
+{
+  "fullName": "Jane Doe",
+  "email": "aVeryLongEmailAddressThatExceedsThirtyCharacters@example.com",
+  "hashedPassword": "SecurePass123!",
+  "role": "Client"
+}
+
+### POST user - Missing HashedPassword (should fail)
+POST http://localhost:5021/users
+Content-Type: application/json
+
+{
+  "fullName": "Jane Doe",
+  "email": "jane.doe@example.com",
+  "role": "Client"
+}
+
+### POST user - Missing Role (should fail)
+POST http://localhost:5021/users
+Content-Type: application/json
+
+{
+  "fullName": "Jane Doe",
+  "email": "jane.doe@example.com",
+  "hashedPassword": "SecurePass123!"
+}
+
+### PUT user - Valid data
+PUT http://localhost:5021/users/3
+Content-Type: application/json
+
+{
+  "fullName": "Updated Name",
+  "email": "updated.email@example.com",
+  "profilePictureUrl": "https://example.com/updated.jpg"
+}
+
+### PUT user - Missing FullName (should fail)
+PUT http://localhost:5021/users/3
+Content-Type: application/json
+
+{
+  "email": "updated.email@example.com",
+  "profilePictureUrl": "https://example.com/updated.jpg"
+}
+
+### PUT user - FullName too long (will fail)
+PUT http://localhost:5021/users/3
+Content-Type: application/json
+
+{
+  "fullName": "This name is way too long to be an acceptable name bbbbbbbbb1",
+  "email": "updated.email@example.com",
+  "profilePictureUrl": "https://example.com/updated.jpg"
+}
+
+### PUT user - FullName 50 char 
+PUT http://localhost:5021/users/3
+Content-Type: application/json
+
+{
+  "fullName": "Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "email": "updated.email@example.com",
+  "profilePictureUrl": "https://example.com/updated.jpg"
+}
+
+### PUT user - Missing Email (fail)
+PUT http://localhost:5021/users/3
+Content-Type: application/json
+
+{
+  "fullName": "Updated Name",
+  "profilePictureUrl": "https://example.com/updated.jpg"
+}
+
+### PUT user - Email too long (fail)
+PUT http://localhost:5021/users/3
+Content-Type: application/json
+
+{
+  "fullName": "Updated Name",
+  "email": "aVeryLongEmailAddressThatExceedsThirtyCharacters@example.com",
+  "profilePictureUrl": "https://example.com/updated.jpg"
+}
+
+### DELETE user by Id (valid)
+DELETE http://localhost:5021/users/3
+
+### DELETE user by Id (invalid - non-existent)
+DELETE http://localhost:5021/users/999
+
+
+
+

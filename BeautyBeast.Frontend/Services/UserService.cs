@@ -27,6 +27,11 @@ namespace BeautyBeast.Frontend.Services
             return user;
         }
 
+        public async Task<string?> GetUserRoleAsync()
+        {
+            return await _localStorage.GetItemAsync<string>("userRole");
+        }
+
         public async Task<UserDto?> GetCurrentUserAsync()
         {
             var authToken = await _localStorage.GetItemAsync<string>("authToken");

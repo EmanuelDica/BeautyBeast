@@ -1,8 +1,12 @@
-@page "/users/account/artist"
+@page "/account/{id:int}"
 @inject NavigationManager NavigationManager
 @inject Services.UserService UserService
 @inject Services.ArtistService ArtistService
 @inject Services.PostService PostService
+@inject Services.StatusService StatusService
+@using BeautyBeast.Frontend.Dtos
+@using BeautyBeast.Frontend.Components
+@rendermode InteractiveServer
 
 <div class="container mt-4">
     @if (user == null)
@@ -24,23 +28,44 @@
                 }
             </ul>
 
+            <!-- Navigate to the treatments list page for this account -->
             <button class="btn btn-primary mt-3" @onclick="NavigateToManageTreatments">
                 💆 Manage Treatments
             </button>
 
             <h6 class="mt-4">🖼️ Posts:</h6>
-            <div class="row">
-                @foreach (var post in posts)
+            <div>
+                @if (posts != null && posts.Any())
                 {
-                    <div class="col-md-6 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    <strong>[@(post.MediaUrls.Any() ? "MEDIA" : "STATUS")]</strong> @post.Description
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    @foreach (var post in posts)
+                    {
+                        <FeedItem 
+                            Poster="user!" 
+                            Content="@post.Description" 
+                            Comments="post.Comments ?? new List<CommentDto>()" />
+                    }
+                }
+                else
+                {
+                    <p>No posts available.</p>
+                }
+            </div>
+
+            <h6 class="mt-4">✍ Statuses:</h6>
+            <div>
+                @if (statuses != null && statuses.Any())
+                {
+                    @foreach (var status in statuses)
+                    {
+                        <FeedItem 
+                            Poster="user!" 
+                            Content="@status.Text" 
+                            Comments="status.Comments ?? new List<CommentDto>()" />
+                    }
+                }
+                else
+                {
+                    <p>No statuses available.</p>
                 }
             </div>
         </div>
@@ -48,33 +73,39 @@
 </div>
 
 @code {
+    [Parameter] public int id { get; set; }
     private UserDto? user;
     private List<PostDto> posts = new();
+    private List<StatusDto> statuses = new();
     private List<ArtistAchievementDto> artistAchievements = new();
 
     protected override async Task OnInitializedAsync()
-{
-    try
     {
-        user = await UserService.GetCurrentUserAsync();
-        if (user != null)
+        try
         {
-            posts = await PostService.GetPostsByUserIdAsync(user.Id);
-            artistAchievements = await ArtistService.GetAchievementsByArtistIdAsync(user.Id);
+            // Retrieve the current user (should match the id in the route)
+            user = await UserService.GetCurrentUserAsync();
+            if (user != null)
+            {
+                // Fetch posts, statuses, and achievements for the current user.
+                posts = await PostService.GetPostsByUserIdAsync(user.Id);
+                statuses = await StatusService.GetAllStatusesAsync();
+                artistAchievements = await ArtistService.GetAchievementsByArtistIdAsync(user.Id);
+            }
+            else
+            {
+                Console.WriteLine("No current user found.");
+            }
         }
-        else
+        catch (Exception ex)
         {
-            Console.WriteLine("No current user found.");
+            Console.WriteLine($"Error loading artist profile: {ex.Message}");
         }
     }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Error loading artist profile: {ex.Message}");
-    }
-}
 
     private void NavigateToManageTreatments()
     {
-        NavigationManager.NavigateTo("/treatments/manage");
+        // Navigate to the treatments list for this account.
+        NavigationManager.NavigateTo($"/account/{id}/treatments");
     }
 }

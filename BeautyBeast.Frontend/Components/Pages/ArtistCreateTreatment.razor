@@ -1,0 +1,161 @@
+@page "/account/{id:int}/treatments/create"
+@inject NavigationManager NavigationManager
+@inject Services.TreatmentService TreatmentService
+@inject Services.UserService UserService
+@rendermode InteractiveServer
+
+@if (user == null)
+{
+    <div class="alert alert-info mt-3">Loading treatment details...</div>
+}
+else if (userRole != "Artist")
+{
+    <div class="alert alert-danger mt-3">Access denied. Only artists can create treatments.</div>
+}
+else
+{
+    <h2>💆 Create Treatment</h2>
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Treatment Name</label>
+        <input type="text" class="form-control" id="name"
+               value="@Treatment.Name"
+               @oninput="e => Treatment = Treatment with { Name = e.Value?.ToString() ?? string.Empty }" />
+    </div>
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" rows="3"
+                  @oninput="e => Treatment = Treatment with { Description = e.Value?.ToString() ?? string.Empty }">@Treatment.Description</textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="preCare" class="form-label">Pre-Care Instructions</label>
+        <textarea class="form-control" id="preCare" rows="3"
+                  @oninput="e => Treatment = Treatment with { PreCareInstructions = e.Value?.ToString() ?? string.Empty }">@Treatment.PreCareInstructions</textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="afterCare" class="form-label">After-Care Instructions</label>
+        <textarea class="form-control" id="afterCare" rows="3"
+                  @oninput="e => Treatment = Treatment with { AfterCareInstructions = e.Value?.ToString() ?? string.Empty }">@Treatment.AfterCareInstructions</textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="consentFormUrl" class="form-label">Consent Form URL</label>
+        <input type="url" class="form-control" id="consentFormUrl"
+               value="@Treatment.ConsentFormUrl"
+               @oninput="e => Treatment = Treatment with { ConsentFormUrl = e.Value?.ToString() ?? string.Empty }" />
+    </div>
+
+    <div class="mb-3">
+        <label for="bookingDate" class="form-label">Booking Date</label>
+        <input type="date" class="form-control" id="bookingDate"
+               value="@BookingDateString"
+               @onchange="ConvertBookingDate" />
+    </div>
+
+    <div class="mb-3">
+        <label for="startTime" class="form-label">Start Time</label>
+        <input type="time" class="form-control" id="startTime"
+               value="@StartTimeString"
+               @onchange="ConvertStartTime" />
+    </div>
+
+    <div class="mb-3">
+        <label for="duration" class="form-label">Duration (Minutes)</label>
+        <input type="number" class="form-control" id="duration"
+               value="@DurationMinutes"
+               @onchange="ConvertDuration" />
+    </div>
+
+    <button class="btn btn-secondary" @onclick="Cancel">Cancel</button>
+    <button class="btn btn-primary" @onclick="Submit">Create Treatment</button>
+}
+
+@code {
+    // Route parameter representing the current user's (artist's) id.
+    [Parameter] public int id { get; set; }
+
+    // Initialize the treatment with default values.
+    private CreateTreatmentDto Treatment = new(
+        Name: "",
+        Description: "",
+        PreCareInstructions: "",
+        AfterCareInstructions: "",
+        ConsentFormUrl: "",
+        BookingDate: DateOnly.FromDateTime(DateTime.Now),
+        StartTime: TimeOnly.FromDateTime(DateTime.Now),
+        Duration: TimeSpan.FromMinutes(30),
+        ArtistId: 1 // This will be overwritten.
+    );
+
+    private UserDto? user;
+    private string? userRole;
+
+    private string BookingDateString => Treatment.BookingDate.ToString("yyyy-MM-dd");
+    private string StartTimeString => Treatment.StartTime.ToString("HH:mm");
+    private int DurationMinutes => (int)Treatment.Duration.TotalMinutes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Retrieve the current user and their role.
+        user = await UserService.GetCurrentUserAsync();
+        userRole = await UserService.GetUserRoleAsync();
+
+        // If the user isn't logged in or isn't an artist, redirect.
+        if (user == null || userRole != "Artist")
+        {
+            NavigationManager.NavigateTo("/unauthorized");
+            return;
+        }
+
+        // Update the ArtistId in the Treatment DTO with the logged-in user's id.
+        Treatment = Treatment with { ArtistId = user.Id };
+    }
+
+    private void ConvertBookingDate(ChangeEventArgs e)
+    {
+        if (DateOnly.TryParse(e.Value?.ToString(), out var date))
+        {
+            Treatment = Treatment with { BookingDate = date };
+        }
+    }
+
+    private void ConvertStartTime(ChangeEventArgs e)
+    {
+        if (TimeOnly.TryParse(e.Value?.ToString(), out var time))
+        {
+            Treatment = Treatment with { StartTime = time };
+        }
+    }
+
+    private void ConvertDuration(ChangeEventArgs e)
+    {
+        if (int.TryParse(e.Value?.ToString(), out var minutes))
+        {
+            Treatment = Treatment with { Duration = TimeSpan.FromMinutes(minutes) };
+        }
+    }
+
+    private void Cancel()
+    {
+        // Navigate to the treatments list page for this account.
+        NavigationManager.NavigateTo($"/account/{id}/treatments");
+    }
+
+    private async Task Submit()
+    {
+        var result = await TreatmentService.CreateTreatmentAsync(Treatment);
+        if (result)
+        {
+            Console.WriteLine("Treatment created successfully.");
+            // After creation, navigate to the treatments list page.
+            NavigationManager.NavigateTo($"/account/{id}/treatments");
+        }
+        else
+        {
+            Console.WriteLine("Failed to create treatment.");
+        }
+    }
+}

@@ -1,0 +1,51 @@
+@page "/"
+@inject Services.UserService UserService
+@inject Services.AuthenticationService AuthService
+@inject NavigationManager NavigationManager
+@inject ILogger<Redirect> Logger
+@rendermode InteractiveServer
+
+<div class="container mt-4">
+    <p>Loading...</p>
+</div>
+
+@code {
+    private bool _hasRedirected = false;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && !_hasRedirected)
+        {
+            Logger.LogInformation("OnAfterRenderAsync triggered.");
+
+            await Task.Delay(2000);
+
+            var user = await UserService.GetCurrentUserAsync();
+            var role = await AuthService.GetUserRoleAsync();
+
+            Logger.LogInformation("User: {UserName}; Role: {Role}", user?.FullName ?? "null", role);
+
+            if (user != null && !string.IsNullOrEmpty(role))
+            {
+                if (role == "Artist")
+                {
+                    NavigationManager.NavigateTo($"/dashboard/artist/{user.Id}");
+                }
+                else if (role == "Client")
+                {
+                    NavigationManager.NavigateTo($"/dashboard/client/{user.Id}");
+                }
+                else
+                {
+                    NavigationManager.NavigateTo("/account/signin");
+                }
+            }
+            else
+            {
+                NavigationManager.NavigateTo("/account/signin");
+            }
+
+            _hasRedirected = true;
+        }
+    }
+}

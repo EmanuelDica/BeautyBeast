@@ -15,7 +15,7 @@ public record class PostDto
 
 public record class CreatePostDto
 (
-    [Required][StringLength(300)] string Description,
+    [Required][StringLength(300, ErrorMessage = "Description should be 300 characters or less.")] string Description,
     [Required] string MediaUrl,
     [Required] int ArtistId
 );
@@ -23,7 +23,7 @@ public record class CreatePostDto
 
 public class EditPostDto
 {
-    [StringLength(300)]
+    [StringLength(300, ErrorMessage = "Description should be 300 characters or less.")]
     public string? Description { get; set; } = string.Empty;
 
     [Required]
