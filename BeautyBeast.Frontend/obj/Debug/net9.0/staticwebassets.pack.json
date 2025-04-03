@@ -9,6 +9,34 @@
       "PackagePath": "staticwebassets/app.css"
     },
     {
+      "Id": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Brows.jpg",
+      "PackagePath": "staticwebassets/images/Brows.jpg"
+    },
+    {
+      "Id": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Emma Watson.jpg",
+      "PackagePath": "staticwebassets/images/Emma Watson.jpg"
+    },
+    {
+      "Id": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Frida Leo.avif",
+      "PackagePath": "staticwebassets/images/Frida Leo.avif"
+    },
+    {
+      "Id": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/John Doe.jpg",
+      "PackagePath": "staticwebassets/images/John Doe.jpg"
+    },
+    {
+      "Id": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Lea Vinci.avif",
+      "PackagePath": "staticwebassets/images/Lea Vinci.avif"
+    },
+    {
+      "Id": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Rachel Hertzler.jpg",
+      "PackagePath": "staticwebassets/images/Rachel Hertzler.jpg"
+    },
+    {
+      "Id": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Vivian.avif",
+      "PackagePath": "staticwebassets/images/Vivian.avif"
+    },
+    {
       "Id": "obj/Debug/net9.0/staticwebassets/msbuild.BeautyBeast.Frontend.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },

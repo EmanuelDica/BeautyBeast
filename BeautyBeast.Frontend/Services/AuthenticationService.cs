@@ -1,61 +1,52 @@
-namespace BeautyBeast.Frontend.Services;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using BeautyBeast.Frontend.Dtos;
-using Blazored.LocalStorage;
+
+namespace BeautyBeast.Frontend.Services;
 
 public class AuthenticationService
 {
     private readonly HttpClient _httpClient;
-    private readonly ILocalStorageService _localStorage;
 
-    public AuthenticationService(HttpClient httpClient, ILocalStorageService localStorage)
+    public AuthenticationService(HttpClient httpClient)
     {
         _httpClient = httpClient;
-        _localStorage = localStorage;
     }
 
-    public async Task<string?> LoginAsync(string email, string password)
+    public async Task<LoginResponseDto?> LoginAsync(string email, string password)
     {
         Console.WriteLine("[LOGIN] LoginAsync method was called");
+
         try
-        {    
+        {
             var requestDto = new LoginRequest { Email = email, Password = password };
             var response = await _httpClient.PostAsJsonAsync("auth/login", requestDto);
 
             if (response.IsSuccessStatusCode)
             {
                 var loginResponse = await response.Content.ReadFromJsonAsync<LoginResponseDto>();
-                
-                Console.WriteLine($"[LOGIN RESPONSE] Token: {loginResponse?.Token}, Role: {loginResponse?.Role}");
-                var raw = await response.Content.ReadAsStringAsync();
-                Console.WriteLine("[RAW LOGIN RESPONSE] " + raw);
-                
-                if (loginResponse?.Token != null && !string.IsNullOrEmpty(loginResponse.Role))
+
+                Console.WriteLine($"[LOGIN RESPONSE] Token: {loginResponse?.Token}, Role: {loginResponse?.Role}, UserId: {loginResponse?.UserId}");
+
+                if (loginResponse != null && !string.IsNullOrEmpty(loginResponse.Token))
                 {
-                    await _localStorage.SetItemAsync("authToken", loginResponse.Token);
-                    await _localStorage.SetItemAsync("userRole", loginResponse.Role); 
-                    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", loginResponse.Token);
-                    return loginResponse.Role;
+                    _httpClient.DefaultRequestHeaders.Authorization =
+                        new AuthenticationHeaderValue("Bearer", loginResponse.Token);
+
+                    return loginResponse;
                 }
             }
-        }    
+        }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error during login: {ex.Message}");
+            Console.WriteLine($"[LOGIN ERROR] {ex.Message}");
         }
+
         return null;
     }
 
-    public async Task LogoutAsync()
+    public void Logout()
     {
-        await _localStorage.RemoveItemAsync("authToken");
-        await _localStorage.RemoveItemAsync("userRole");
         _httpClient.DefaultRequestHeaders.Authorization = null;
-    }
-
-    public async Task<string?> GetUserRoleAsync()
-    {
-        return await _localStorage.GetItemAsync<string>("userRole");
     }
 }

@@ -100,23 +100,24 @@
 
         try
         {
-            var role = await AuthenticationService.LoginAsync(Email, Password);
+            var loginResponse = await AuthenticationService.LoginAsync(Email, Password);
 
-            await JSRuntime.InvokeVoidAsync("alert", $"Returned role: {role}");
-            if (!string.IsNullOrEmpty(role))
+            if (loginResponse != null)
             {
-                // Navigate based on role
-                if (role.Equals("Artist", StringComparison.OrdinalIgnoreCase))
+                var role = loginResponse.Role;
+                var userId = loginResponse.UserId;
+
+                if (role == "Artist")
                 {
-                    NavigationManager.NavigateTo("/dashboard/artist/{id:int}");
+                    NavigationManager.NavigateTo($"/dashboard/artist/{userId}");
                 }
-                else if (role.Equals("Client", StringComparison.OrdinalIgnoreCase))
+                else if (role == "Client")
                 {
-                    NavigationManager.NavigateTo("/dashboard/client/{id:int}");
+                    NavigationManager.NavigateTo($"/dashboard/client/{userId}");
                 }
                 else
                 {
-                    errors = new[] { "Invalid email or password." };
+                    errors = new[] { "Unknown user role." };
                 }
             }
             else

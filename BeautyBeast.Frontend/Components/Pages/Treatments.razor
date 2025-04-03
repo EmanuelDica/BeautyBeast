@@ -7,13 +7,9 @@
 @rendermode InteractiveServer
 
 <div class="container mt-4">
-    @if (user == null)
+    @if (!initialized)
     {
         <div class="alert alert-info mt-3">Loading treatments...</div>
-    }
-    else if (userRole != "Artist")
-    {
-        <div class="alert alert-danger mt-3">Access denied. Only artists can manage treatments.</div>
     }
     else
     {
@@ -59,23 +55,28 @@
     private UserDto? user;
     private string? userRole;
     private int artistId;
+    private bool initialized = false;
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        // Get current user and role.
-        user = await UserService.GetCurrentUserAsync();
-        userRole = await UserService.GetUserRoleAsync();
-
-        // If no user or role isn't "Artist", redirect to unauthorized.
-        if (string.IsNullOrEmpty(userRole) || userRole != "Artist")
+        if (firstRender && !initialized)
         {
-            NavigationManager.NavigateTo("/unauthorized");
-            return;
-        }
+            user = await UserService.GetCurrentUserAsync();
+            userRole = await UserService.GetUserRoleAsync();
 
-        artistId = user?.Id ?? 0;
-        var allTreatments = await TreatmentService.GetAllTreatmentsAsync();
-        treatments = allTreatments.Where(t => t.ArtistId == artistId).ToList();
+            if (string.IsNullOrEmpty(userRole) || userRole != "Artist")
+            {
+                NavigationManager.NavigateTo("/unauthorized");
+                return;
+            }
+
+            artistId = user?.Id ?? 0;
+            var allTreatments = await TreatmentService.GetAllTreatmentsAsync();
+            treatments = allTreatments.Where(t => t.ArtistId == artistId).ToList();
+
+            initialized = true;
+            StateHasChanged(); // force re-render
+        }
     }
 
     private void NavigateToCreateTreatment()

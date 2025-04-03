@@ -12,7 +12,7 @@ public record class ArtistDto(
     List<ArtistAchievementDto> Achievements,
     List<PostDto> Posts,
     List<TreatmentDto> Treatments
-) : UserDto(Id, FullName, Email, ProfilePictureUrl, DateJoined);
+) : UserDto(Id, FullName, Email, ProfilePictureUrl, DateJoined, Role);
 
 public record class CreateArtistDto(
     [Required]

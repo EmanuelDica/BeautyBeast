@@ -7,12 +7,11 @@ public record class ArtistDto(
     string Email,
     string? ProfilePictureUrl,
     DateTime DateJoined,
-    string Role,
     string Bio,
     List<ArtistAchievementDto> Achievements,
     List<PostDto> Posts,
     List<TreatmentDto> Treatments
-) : UserDto(Id, FullName, Email, ProfilePictureUrl, DateJoined);
+) : UserDto(Id, FullName, Email, ProfilePictureUrl, DateJoined, "Artist");
 
 public record class CreateArtistDto(
     [Required]

@@ -2,6 +2,7 @@
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JS
 @inject Services.AuthenticationService AuthService
+@inject Services.UserService UserService
 @using Microsoft.AspNetCore.Components.Routing
 @using BeautyBeast.Frontend.Components.Layout
 
@@ -21,10 +22,10 @@
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="/users/account">My Account</a>
+                    <a class="nav-link" href="/account/@userId">My Account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Dashboard</a>
+                    <a class="nav-link" href="/dashboard/client/@userId">Dashboard</a>
                 </li>
             </ul>
 
@@ -45,7 +46,27 @@
 
 @code {
     private string SearchText { get; set; } = string.Empty;
-    private string? UserRole;
+    private int userId;
+    private bool initialized = false;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && !initialized)
+        {
+            var user = await UserService.GetCurrentUserAsync();
+            if (user != null)
+            {
+                userId = user.Id;
+                StateHasChanged(); // re-render to show links with userId
+            }
+            else
+            {
+                NavigationManager.NavigateTo("/account/signin");
+            }
+
+            initialized = true;
+        }
+    }
 
     private void HandleSearch()
     {
@@ -53,10 +74,5 @@
         {
             NavigationManager.NavigateTo($"/search?query={SearchText}");
         }
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        UserRole = await AuthService.GetUserRoleAsync();
     }
 }

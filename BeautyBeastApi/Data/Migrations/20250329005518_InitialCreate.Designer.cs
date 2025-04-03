@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeautyBeastApi.Data.Migrations
 {
     [DbContext(typeof(BeautyBeastContext))]
-    [Migration("20250325162749_InitialCreate")]
+    [Migration("20250329005518_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -201,7 +201,7 @@ namespace BeautyBeastApi.Data.Migrations
                             DatePosted = new DateTime(2024, 2, 20, 16, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "My first PMU work!",
                             Likes = 0,
-                            MediaUrl = "pmu-work.jpg"
+                            MediaUrl = "/images/Brows.jpg"
                         },
                         new
                         {
@@ -210,7 +210,7 @@ namespace BeautyBeastApi.Data.Migrations
                             DatePosted = new DateTime(2024, 2, 21, 15, 30, 0, 0, DateTimeKind.Unspecified),
                             Description = "Microblading masterpiece!",
                             Likes = 0,
-                            MediaUrl = "microblading.jpg"
+                            MediaUrl = "/images/Micro.jpg"
                         });
                 });
 
@@ -378,7 +378,7 @@ namespace BeautyBeastApi.Data.Migrations
                             Email = "leavinci@gmail.com",
                             FullName = "Lea Vinci",
                             HashedPassword = "artist1Pass",
-                            ProfilePictureUrl = "lea.jpg",
+                            ProfilePictureUrl = "images/Lea_Vinci",
                             Role = "Artist",
                             Bio = "Master of PMU"
                         },
@@ -389,7 +389,7 @@ namespace BeautyBeastApi.Data.Migrations
                             Email = "rachelhertz@gmail.com",
                             FullName = "Rachel Hertzler",
                             HashedPassword = "artist2Pass",
-                            ProfilePictureUrl = "rachel.jpg",
+                            ProfilePictureUrl = "images/Rachel_Hertzler.jpg",
                             Role = "Artist",
                             Bio = "Make-up Artist"
                         },
@@ -400,7 +400,7 @@ namespace BeautyBeastApi.Data.Migrations
                             Email = "vivas@gmail.com",
                             FullName = "Vivian A",
                             HashedPassword = "artist3Pass",
-                            ProfilePictureUrl = "viv.jpg",
+                            ProfilePictureUrl = "images/Vivian.jpg",
                             Role = "Artist",
                             Bio = "Hairdresser"
                         },
@@ -411,7 +411,7 @@ namespace BeautyBeastApi.Data.Migrations
                             Email = "fridaleon@gmail.com",
                             FullName = "Frida Leon",
                             HashedPassword = "artist4Pass",
-                            ProfilePictureUrl = "frida.jpg",
+                            ProfilePictureUrl = "images/Frida_Leo.jpg",
                             Role = "Artist",
                             Bio = "Aesthetician"
                         });
@@ -431,7 +431,7 @@ namespace BeautyBeastApi.Data.Migrations
                             Email = "johndoe@gmail.com",
                             FullName = "John Doe",
                             HashedPassword = "client1Pass",
-                            ProfilePictureUrl = "john.jpg",
+                            ProfilePictureUrl = "images/John_doe.jpg",
                             Role = "Client"
                         },
                         new
@@ -441,7 +441,7 @@ namespace BeautyBeastApi.Data.Migrations
                             Email = "emma@gmail.com",
                             FullName = "Emma Watson",
                             HashedPassword = "client2Pass",
-                            ProfilePictureUrl = "emma.jpg",
+                            ProfilePictureUrl = "images/Emma_Watson.jpg",
                             Role = "Client"
                         });
                 });

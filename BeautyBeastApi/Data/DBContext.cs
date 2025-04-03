@@ -35,16 +35,18 @@ public class BeautyBeastContext(DbContextOptions<BeautyBeastContext> options)
 
         // Artists
         modelBuilder.Entity<Artist>().HasData(
-            new { Id = 1, FullName = "Lea Vinci", Email = "leavinci@gmail.com", ProfilePictureUrl = "lea.jpg", DateJoined = new DateTime(2024, 01, 01), Bio = "Master of PMU", HashedPassword = "artist1Pass", Role = "Artist" },
-            new { Id = 2, FullName = "Rachel Hertzler", Email = "rachelhertz@gmail.com", ProfilePictureUrl = "rachel.jpg", DateJoined = new DateTime(2024, 01, 01), Bio = "Make-up Artist", HashedPassword = "artist2Pass", Role = "Artist" },
-            new { Id = 3, FullName = "Vivian A", Email = "vivas@gmail.com", ProfilePictureUrl = "viv.jpg", DateJoined = new DateTime(2024, 01, 01), Bio = "Hairdresser", HashedPassword = "artist3Pass", Role = "Artist" },
-            new { Id = 4, FullName = "Frida Leon", Email = "fridaleon@gmail.com", ProfilePictureUrl = "frida.jpg", DateJoined = new DateTime(2024, 01, 01), Bio = "Aesthetician", HashedPassword = "artist4Pass", Role = "Artist" }
+            new { Id = 1, FullName = "Lea Vinci", Email = "leavinci@gmail.com", 
+            ProfilePictureUrl = "images/Lea_Vinci", 
+            DateJoined = new DateTime(2024, 01, 01), Bio = "Master of PMU", HashedPassword = "artist1Pass", Role = "Artist" },
+            new { Id = 2, FullName = "Rachel Hertzler", Email = "rachelhertz@gmail.com", ProfilePictureUrl = "images/Rachel_Hertzler.jpg", DateJoined = new DateTime(2024, 01, 01), Bio = "Make-up Artist", HashedPassword = "artist2Pass", Role = "Artist" },
+            new { Id = 3, FullName = "Vivian A", Email = "vivas@gmail.com", ProfilePictureUrl = "images/Vivian.jpg", DateJoined = new DateTime(2024, 01, 01), Bio = "Hairdresser", HashedPassword = "artist3Pass", Role = "Artist" },
+            new { Id = 4, FullName = "Frida Leon", Email = "fridaleon@gmail.com", ProfilePictureUrl = "images/Frida_Leo.jpg", DateJoined = new DateTime(2024, 01, 01), Bio = "Aesthetician", HashedPassword = "artist4Pass", Role = "Artist" }
         );
 
         // Clients
         modelBuilder.Entity<Client>().HasData(
-            new { Id = 5, FullName = "John Doe", Email = "johndoe@gmail.com", ProfilePictureUrl = "john.jpg", DateJoined = new DateTime(2024, 01, 01), HashedPassword = "client1Pass", Role = "Client" },
-            new { Id = 6, FullName = "Emma Watson", Email = "emma@gmail.com", ProfilePictureUrl = "emma.jpg", DateJoined = new DateTime(2024, 01, 01), HashedPassword = "client2Pass", Role = "Client" }
+            new { Id = 5, FullName = "John Doe", Email = "johndoe@gmail.com", ProfilePictureUrl = "images/John_doe.jpg", DateJoined = new DateTime(2024, 01, 01), HashedPassword = "client1Pass", Role = "Client" },
+            new { Id = 6, FullName = "Emma Watson", Email = "emma@gmail.com", ProfilePictureUrl = "images/Emma_Watson.jpg", DateJoined = new DateTime(2024, 01, 01), HashedPassword = "client2Pass", Role = "Client" }
         );
 
         // Artist Achievements
@@ -100,7 +102,7 @@ public class BeautyBeastContext(DbContextOptions<BeautyBeastContext> options)
             {
                 Id = 1,
                 Description = "My first PMU work!",
-                MediaUrl = "pmu-work.jpg",
+                MediaUrl = "/images/Brows.jpg",
                 DatePosted = new DateTime(2024, 02, 20, 16, 00, 00),
                 Likes = 0,
                 ArtistId = 1
@@ -109,7 +111,7 @@ public class BeautyBeastContext(DbContextOptions<BeautyBeastContext> options)
             {
                 Id = 2,
                 Description = "Microblading masterpiece!",
-                MediaUrl = "microblading.jpg",
+                MediaUrl = "/images/Micro.jpg",
                 DatePosted = new DateTime(2024, 02, 21, 15, 30, 00),
                 Likes = 0,
                 ArtistId = 2

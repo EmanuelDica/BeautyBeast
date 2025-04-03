@@ -21,7 +21,8 @@ public static class UsersEndpoints
                     u.FullName,
                     u.Email,
                     u.ProfilePictureUrl,
-                    u.DateJoined
+                    u.DateJoined,
+                    u.Role
                 ))
                 .ToListAsync();
 
@@ -38,7 +39,8 @@ public static class UsersEndpoints
                     u.FullName,
                     u.Email,
                     u.ProfilePictureUrl,
-                    u.DateJoined
+                    u.DateJoined,
+                    u.Role
                 ))
                 .FirstOrDefaultAsync();
 
@@ -64,7 +66,7 @@ public static class UsersEndpoints
             dbContext.Users.Add(user);
             await dbContext.SaveChangesAsync();
 
-            var userDto = new UserDto(user.Id, user.FullName, user.Email, user.ProfilePictureUrl, user.DateJoined);
+            var userDto = new UserDto(user.Id, user.FullName, user.Email, user.ProfilePictureUrl, user.DateJoined, user.Role);
 
             return Results.CreatedAtRoute(getUserEndpointName, new { id = user.Id }, userDto);
         });
@@ -85,7 +87,7 @@ public static class UsersEndpoints
 
             await dbContext.SaveChangesAsync();
 
-            var updatedUserDto = new UserDto(user.Id, user.FullName, user.Email, user.ProfilePictureUrl, user.DateJoined);
+            var updatedUserDto = new UserDto(user.Id, user.FullName, user.Email, user.ProfilePictureUrl, user.DateJoined, user.Role);
 
             return Results.Ok(updatedUserDto);
         });

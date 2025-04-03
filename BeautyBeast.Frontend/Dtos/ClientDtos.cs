@@ -7,10 +7,9 @@ public record class ClientDto(
     string Email,
     string? ProfilePictureUrl,
     DateTime DateJoined,
-    string Role,
     List<BookingDto> Bookings,
     List<StatusDto> Statuses
-) : UserDto(Id, FullName, Email, ProfilePictureUrl, DateJoined);
+) : UserDto(Id, FullName, Email, ProfilePictureUrl, DateJoined, "Client");
 
 public record class CreateClientDto(
     [Required]

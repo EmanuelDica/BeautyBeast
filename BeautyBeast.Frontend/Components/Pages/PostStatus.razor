@@ -15,12 +15,6 @@
 <button class="btn btn-secondary" @onclick="Cancel">Cancel</button>
 <button class="btn btn-primary" @onclick="Submit">Post</button>
 
-@if (LastPostedStatusId > 0)
-{
-    <button class="btn btn-outline-primary mt-3" @onclick="() => EditStatus(LastPostedStatusId)">
-        ✏ Edit
-    </button>
-}
 
 @code {
     [Parameter] public int id { get; set; } // User/account id from the route.
@@ -30,26 +24,33 @@
 
     private async Task Submit()
     {
-        if (string.IsNullOrWhiteSpace(StatusText))
+        try
         {
-            Console.WriteLine("Status cannot be empty.");
-            return;
-        }
+            if (string.IsNullOrWhiteSpace(StatusText))
+            {
+                Console.WriteLine("Status cannot be empty.");
+                return;
+            }
 
-        // Use the route parameter 'id' as the user id.
-        var newStatus = new CreateStatusDto(StatusText, id);
-        var result = await StatusService.CreateStatusAsync(newStatus);
+            var newStatus = new CreateStatusDto(StatusText, id);
+            var result = await StatusService.CreateStatusAsync(newStatus);
 
-        if (result)
-        {
-            Console.WriteLine("Status posted successfully.");
-            LastPostedStatusId = await GetLastPostedStatusId();
-            // After posting, navigate back to the status page.
-            NavigationManager.NavigateTo($"/account/{id}/post/status");
+            Console.WriteLine($"[SUBMIT] CreateStatus result: {result}");
+
+            if (result)
+            {
+                Console.WriteLine("Status posted successfully.");
+                LastPostedStatusId = await GetLastPostedStatusId();
+                NavigationManager.NavigateTo($"/account/{id}/post/status");
+            }
+            else
+            {
+                Console.WriteLine("Failed to post status.");
+            }
         }
-        else
+        catch (Exception ex)
         {
-            Console.WriteLine("Failed to post status.");
+            Console.WriteLine($"[ERROR] Exception posting status: {ex.Message}");
         }
     }
 
@@ -57,13 +58,6 @@
     {
         // Navigate back to the status page for the current account.
         NavigationManager.NavigateTo($"/account/{id}/post/status");
-    }
-
-    private void EditStatus(int statusId)
-    {
-        // Navigate to the edit status page using the route parameter 'id'
-        // and the status id.
-        NavigationManager.NavigateTo($"/account/{id}/edit/status/{statusId}");
     }
 
     private async Task<int> GetLastPostedStatusId()

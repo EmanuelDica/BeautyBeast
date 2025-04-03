@@ -1,5 +1,6 @@
 ﻿@inherits LayoutComponentBase
 @inject NavigationManager NavigationManager
+@inject Services.UserService UserService
 @inject IJSRuntime JS
 @inject Services.AuthenticationService AuthService
 @using Microsoft.AspNetCore.Components.Routing
@@ -21,10 +22,10 @@
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="/users/account">My Account</a>
+                    <a class="nav-link" href="/account/@userId">My Account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Dashboard</a>
+                    <a class="nav-link" href="/dashboard/artist/@userId">Dashboard</a>
                 </li>
             </ul>
 
@@ -45,6 +46,27 @@
 
 @code {
     private string SearchText { get; set; } = string.Empty;
+    private int userId;
+    private bool initialized = false;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && !initialized)
+        {
+            var user = await UserService.GetCurrentUserAsync();
+            if (user != null)
+            {
+                userId = user.Id;
+                StateHasChanged(); // re-render to show links with userId
+            }
+            else
+            {
+                NavigationManager.NavigateTo("/account/signin");
+            }
+
+            initialized = true;
+        }
+    }
 
     private void HandleSearch()
     {

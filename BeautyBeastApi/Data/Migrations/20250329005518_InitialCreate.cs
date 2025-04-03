@@ -212,10 +212,10 @@ namespace BeautyBeastApi.Data.Migrations
                 columns: new[] { "Id", "Bio", "DateJoined", "Email", "FullName", "HashedPassword", "ProfilePictureUrl", "Role", "UserType" },
                 values: new object[,]
                 {
-                    { 1, "Master of PMU", new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "leavinci@gmail.com", "Lea Vinci", "artist1Pass", "lea.jpg", "Artist", "Artist" },
-                    { 2, "Make-up Artist", new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "rachelhertz@gmail.com", "Rachel Hertzler", "artist2Pass", "rachel.jpg", "Artist", "Artist" },
-                    { 3, "Hairdresser", new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "vivas@gmail.com", "Vivian A", "artist3Pass", "viv.jpg", "Artist", "Artist" },
-                    { 4, "Aesthetician", new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "fridaleon@gmail.com", "Frida Leon", "artist4Pass", "frida.jpg", "Artist", "Artist" }
+                    { 1, "Master of PMU", new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "leavinci@gmail.com", "Lea Vinci", "artist1Pass", "images/Lea_Vinci", "Artist", "Artist" },
+                    { 2, "Make-up Artist", new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "rachelhertz@gmail.com", "Rachel Hertzler", "artist2Pass", "images/Rachel_Hertzler.jpg", "Artist", "Artist" },
+                    { 3, "Hairdresser", new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "vivas@gmail.com", "Vivian A", "artist3Pass", "images/Vivian.jpg", "Artist", "Artist" },
+                    { 4, "Aesthetician", new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "fridaleon@gmail.com", "Frida Leon", "artist4Pass", "images/Frida_Leo.jpg", "Artist", "Artist" }
                 });
 
             migrationBuilder.InsertData(
@@ -223,8 +223,8 @@ namespace BeautyBeastApi.Data.Migrations
                 columns: new[] { "Id", "DateJoined", "Email", "FullName", "HashedPassword", "ProfilePictureUrl", "Role", "UserType" },
                 values: new object[,]
                 {
-                    { 5, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "johndoe@gmail.com", "John Doe", "client1Pass", "john.jpg", "Client", "Client" },
-                    { 6, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "emma@gmail.com", "Emma Watson", "client2Pass", "emma.jpg", "Client", "Client" }
+                    { 5, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "johndoe@gmail.com", "John Doe", "client1Pass", "images/John_doe.jpg", "Client", "Client" },
+                    { 6, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "emma@gmail.com", "Emma Watson", "client2Pass", "images/Emma_Watson.jpg", "Client", "Client" }
                 });
 
             migrationBuilder.InsertData(
@@ -247,8 +247,8 @@ namespace BeautyBeastApi.Data.Migrations
                 columns: new[] { "Id", "ArtistId", "DatePosted", "Description", "Likes", "MediaUrl" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2024, 2, 20, 16, 0, 0, 0, DateTimeKind.Unspecified), "My first PMU work!", 0, "pmu-work.jpg" },
-                    { 2, 2, new DateTime(2024, 2, 21, 15, 30, 0, 0, DateTimeKind.Unspecified), "Microblading masterpiece!", 0, "microblading.jpg" }
+                    { 1, 1, new DateTime(2024, 2, 20, 16, 0, 0, 0, DateTimeKind.Unspecified), "My first PMU work!", 0, "/images/Brows.jpg" },
+                    { 2, 2, new DateTime(2024, 2, 21, 15, 30, 0, 0, DateTimeKind.Unspecified), "Microblading masterpiece!", 0, "/images/Micro.jpg" }
                 });
 
             migrationBuilder.InsertData(

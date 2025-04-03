@@ -8,16 +8,14 @@
 @inject IJSRuntime JS
 @inject NavigationManager NavigationManager
 
-@if (user == null)
-{
-    <div class="alert alert-info mt-3">Loading post media...</div>
-}
-else if (userRole != "Artist")
-{
-    <div class="alert alert-danger mt-3">Access denied. Only artists can create media posts.</div>
-}
-else
-{
+<div class="container mt-4">
+    @if (!initialized)
+    {
+        <div class="alert alert-info mt-3">Loading post media...</div>
+    }
+    else
+    {
+    
     <h2>📷 Create Media Post</h2>
 
     <div class="mb-3">
@@ -43,30 +41,43 @@ else
 
     <button class="btn btn-secondary" @onclick="Cancel">Cancel</button>
     <button class="btn btn-primary" @onclick="Submit">Upload</button>
+    }
+</div>
 }
 
 @code {
     [Parameter] public int id { get; set; }
+
     private string Description { get; set; } = string.Empty;
     private List<string> uploadedFileUrls = new();
-    private int ArtistId = 1;
-    private UserDto? user;
     private string? userRole;
+    private int userId;
+    private bool initialized = false;
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        // Get current user and role from services
-        user = await UserService.GetCurrentUserAsync();
-        userRole = await UserService.GetUserRoleAsync();
-
-        // If not logged in or not an artist, redirect to unauthorized.
-        if (user == null || userRole != "Artist")
+        if (firstRender && !initialized)
         {
-            NavigationManager.NavigateTo("/unauthorized");
-            return;
-        }
+            var currentUser = await UserService.GetCurrentUserAsync();
 
-        ArtistId = user.Id;
+            if (currentUser == null)
+            {
+                NavigationManager.NavigateTo("/account/signin");
+                return;
+            }
+
+            userId = currentUser.Id;
+            userRole = currentUser.Role;
+
+            if (string.IsNullOrEmpty(userRole) || userRole != "Artist")
+            {
+                NavigationManager.NavigateTo("/unauthorized");
+                return;
+            }
+
+            initialized = true;
+            StateHasChanged(); // trigger re-render with user data
+        }
     }
 
     private async Task UploadFiles(InputFileChangeEventArgs e)
@@ -75,7 +86,6 @@ else
         {
             var buffer = new byte[file.Size];
             await file.OpenReadStream(maxAllowedSize: 10 * 1024 * 1024).ReadAsync(buffer);
-            // For now, we use the file name as a placeholder URL.
             uploadedFileUrls.Add(file.Name);
         }
     }
@@ -87,8 +97,7 @@ else
 
     private void Cancel()
     {
-        // Navigate to the user's dashboard.
-        NavigationManager.NavigateTo($"/dashboard/{id}");
+        NavigationManager.NavigateTo($"/dashboard/artist/{id}");
     }
 
     private async Task Submit()
@@ -99,15 +108,13 @@ else
             return;
         }
 
-        // Convert the list of URLs to a comma-separated string.
-        var newPost = new CreatePostDto(Description, string.Join(",", uploadedFileUrls), ArtistId);
+        var newPost = new CreatePostDto(Description, string.Join(",", uploadedFileUrls), userId);
         var result = await PostService.CreatePostAsync(newPost);
 
         if (result)
         {
             Console.WriteLine("Post created successfully.");
-            // After creation, navigate to the dashboard.
-            NavigationManager.NavigateTo($"/dashboard/{id}");
+            NavigationManager.NavigateTo($"/dashboard/artist/{id}");
         }
         else
         {

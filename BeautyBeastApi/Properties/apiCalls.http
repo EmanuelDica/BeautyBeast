@@ -28,7 +28,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:5021/users/3
+DELETE http://localhost:5021/users/8
 
 ###
 GET http://localhost:5021/clients

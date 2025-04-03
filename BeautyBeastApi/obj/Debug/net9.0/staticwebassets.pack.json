@@ -1,0 +1,57 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastApi/wwwroot/images/Brows.jpg",
+      "PackagePath": "staticwebassets/images/Brows.jpg"
+    },
+    {
+      "Id": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastApi/wwwroot/images/Emma_Watson.jpg",
+      "PackagePath": "staticwebassets/images/Emma_Watson.jpg"
+    },
+    {
+      "Id": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastApi/wwwroot/images/Frida_Leo.jpg",
+      "PackagePath": "staticwebassets/images/Frida_Leo.jpg"
+    },
+    {
+      "Id": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastApi/wwwroot/images/John_doe.jpg",
+      "PackagePath": "staticwebassets/images/John_doe.jpg"
+    },
+    {
+      "Id": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastApi/wwwroot/images/Lea_Vinci.jpg",
+      "PackagePath": "staticwebassets/images/Lea_Vinci.jpg"
+    },
+    {
+      "Id": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastApi/wwwroot/images/Micro.jpg",
+      "PackagePath": "staticwebassets/images/Micro.jpg"
+    },
+    {
+      "Id": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastApi/wwwroot/images/Rachel_Hertzler.jpg",
+      "PackagePath": "staticwebassets/images/Rachel_Hertzler.jpg"
+    },
+    {
+      "Id": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeastApi/wwwroot/images/Vivian.jpg",
+      "PackagePath": "staticwebassets/images/Vivian.jpg"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.BeautyBeastApi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.BeautyBeastApi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.build.BeautyBeastApi.props",
+      "PackagePath": "build\\BeautyBeastApi.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildMultiTargeting.BeautyBeastApi.props",
+      "PackagePath": "buildMultiTargeting\\BeautyBeastApi.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildTransitive.BeautyBeastApi.props",
+      "PackagePath": "buildTransitive\\BeautyBeastApi.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

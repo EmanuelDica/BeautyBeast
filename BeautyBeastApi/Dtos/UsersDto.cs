@@ -7,7 +7,8 @@ public record class UserDto(
     string FullName,
     string Email,
     string? ProfilePictureUrl,
-    DateTime DateJoined
+    DateTime DateJoined,
+    string Role
 );
 
 public class EditUsersDto

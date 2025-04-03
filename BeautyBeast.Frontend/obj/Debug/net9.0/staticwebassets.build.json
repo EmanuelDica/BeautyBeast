@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RXFwTIYCa1wC9mpw8oQy3NPMGTTxh7cfyoMiERcUphQ=",
+  "Hash": "trTnVGthNcHLQZNXoCBWOuMr+2UqeOy7Z2RXUk6pG+Y=",
   "Source": "BeautyBeast.Frontend",
   "BasePath": "_content/BeautyBeast.Frontend",
   "Mode": "Default",
@@ -141,6 +141,153 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/app.css"
+    },
+    {
+      "Identity": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Brows.jpg",
+      "SourceId": "BeautyBeast.Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/",
+      "BasePath": "_content/BeautyBeast.Frontend",
+      "RelativePath": "images/Brows#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "12nyy2g9tj",
+      "Integrity": "OZOPPy37C4ZZVTXwDnfJw+OYI0eAyyHLtY2dbHch1EA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/Brows.jpg"
+    },
+    {
+      "Identity": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Emma Watson.jpg",
+      "SourceId": "BeautyBeast.Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/",
+      "BasePath": "_content/BeautyBeast.Frontend",
+      "RelativePath": "images/Emma Watson#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dgdd1mhpfx",
+      "Integrity": "XY40Blg5f+Alalwt1q+BsiIZKSZFTnZMeoSlVzXgeGA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/Emma Watson.jpg"
+    },
+    {
+      "Identity": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Frida Leo.avif",
+      "SourceId": "BeautyBeast.Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/",
+      "BasePath": "_content/BeautyBeast.Frontend",
+      "RelativePath": "images/Frida Leo#[.{fingerprint}]?.avif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "rvgvg86u6o",
+      "Integrity": "yYgObKGGt9TuD8RgAbEaysfo2nQR4/Zpu7ZIZo7NB3E=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/Frida Leo.avif"
+    },
+    {
+      "Identity": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/John Doe.jpg",
+      "SourceId": "BeautyBeast.Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/",
+      "BasePath": "_content/BeautyBeast.Frontend",
+      "RelativePath": "images/John Doe#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "af2q1w95wy",
+      "Integrity": "OoBYQJIzeaKU+y0kfBLtjwOIIRSmezrV6PJYVQFNtBQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/John Doe.jpg"
+    },
+    {
+      "Identity": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Lea Vinci.avif",
+      "SourceId": "BeautyBeast.Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/",
+      "BasePath": "_content/BeautyBeast.Frontend",
+      "RelativePath": "images/Lea Vinci#[.{fingerprint}]?.avif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "f1zlawoi0z",
+      "Integrity": "o25K2K/5EIMPqAf7/SVgVEl8bk0nTaxxjjO64q0RZqg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/Lea Vinci.avif"
+    },
+    {
+      "Identity": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Rachel Hertzler.jpg",
+      "SourceId": "BeautyBeast.Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/",
+      "BasePath": "_content/BeautyBeast.Frontend",
+      "RelativePath": "images/Rachel Hertzler#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "0oflhbr0pp",
+      "Integrity": "kK9L9anRLawvJF1fVVMuUYwwnFgVeH8yzksdCrUpT4Q=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/Rachel Hertzler.jpg"
+    },
+    {
+      "Identity": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Vivian.avif",
+      "SourceId": "BeautyBeast.Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/",
+      "BasePath": "_content/BeautyBeast.Frontend",
+      "RelativePath": "images/Vivian#[.{fingerprint}]?.avif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8klancszew",
+      "Integrity": "WM3k6L6lRW6Mo4rcS3lq/B8I5GX9QIKOlYh9lSA30lQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/Vivian.avif"
     }
   ],
   "Endpoints": [
@@ -1035,6 +1182,580 @@
         {
           "Name": "integrity",
           "Value": "sha256-hxmQfso+DTSCsRhzLnA8VLwK58TYdhEWS8wNd69rRdg="
+        }
+      ]
+    },
+    {
+      "Route": "images/Brows.12nyy2g9tj.jpg",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Brows.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "486662"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"OZOPPy37C4ZZVTXwDnfJw+OYI0eAyyHLtY2dbHch1EA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 29 Mar 2025 00:41:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "12nyy2g9tj"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Brows.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-OZOPPy37C4ZZVTXwDnfJw+OYI0eAyyHLtY2dbHch1EA="
+        }
+      ]
+    },
+    {
+      "Route": "images/Brows.jpg",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Brows.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "486662"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"OZOPPy37C4ZZVTXwDnfJw+OYI0eAyyHLtY2dbHch1EA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 29 Mar 2025 00:41:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-OZOPPy37C4ZZVTXwDnfJw+OYI0eAyyHLtY2dbHch1EA="
+        }
+      ]
+    },
+    {
+      "Route": "images/Emma Watson.dgdd1mhpfx.jpg",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Emma Watson.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "38372"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XY40Blg5f+Alalwt1q+BsiIZKSZFTnZMeoSlVzXgeGA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 28 Mar 2025 23:55:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dgdd1mhpfx"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Emma Watson.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-XY40Blg5f+Alalwt1q+BsiIZKSZFTnZMeoSlVzXgeGA="
+        }
+      ]
+    },
+    {
+      "Route": "images/Emma Watson.jpg",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Emma Watson.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "38372"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XY40Blg5f+Alalwt1q+BsiIZKSZFTnZMeoSlVzXgeGA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 28 Mar 2025 23:55:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-XY40Blg5f+Alalwt1q+BsiIZKSZFTnZMeoSlVzXgeGA="
+        }
+      ]
+    },
+    {
+      "Route": "images/Frida Leo.avif",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Frida Leo.avif",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "24338"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"yYgObKGGt9TuD8RgAbEaysfo2nQR4/Zpu7ZIZo7NB3E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 29 Mar 2025 00:05:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-yYgObKGGt9TuD8RgAbEaysfo2nQR4/Zpu7ZIZo7NB3E="
+        }
+      ]
+    },
+    {
+      "Route": "images/Frida Leo.rvgvg86u6o.avif",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Frida Leo.avif",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "24338"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"yYgObKGGt9TuD8RgAbEaysfo2nQR4/Zpu7ZIZo7NB3E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 29 Mar 2025 00:05:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rvgvg86u6o"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Frida Leo.avif"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-yYgObKGGt9TuD8RgAbEaysfo2nQR4/Zpu7ZIZo7NB3E="
+        }
+      ]
+    },
+    {
+      "Route": "images/John Doe.af2q1w95wy.jpg",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/John Doe.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18360"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"OoBYQJIzeaKU+y0kfBLtjwOIIRSmezrV6PJYVQFNtBQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 29 Mar 2025 00:06:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "af2q1w95wy"
+        },
+        {
+          "Name": "label",
+          "Value": "images/John Doe.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-OoBYQJIzeaKU+y0kfBLtjwOIIRSmezrV6PJYVQFNtBQ="
+        }
+      ]
+    },
+    {
+      "Route": "images/John Doe.jpg",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/John Doe.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18360"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"OoBYQJIzeaKU+y0kfBLtjwOIIRSmezrV6PJYVQFNtBQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 29 Mar 2025 00:06:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-OoBYQJIzeaKU+y0kfBLtjwOIIRSmezrV6PJYVQFNtBQ="
+        }
+      ]
+    },
+    {
+      "Route": "images/Lea Vinci.avif",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Lea Vinci.avif",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20538"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"o25K2K/5EIMPqAf7/SVgVEl8bk0nTaxxjjO64q0RZqg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 29 Mar 2025 00:01:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-o25K2K/5EIMPqAf7/SVgVEl8bk0nTaxxjjO64q0RZqg="
+        }
+      ]
+    },
+    {
+      "Route": "images/Lea Vinci.f1zlawoi0z.avif",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Lea Vinci.avif",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20538"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"o25K2K/5EIMPqAf7/SVgVEl8bk0nTaxxjjO64q0RZqg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 29 Mar 2025 00:01:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "f1zlawoi0z"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Lea Vinci.avif"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-o25K2K/5EIMPqAf7/SVgVEl8bk0nTaxxjjO64q0RZqg="
+        }
+      ]
+    },
+    {
+      "Route": "images/Rachel Hertzler.0oflhbr0pp.jpg",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Rachel Hertzler.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12837"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kK9L9anRLawvJF1fVVMuUYwwnFgVeH8yzksdCrUpT4Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 29 Mar 2025 00:02:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0oflhbr0pp"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Rachel Hertzler.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-kK9L9anRLawvJF1fVVMuUYwwnFgVeH8yzksdCrUpT4Q="
+        }
+      ]
+    },
+    {
+      "Route": "images/Rachel Hertzler.jpg",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Rachel Hertzler.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12837"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kK9L9anRLawvJF1fVVMuUYwwnFgVeH8yzksdCrUpT4Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 29 Mar 2025 00:02:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-kK9L9anRLawvJF1fVVMuUYwwnFgVeH8yzksdCrUpT4Q="
+        }
+      ]
+    },
+    {
+      "Route": "images/Vivian.8klancszew.avif",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Vivian.avif",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "14684"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WM3k6L6lRW6Mo4rcS3lq/B8I5GX9QIKOlYh9lSA30lQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 29 Mar 2025 00:05:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8klancszew"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Vivian.avif"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WM3k6L6lRW6Mo4rcS3lq/B8I5GX9QIKOlYh9lSA30lQ="
+        }
+      ]
+    },
+    {
+      "Route": "images/Vivian.avif",
+      "AssetFile": "/Users/emanueldica/uni/Year_3/Final_Year_Project/BeautyBeast/BeautyBeast.Frontend/wwwroot/images/Vivian.avif",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "14684"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WM3k6L6lRW6Mo4rcS3lq/B8I5GX9QIKOlYh9lSA30lQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 29 Mar 2025 00:05:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WM3k6L6lRW6Mo4rcS3lq/B8I5GX9QIKOlYh9lSA30lQ="
         }
       ]
     }

@@ -55,7 +55,8 @@ namespace BeautyBeastApi.Controllers
             {
                 Token = token,
                 Role = user.Role,
-                UserName = user.Email
+                UserName = user.Email,
+                UserId = user.Id
             });
         }
 
